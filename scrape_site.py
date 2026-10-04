@@ -301,9 +301,19 @@ def refresh_prices(item, products):
         return old
     html = fetch(url)
     site = parse_product(html)
+    old_site = old.get("site") or {}
+    now = datetime.now().isoformat(timespec="seconds")
+
+    # Is this a usable page at all? An empty or broken response (network down overnight,
+    # Cloudflare, a timeout) must never be read as evidence about the product itself.
+    healthy = bool(site.get("title")) and bool(site.get("specs") or site.get("images"))
+    if not healthy or not site.get("reference"):
+        return {**old, "status": "stale", "checked_at": now}
+
+    # Only once the page is known good can a mismatch mean the product really changed.
     # Our model spelling can differ from the site's (OCR of the scanned stock report), so the
     # strongest check is that the page still shows the same reference it did when we matched it.
-    old_ref = (old.get("site") or {}).get("reference", "")
+    old_ref = old_site.get("reference", "")
     spellings = [item.get("model", ""), item.get("model_alt", ""), old_ref]
     same_product = (
         (old_ref and norm_model(old_ref) == norm_model(site["reference"]))
@@ -312,17 +322,11 @@ def refresh_prices(item, products):
     )
     if not same_product:
         # the page really does show a different product: keep the old record for a human to check
-        return {**old, "status": "moved", "checked_at": datetime.now().isoformat(timespec="seconds")}
-    old_site = old.get("site") or {}
-    healthy = bool(site.get("title")) and bool(site.get("specs") or site.get("images"))
-    if not healthy:
-        # page came back damaged: keep what we had rather than wiping a good record
-        return {**old, "status": "stale", "checked_at": datetime.now().isoformat(timespec="seconds")}
+        return {**old, "status": "moved", "checked_at": now}
 
     RAW.mkdir(parents=True, exist_ok=True)
     (RAW / f"{code}.html").write_text(html, encoding="utf-8")
 
-    now = datetime.now().isoformat(timespec="seconds")
     record = {**old, "status": "ok", "site": site, "scraped_at": now}
     if site.get("price_cash"):
         # remember the last price we saw, so a later disappearance can be explained

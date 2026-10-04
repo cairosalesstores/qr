@@ -1,0 +1,21 @@
+{
+  "started": "2026-10-03T03:09:09",
+  "published": false,
+  "result": "blocked",
+  "stats": {
+    "items": 669,
+    "with_data": 3,
+    "with_price": 3,
+    "price_changes": 0,
+    "new_products": 3
+  },
+  "blocking": [
+    "95 products lost their data since the last good run (101001133, 101019001, 101062465, 101062505, 101062516…)."
+  ],
+  "warnings": [],
+  "refresh_tail": [
+    "[56/57] 523062002 K65MA500D: moved | cash 44999 / installments  EGP | 14 specs",
+    "[57/57] 523062004 K55QA501D: moved | cash 21990 / installments  EGP | 13 specs",
+    "done: 3/669 items matched on the site"
+  ]
+}
