@@ -1,0 +1,19 @@
+{
+  "started": "2026-10-13T20:20:44",
+  "published": false,
+  "result": "nothing changed",
+  "stats": {
+    "items": 669,
+    "with_data": 270,
+    "with_price": 270,
+    "price_changes": 0,
+    "new_products": 0
+  },
+  "blocking": [],
+  "warnings": [
+    "2 page(s) came back damaged; the previous data was kept: 101004173, 117077187."
+  ],
+  "supabase": [
+    "database now holds: 270 products"
+  ]
+}

@@ -351,8 +351,10 @@ def main(args):
     items = load_items()
     products = load_products()
     if prices_only:
-        # nightly job: only items already matched, so the site sees ~1 request per product
-        todo = [i for i in items if products.get(i["code"], {}).get("status") == "ok"
+        # nightly job: items we have already matched, so the site sees ~1 request per product.
+        # "stale" and "moved" records are included — a refresh is exactly how they recover.
+        todo = [i for i in items
+                if (products.get(i["code"]) or {}).get("site")
                 and (not codes or i["code"] in codes)]
     else:
         todo = [i for i in items if (not codes or i["code"] in codes)

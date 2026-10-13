@@ -4,6 +4,7 @@ Usage:
   python nightly.py                # refresh, validate, build — but do not publish
   python nightly.py --publish      # also commit and push to GitHub Pages
   python nightly.py --skip-refresh # validate and build from data already on disk
+  python nightly.py --force        # run even if today already had a successful run
 
 Publishing is off by default on purpose: run it for a week, read the summaries in
 data/runs/, and turn --publish on once the numbers look right.
@@ -62,8 +63,20 @@ def finish(record, ok_message, fail_message=None):
     print(ok_message)
 
 
+def ran_successfully_today():
+    log = RUNS / "log.txt"
+    if not log.exists():
+        return False
+    today = datetime.now().date().isoformat()
+    return any(line.startswith(today) and " · blocked" not in line and " failed" not in line
+               for line in log.read_text(encoding="utf-8").splitlines())
+
+
 def main(args):
     publish = "--publish" in args
+    if "--force" not in args and ran_successfully_today():
+        print("already completed a run today — nothing to do")
+        return
     record = {
         "started": datetime.now().isoformat(timespec="seconds"),
         "published": False, "result": "", "stats": {}, "blocking": [], "warnings": [],
@@ -88,6 +101,14 @@ def main(args):
         record["result"] = "build failed"
         record["build_output"] = out.strip()[-500:]
         finish(record, "", "Page build failed — see data/runs/")
+
+    # The database only ever sees data the gate has already approved.
+    if (ROOT / ".env").exists():
+        code, out = run([str(PYTHON), "push_supabase.py"], timeout=900)
+        record["supabase"] = out.strip().splitlines()[-1:] or ["no output"]
+        if code != 0:
+            record["result"] = "supabase push failed"
+            finish(record, "", "Could not update Supabase — see data/runs/")
 
     if publish:
         run(["git", "add", "-A"])

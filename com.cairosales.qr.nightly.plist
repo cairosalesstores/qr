@@ -8,14 +8,17 @@
   <array>
     <string>/Users/gad/Desktop/inventoryQR/.venv/bin/python</string>
     <string>/Users/gad/Desktop/inventoryQR/nightly.py</string>
+    <string>--publish</string>
   </array>
   <key>WorkingDirectory</key>
   <string>/Users/gad/Desktop/inventoryQR</string>
+  <!-- Two chances a day: overnight, and midday when the Mac is certainly awake.
+       The job itself skips the second run if the first already succeeded. -->
   <key>StartCalendarInterval</key>
-  <dict>
-    <key>Hour</key><integer>3</integer>
-    <key>Minute</key><integer>0</integer>
-  </dict>
+  <array>
+    <dict><key>Hour</key><integer>3</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>30</integer></dict>
+  </array>
   <key>StandardOutPath</key>
   <string>/Users/gad/Desktop/inventoryQR/data/runs/nightly.out.log</string>
   <key>StandardErrorPath</key>
