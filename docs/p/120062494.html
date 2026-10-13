@@ -34,62 +34,122 @@
     </div>
     <div class="paynote">لو دفعت <b>كاش</b> هتدفع <b class="n">25,499</b> جنيه بدل <b class="n">28,999</b>، يعني <b>توفّر <span class="n">3,500</span> جنيه</b> (12%) على نفس المنتج.</div>
     <div class="fresh"><span class="dot"></span> السعر محدّث النهاردة · السعر في الفرع هو الأساس</div>
+  <div class="fit"><span class="tick">✓</span><p>شاشة <b>65 بوصة</b> بتبان أحسن لما تقعد على بُعد <b>2.6 لـ 4.1 متر</b> منها تقريبًا.</p></div>
   
+  <section id="assistant">
+    <div class="kairo">
+      <div class="kairo-top">
+        <span class="kairo-face">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 3v3M7.5 7.5 5.4 5.4M16.5 7.5l2.1-2.1"/><rect x="4" y="8" width="16" height="12" rx="4"/>
+            <circle cx="9.5" cy="14" r="1.2" fill="currentColor"/><circle cx="14.5" cy="14" r="1.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <div>
+          <b>اسأل كايرو عن المنتج ده</b>
+          <span>مساعد ذكي · بيرد من بيانات المنتج</span>
+        </div>
+      </div>
+      <div class="kairo-thread" id="thread" hidden></div>
+      <div class="kairo-asks" id="asks"><button class="ask" type="button">تنفع لأوضتي؟</button><button class="ask" type="button">فيه أرخص منها؟</button><button class="ask" type="button">إيه أهم مميزاتها؟</button><button class="ask" type="button">الضمان كام؟</button></div>
+      <form class="kairo-bar" id="askform" autocomplete="off">
+        <input id="q" type="text" placeholder="اكتب سؤالك هنا…" maxlength="300" enterkeyhint="send">
+        <button type="submit" aria-label="ابعت">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    var CFG = {"url": "https://lpewwzopojglnqudilms.supabase.co", "key": "sb_publishable_Tjz-Lve2__8Sa8RRZFlCKA_JI7NtYJ9"};
+    var CODE = "120062494";
+    var session = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now());
+    var history = [];
+    var thread = document.getElementById('thread');
+    var form = document.getElementById('askform');
+    var input = document.getElementById('q');
+    var asks = document.getElementById('asks');
+
+    function bubble(role, text) {
+      var row = document.createElement('div');
+      row.className = 'turn ' + role;
+      row.innerHTML = '<div class="b"></div>';
+      row.querySelector('.b').textContent = text;
+      thread.appendChild(row);
+      thread.hidden = false;
+      row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      return row;
+    }
+
+    async function ask(question) {
+      if (!question) return;
+      asks.hidden = true;
+      bubble('me', question);
+      var waiting = bubble('them', '…');
+      input.value = '';
+      try {
+        var r = await fetch(CFG.url + '/functions/v1/ask', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'apikey': CFG.key, 'Authorization': 'Bearer ' + CFG.key },
+          body: JSON.stringify({ code: CODE, question: question, session_id: session, history: history })
+        });
+        var data = await r.json();
+        var answer = data.answer || 'معلش، مش قادر أرد دلوقتي. اسأل البائع من فضلك.';
+        waiting.querySelector('.b').textContent = answer;
+        history.push({ role: 'user', text: question }, { role: 'assistant', text: answer });
+        if (data.handover) {
+          var call = document.createElement('div');
+          call.className = 'turn them';
+          call.innerHTML = '<div class="handover">كلّم البائع</div>';
+          thread.appendChild(call);
+        }
+      } catch (err) {
+        waiting.querySelector('.b').textContent = 'الشبكة ضعيفة دلوقتي — جرّب تاني أو اسأل البائع.';
+      }
+    }
+
+    form.addEventListener('submit', function (ev) { ev.preventDefault(); ask(input.value.trim()); });
+    Array.prototype.forEach.call(asks.querySelectorAll('.ask'), function (b) {
+      b.addEventListener('click', function () { ask(b.textContent); });
+    });
+  })();
+  </script>
   
-    <section>
-      <h2>تحليل سريع</h2>
-      <div class="lede">أرقام محسوبة من المعروض عندنا</div>
-      <div class="stats"><div class="stat"><div class="k">سعره مقارنة بالمقاس ده</div>
+
+  <section><h2>باختصار</h2><div class="facts"><span>المقاس 65 بوصة</span><span>نوع الشاشة: LED</span><span>ريسيفر داخلي: نعم</span><span>سمارت: نعم</span><span>ضمان عامين</span><span>بلد الصنع مصر</span></div></section>
+
+  <section class="more">
+    <details><summary>مقارنة بأقرب المنتجات<span class="chev"></span></summary><div class="inner"><table class="cmp">
+        <thead><tr><th></th><th class="me"><span class="mytag">ده</span><br>سامسونج<small class="n">UA65U8000HUXEG</small></th><th class=""><a href="185062046.html">هاير<small class="n">65H6GUX</small><span class="go">افتح ›</span></a></th><th class=""><a href="120062496.html">سامسونج<small class="n">UA65M80H</small><span class="go">افتح ›</span></a></th><th class=""><a href="523062002.html">KAJITO<small class="n">K65MA500D</small><span class="go">افتح ›</span></a></th></tr></thead>
+        <tbody><tr><th>سعر الكاش</th><td class="me"><span class="n">25,499</span></td><td class="best"><span class="n">23,999</span></td><td class=""><span class="n">38,129</span></td><td class=""><span class="n">44,999</span></td></tr><tr><th>سعر التقسيط</th><td class="me best"><span class="n">28,999</span></td><td class="">—</td><td class=""><span class="n">41,999</span></td><td class="">—</td></tr><tr><th>المقاس (بوصة)</th><td class="me"><span class="n">65</span></td><td class=""><span class="n">65</span></td><td class=""><span class="n">65</span></td><td class=""><span class="n">65</span></td></tr><tr><th>نوع الشاشة</th><td class="me">LED</td><td class="">QLED</td><td class="">Mini LED</td><td class="">LED</td></tr><tr><th>الضمان (سنة)</th><td class="me"><span class="n">2</span></td><td class=""><span class="n">2</span></td><td class=""><span class="n">2</span></td><td class=""><span class="n">2</span></td></tr><tr><th>فرق الكاش</th><td class="me"><span class="n">3,500</span></td><td class="">—</td><td class=""><span class="n">3,870</span></td><td class="">—</td></tr></tbody>
+      </table>
+      <div class="legend">✓ = الأفضل في السطر ده · دوس على اسم أي منتج تشوف صفحته</div></div></details>
+    <details><summary>يناسب مين؟<span class="chev"></span></summary><div class="inner"><div class="advice">
+        <p>شاشة <b>65 بوصة</b> بتبان أحسن لما تقعد على بُعد <b>2.6 لـ 4.1 متر</b> منها تقريبًا.</p>
+        <div class="scale"><div class=""><span>أقل من 43</span>أوضة نوم</div><div class=""><span>50 - 55</span>أوضة معيشة صغيرة</div><div class="on"><span>65 - 75</span>صالة كبيرة</div><div class=""><span>أكبر من 75</span>صالة واسعة جدًا</div></div>
+        <p style="margin-top:12px;font-size:12px;color:var(--muted)">قِس المسافة بين الكنبة والحيطة اللي هتعلق عليها، والرقم ده يقولك المقاس المناسب.</p>
+      </div></div></details>
+    <details><summary>المواصفات الكاملة<span class="chev"></span></summary><div class="inner"><div class="specs"><div class="sp"><div class="k">الحجم</div><div class="v">بوصة 65</div></div><div class="sp"><div class="k">الضمان</div><div class="v">عامين</div></div><div class="sp"><div class="k">بلد الصنع</div><div class="v">مصر</div></div><div class="sp"><div class="k">ريموت كونترول</div><div class="v">نعم</div></div><div class="sp"><div class="k">سمارت</div><div class="v">نعم</div></div><div class="sp"><div class="k">USB مداخل</div><div class="v">1</div></div><div class="sp"><div class="k">HDMI مداخل</div><div class="v">3</div></div><div class="sp"><div class="k">اريال داخلى</div><div class="v">دجيتال</div></div><div class="sp"><div class="k">ريسيفر داخلي</div><div class="v">نعم</div></div><div class="sp"><div class="k">إلترا</div><div class="v">نعم</div></div><div class="sp"><div class="k">دقة الشاشة</div><div class="v">UHD 4K</div></div></div></div></details>
+    <details><summary>أسئلة عن المنتج ده<span class="chev"></span></summary><div class="inner"><div class="faq"><div class="q"><b>الضمان كام؟</b><span>عامين ضمان الوكيل · صنع في مصر</span></div><div class="q"><b>سمارت؟</b><span>أيوه، بنظام سمارت</span></div><div class="q"><b>ريسيفر داخلي؟</b><span>أيوه، مش محتاج ريسيفر منفصل</span></div><div class="q"><b>المداخل؟</b><span>3 مدخل HDMI · 1 مدخل USB</span></div></div></div></details>
+    <details><summary>اعرف قبل ما تختار<span class="chev"></span></summary><div class="inner"><div class="faq"><div class="q"><b>يعني إيه 4K؟</b><span>دقة 3840×2160 بيكسل، يعني 4 أضعاف الفل إتش دي. الفرق بيبان أكتر في المقاسات من 55 بوصة وفوق.</span></div><div class="q"><b>الفرق بين OLED و QNED و LED؟</b><span>OLED كل بيكسل بينوّر لوحده، فالأسود بيبقى أسود حقيقي وده الأغلى. QNED و QLED شاشات LED بألوان أنقى. LED العادية أرخص وألوانها أقل.</span></div><div class="q"><b>سمارت وريسيفر داخلي؟</b><span>سمارت يعني نتفليكس ويوتيوب من غير جهاز زيادة. ريسيفر داخلي يعني القنوات الأرضية تشتغل من غير ريسيفر منفصل.</span></div></div></div></details>
+    <details><summary>نبذة عن المنتج<span class="chev"></span></summary><div class="inner"><p class="about">UA65U8000H 4K الترا اتش دي ‏(3840×2160) معالج كريستال 4K مع إمكانية رفع جودة الصورة إلى 4K تقنيات الألوان نطاق ألوان واسعة وحيوي نظام تعزيز ذكي للألوانHDR: يتيح التباين بين المناطق المضيئة والداكنة مسرع الحركة: سلسة في كل حركة تقنيات الصوت Q-Symphonyدمج مثالي بين سماعات التلفزيون والساوند بار OTS Lite صوت محيطي يستخدم حركة الصورة تحقيق ذكي اضغط على عرض: المس الهاتف بخفة لمشاركة المحتوى AirPlay 2: الاتصال اللاسلكي بأجهزة Apple التصميم 3-الحافة أقل: تصميم فاخر بدون حواف 3 جهات الاتصال حامل قابل للتعديل: قاعدة قابلة لتعديل الارتفاع بمرونة توصيلات واي فاي 5 بلوتوث 5.3 3 × اتش دي ام اي eARC 1 × يو اس بي-أ 1 × إيثرنت (LAN) مع القاعدة (في الجدول) 56.9 × 34.7 × 8.7 بوصة بدون الأبعاد القاعدية (تعليق حائط) 56.9 × 32.7 × 3 بوصة</p></div></details>
+    <details><summary>تحليل السعر<span class="chev"></span></summary><div class="inner"><div class="stats"><div class="stat"><div class="k">سعره مقارنة بالمقاس ده</div>
           <div class="v small">تاني أرخص</div>
           <div class="note flat">من بين <span class="n">11</span> منتج بنفس المقاس عندنا</div></div><div class="stat"><div class="k">توفير الكاش</div>
           <div class="v"><span class="n">3,500</span> <small>جنيه</small></div>
           <div class="note down">أقل من سعر التقسيط بـ <span class="n">12%</span></div></div><div class="stat"><div class="k">الضمان</div>
           <div class="v"><span class="n">2</span> <small>سنة</small></div>
           <div class="note flat">ضمان الوكيل</div></div></div>
-      
       <div class="meter">
         <div class="cap">سعره بين 11 منتج بنفس المقاس عندنا</div>
         <div class="track">
           <span class="pin" style="inset-inline-start:6%"><b class="n">25,499</b></span>
         </div>
         <div class="ends"><span>الأرخص <b class="n">23,999</b></span><span>الأغلى <b class="n">83,599</b></span></div>
-      </div>
-    </section>
-  
-    <section>
-      <h2>يناسب مين؟</h2>
-      <div class="lede">إرشادات عامة تساعدك تقرر بنفسك</div>
-      <div class="advice">
-        <p>شاشة <b>65 بوصة</b> بتبان أحسن لما تقعد على بُعد <b>2.6 لـ 4.1 متر</b> منها تقريبًا.</p>
-        <div class="scale"><div class=""><span>أقل من 43</span>أوضة نوم</div><div class=""><span>50 - 55</span>أوضة معيشة صغيرة</div><div class="on"><span>65 - 75</span>صالة كبيرة</div><div class=""><span>أكبر من 75</span>صالة واسعة جدًا</div></div>
-        <p style="margin-top:12px;font-size:11.5px;color:var(--muted)">قِس المسافة بين الكنبة والحيطة اللي هتعلق عليها، والرقم ده يقولك المقاس المناسب.</p>
-      </div>
-    </section>
-  
-    <section>
-      <h2>مقارنة بأقرب المنتجات</h2>
-      <div class="lede">أقرب ٣ منتجات من نفس النوع والمقاس عندنا</div>
-      <table class="cmp">
-        <thead><tr><th></th><th class="me"><span class="mytag">ده</span><br>سامسونج<small class="n">UA65U8000HUXEG</small></th><th class=""><a href="185062046.html">هاير<small class="n">65H6GUX</small><span class="go">افتح ›</span></a></th><th class=""><a href="120062496.html">سامسونج<small class="n">UA65M80H</small><span class="go">افتح ›</span></a></th><th class=""><a href="523062002.html">KAJITO<small class="n">K65MA500D</small><span class="go">افتح ›</span></a></th></tr></thead>
-        <tbody><tr><th>سعر الكاش</th><td class="me"><span class="n">25,499</span></td><td class="best"><span class="n">23,999</span></td><td class=""><span class="n">38,129</span></td><td class=""><span class="n">44,999</span></td></tr><tr><th>سعر التقسيط</th><td class="me best"><span class="n">28,999</span></td><td class="">—</td><td class=""><span class="n">41,999</span></td><td class="">—</td></tr><tr><th>المقاس (بوصة)</th><td class="me"><span class="n">65</span></td><td class=""><span class="n">65</span></td><td class=""><span class="n">65</span></td><td class=""><span class="n">65</span></td></tr><tr><th>نوع الشاشة</th><td class="me">LED</td><td class="">QLED</td><td class="">Mini LED</td><td class="">LED</td></tr><tr><th>الضمان (سنة)</th><td class="me"><span class="n">2</span></td><td class=""><span class="n">2</span></td><td class=""><span class="n">2</span></td><td class=""><span class="n">2</span></td></tr><tr><th>فرق الكاش</th><td class="me"><span class="n">3,500</span></td><td class="">—</td><td class=""><span class="n">3,870</span></td><td class="">—</td></tr></tbody>
-      </table>
-      <div class="legend">✓ = الأفضل في السطر ده · دوس على اسم أي منتج تشوف صفحته</div>
-    </section>
-  
-    <section>
-      <h2>اعرف قبل ما تختار</h2>
-      <div class="lede">المصطلحات اللي على الكارت، بالعربي</div>
-      <div class="faq"><div class="q"><b>يعني إيه 4K؟</b><span>دقة 3840×2160 بيكسل، يعني 4 أضعاف الفل إتش دي. الفرق بيبان أكتر في المقاسات من 55 بوصة وفوق.</span></div><div class="q"><b>الفرق بين OLED و QNED و LED؟</b><span>OLED كل بيكسل بينوّر لوحده، فالأسود بيبقى أسود حقيقي وده الأغلى. QNED و QLED شاشات LED بألوان أنقى. LED العادية أرخص وألوانها أقل.</span></div><div class="q"><b>سمارت وريسيفر داخلي؟</b><span>سمارت يعني نتفليكس ويوتيوب من غير جهاز زيادة. ريسيفر داخلي يعني القنوات الأرضية تشتغل من غير ريسيفر منفصل.</span></div></div>
-    </section>
-  
-    <section>
-      <h2>أسئلة عن المنتج ده</h2>
-      <div class="faq"><div class="q"><b>الضمان كام؟</b><span>عامين ضمان الوكيل · صنع في مصر</span></div><div class="q"><b>سمارت؟</b><span>أيوه، بنظام سمارت</span></div><div class="q"><b>ريسيفر داخلي؟</b><span>أيوه، مش محتاج ريسيفر منفصل</span></div><div class="q"><b>المداخل؟</b><span>3 مدخل HDMI · 1 مدخل USB</span></div></div>
-    </section>
-
-  <section><h2>باختصار</h2><div class="facts"><span>المقاس 65 بوصة</span><span>نوع الشاشة: LED</span><span>ريسيفر داخلي: نعم</span><span>سمارت: نعم</span><span>ضمان عامين</span><span>بلد الصنع مصر</span></div><p class='about'>UA65U8000H 4K الترا اتش دي ‏(3840×2160) معالج كريستال 4K مع إمكانية رفع جودة الصورة إلى 4K تقنيات الألوان نطاق ألوان واسعة وحيوي نظام تعزيز ذكي للألوانHDR: يتيح التباين بين المناطق المضيئة والداكنة مسرع الحركة: سلسة في كل حركة تقنيات الصوت Q-Symphonyدمج مثالي بين سماعات التلفزيون والساوند بار OTS Lite صوت محيطي يستخدم حركة الصورة تحقيق ذكي اضغط على عرض: المس الهاتف بخفة لمشاركة المحتوى AirPlay 2: الاتصال اللاسلكي بأجهزة Apple التصميم 3-الحافة أقل: تصميم فاخر بدون حواف 3 جهات الاتصال حامل قابل للتعديل: قاعدة قابلة لتعديل الارتفاع بمرونة توصيلات واي فاي 5 بلوتوث 5.3 3 × اتش دي ام اي eARC 1 × يو اس بي-أ 1 × إيثرنت (LAN) مع القاعدة (في الجدول) 56.9 × 34.7 × 8.7 بوصة بدون الأبعاد القاعدية (تعليق حائط) 56.9 × 32.7 × 3 بوصة</p></section>
-
-  <section><h2>المواصفات الكاملة</h2><div class="specs"><div class="sp"><div class="k">الحجم</div><div class="v">بوصة 65</div></div><div class="sp"><div class="k">الضمان</div><div class="v">عامين</div></div><div class="sp"><div class="k">بلد الصنع</div><div class="v">مصر</div></div><div class="sp"><div class="k">ريموت كونترول</div><div class="v">نعم</div></div><div class="sp"><div class="k">سمارت</div><div class="v">نعم</div></div><div class="sp"><div class="k">USB مداخل</div><div class="v">1</div></div><div class="sp"><div class="k">HDMI مداخل</div><div class="v">3</div></div><div class="sp"><div class="k">اريال داخلى</div><div class="v">دجيتال</div></div><div class="sp"><div class="k">ريسيفر داخلي</div><div class="v">نعم</div></div><div class="sp"><div class="k">إلترا</div><div class="v">نعم</div></div><div class="sp"><div class="k">دقة الشاشة</div><div class="v">UHD 4K</div></div></div></section>
+      </div></div></details>
+  </section>
 
   <div class="note-foot">
     الأسعار شاملة الضريبة · التوصيل والتركيب مجانًا داخل القاهرة<br>

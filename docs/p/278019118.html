@@ -30,60 +30,120 @@
     </div>
     
     <div class="fresh"><span class="dot"></span> السعر محدّث النهاردة · السعر في الفرع هو الأساس</div>
+  <div class="fit"><span class="tick">✓</span><p>شفاط <b>60 سم</b> المفروض يكون بعرض البوتاجاز أو أوسع منه شوية. قوة الشفط <b>850 م³/ساعة</b> تكفي مطبخ لحد <b>71 متر مربع</b> تقريبًا.</p></div>
   
+  <section id="assistant">
+    <div class="kairo">
+      <div class="kairo-top">
+        <span class="kairo-face">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 3v3M7.5 7.5 5.4 5.4M16.5 7.5l2.1-2.1"/><rect x="4" y="8" width="16" height="12" rx="4"/>
+            <circle cx="9.5" cy="14" r="1.2" fill="currentColor"/><circle cx="14.5" cy="14" r="1.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <div>
+          <b>اسأل كايرو عن المنتج ده</b>
+          <span>مساعد ذكي · بيرد من بيانات المنتج</span>
+        </div>
+      </div>
+      <div class="kairo-thread" id="thread" hidden></div>
+      <div class="kairo-asks" id="asks"><button class="ask" type="button">تنفع لأوضتي؟</button><button class="ask" type="button">فيه أرخص منها؟</button><button class="ask" type="button">إيه أهم مميزاتها؟</button><button class="ask" type="button">الضمان كام؟</button></div>
+      <form class="kairo-bar" id="askform" autocomplete="off">
+        <input id="q" type="text" placeholder="اكتب سؤالك هنا…" maxlength="300" enterkeyhint="send">
+        <button type="submit" aria-label="ابعت">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    var CFG = {"url": "https://lpewwzopojglnqudilms.supabase.co", "key": "sb_publishable_Tjz-Lve2__8Sa8RRZFlCKA_JI7NtYJ9"};
+    var CODE = "278019118";
+    var session = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now());
+    var history = [];
+    var thread = document.getElementById('thread');
+    var form = document.getElementById('askform');
+    var input = document.getElementById('q');
+    var asks = document.getElementById('asks');
+
+    function bubble(role, text) {
+      var row = document.createElement('div');
+      row.className = 'turn ' + role;
+      row.innerHTML = '<div class="b"></div>';
+      row.querySelector('.b').textContent = text;
+      thread.appendChild(row);
+      thread.hidden = false;
+      row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      return row;
+    }
+
+    async function ask(question) {
+      if (!question) return;
+      asks.hidden = true;
+      bubble('me', question);
+      var waiting = bubble('them', '…');
+      input.value = '';
+      try {
+        var r = await fetch(CFG.url + '/functions/v1/ask', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'apikey': CFG.key, 'Authorization': 'Bearer ' + CFG.key },
+          body: JSON.stringify({ code: CODE, question: question, session_id: session, history: history })
+        });
+        var data = await r.json();
+        var answer = data.answer || 'معلش، مش قادر أرد دلوقتي. اسأل البائع من فضلك.';
+        waiting.querySelector('.b').textContent = answer;
+        history.push({ role: 'user', text: question }, { role: 'assistant', text: answer });
+        if (data.handover) {
+          var call = document.createElement('div');
+          call.className = 'turn them';
+          call.innerHTML = '<div class="handover">كلّم البائع</div>';
+          thread.appendChild(call);
+        }
+      } catch (err) {
+        waiting.querySelector('.b').textContent = 'الشبكة ضعيفة دلوقتي — جرّب تاني أو اسأل البائع.';
+      }
+    }
+
+    form.addEventListener('submit', function (ev) { ev.preventDefault(); ask(input.value.trim()); });
+    Array.prototype.forEach.call(asks.querySelectorAll('.ask'), function (b) {
+      b.addEventListener('click', function () { ask(b.textContent); });
+    });
+  })();
+  </script>
   
-    <section>
-      <h2>تحليل سريع</h2>
-      <div class="lede">أرقام محسوبة من المعروض عندنا</div>
-      <div class="stats"><div class="stat"><div class="k">سعره مقارنة بالمقاس ده</div>
+
+  <section><h2>باختصار</h2><div class="facts"><span>المقاس 60 سم</span><span>قوة الشفط: 850 م³/س</span><span>اللون: أسود</span><span>ضمان 10 أعوام</span><span>بلد الصنع تركيا</span></div></section>
+
+  <section class="more">
+    <details><summary>مقارنة بأقرب المنتجات<span class="chev"></span></summary><div class="inner"><table class="cmp">
+        <thead><tr><th></th><th class="me"><span class="mytag">ده</span><br>Ecomatic<small class="n">H6308TT</small></th><th class=""><a href="257019028.html">فرانكي<small class="n">FJO- 624 XS</small><span class="go">افتح ›</span></a></th><th class=""><a href="287019015.html">جورينيه<small class="n">PWHC628EX</small><span class="go">افتح ›</span></a></th><th class=""><a href="111019002.html">بيكو<small class="n">HCA62640BE</small><span class="go">افتح ›</span></a></th></tr></thead>
+        <tbody><tr><th>سعر الكاش</th><td class="me"><span class="n">8,549</span></td><td class=""><span class="n">7,999</span></td><td class=""><span class="n">7,920</span></td><td class="best"><span class="n">7,435</span></td></tr><tr><th>المقاس (سم)</th><td class="me"><span class="n">60</span></td><td class=""><span class="n">60</span></td><td class=""><span class="n">60</span></td><td class=""><span class="n">60</span></td></tr><tr><th>قوة الشفط</th><td class="me best">850 م³/س</td><td class="">460 م³/س</td><td class="">298 م³/س</td><td class="">537 م³/س</td></tr><tr><th>الضمان (سنة)</th><td class="me best"><span class="n">10</span></td><td class="">—</td><td class=""><span class="n">5</span></td><td class=""><span class="n">5</span></td></tr></tbody>
+      </table>
+      <div class="legend">✓ = الأفضل في السطر ده · دوس على اسم أي منتج تشوف صفحته</div></div></details>
+    <details><summary>يناسب مين؟<span class="chev"></span></summary><div class="inner"><div class="advice">
+        <p>شفاط <b>60 سم</b> المفروض يكون بعرض البوتاجاز أو أوسع منه شوية. قوة الشفط <b>850 م³/ساعة</b> تكفي مطبخ لحد <b>71 متر مربع</b> تقريبًا.</p>
+        <div class="scale"><div class="on"><span>60 سم</span>بوتاجاز 4 شعلة</div><div class=""><span>90 سم</span>بوتاجاز 5 شعلة أو أكبر</div></div>
+        <p style="margin-top:12px;font-size:12px;color:var(--muted)">القاعدة التقريبية: حجم المطبخ × 12 = قوة الشفط اللي محتاجها.</p>
+      </div></div></details>
+    <details><summary>المواصفات الكاملة<span class="chev"></span></summary><div class="inner"><div class="specs"><div class="sp"><div class="k">الحجم</div><div class="v">60 سم</div></div><div class="sp"><div class="k">اللون</div><div class="v">أسود</div></div><div class="sp"><div class="k">الضمان</div><div class="v">10 أعوام</div></div><div class="sp"><div class="k">بلد الصنع</div><div class="v">تركيا</div></div><div class="sp"><div class="k">الوات</div><div class="v">850 m³/h</div></div></div></div></details>
+    <details><summary>أسئلة عن المنتج ده<span class="chev"></span></summary><div class="inner"><div class="faq"><div class="q"><b>الضمان كام؟</b><span>10 أعوام ضمان الوكيل · صنع في تركيا</span></div></div></div></details>
+    <details><summary>اعرف قبل ما تختار<span class="chev"></span></summary><div class="inner"><div class="faq"><div class="q"><b>قوة الشفط بتتقاس إزاي؟</b><span>بالمتر المكعب في الساعة (م³/ساعة). كل ما زادت، كل ما شفط الزيت والروايح أسرع، وكل ما الصوت بيعلى شوية.</span></div><div class="q"><b>هرمي ولا مائل ولا بلت إن؟</b><span>الهرمي هو الشكل التقليدي وبيشفط كويس. المائل شكله مودرن وبيوفر مساحة للراس. البلت إن بينتصب جوه الدولاب.</span></div><div class="q"><b>الفلاتر بتتغير كل قد إيه؟</b><span>فلتر الألومنيوم بيتغسل كل شهر تقريبًا. فلتر الفحم (لو الشفاط شغال من غير مدخنة) بيتغير كل 4 لـ 6 شهور.</span></div></div></div></details>
+    <details><summary>نبذة عن المنتج<span class="chev"></span></summary><div class="inner"><p class="about">شفاط إيكوماتيك 60 سم أسود علي شكل حرف T لوحة تحكم لون أسود قوة شفط850 م³ خاصية CeanAir لهواء نقى وتهوية جيدة تايمر اغلاق أتوماتيك فلاتر معدنية سهلة التنظيف فلاتر كربون أضاءة LED امكانية التشغيل بالطرد الداخلى (فلتر) أو بالطرد الخارجى (مدخنة) ضمان 10 سنوات صنع في تركيا</p></div></details>
+    <details><summary>تحليل السعر<span class="chev"></span></summary><div class="inner"><div class="stats"><div class="stat"><div class="k">سعره مقارنة بالمقاس ده</div>
           <div class="v small">رقم 9 من 14 من الأرخص للأغلى</div>
           <div class="note flat">من بين <span class="n">14</span> منتج بنفس المقاس عندنا</div></div><div class="stat"><div class="k">الضمان</div>
           <div class="v"><span class="n">10</span> <small>سنة</small></div>
           <div class="note down">الأطول في فئته</div></div></div>
-      
       <div class="meter">
         <div class="cap">سعره بين 14 منتج بنفس المقاس عندنا</div>
         <div class="track">
           <span class="pin" style="inset-inline-start:40%"><b class="n">8,549</b></span>
         </div>
         <div class="ends"><span>الأرخص <b class="n">5,290</b></span><span>الأغلى <b class="n">13,499</b></span></div>
-      </div>
-    </section>
-  
-    <section>
-      <h2>يناسب مين؟</h2>
-      <div class="lede">إرشادات عامة تساعدك تقرر بنفسك</div>
-      <div class="advice">
-        <p>شفاط <b>60 سم</b> المفروض يكون بعرض البوتاجاز أو أوسع منه شوية. قوة الشفط <b>850 م³/ساعة</b> تكفي مطبخ لحد <b>71 متر مربع</b> تقريبًا.</p>
-        <div class="scale"><div class="on"><span>60 سم</span>بوتاجاز 4 شعلة</div><div class=""><span>90 سم</span>بوتاجاز 5 شعلة أو أكبر</div></div>
-        <p style="margin-top:12px;font-size:11.5px;color:var(--muted)">القاعدة التقريبية: حجم المطبخ × 12 = قوة الشفط اللي محتاجها.</p>
-      </div>
-    </section>
-  
-    <section>
-      <h2>مقارنة بأقرب المنتجات</h2>
-      <div class="lede">أقرب ٣ منتجات من نفس النوع والمقاس عندنا</div>
-      <table class="cmp">
-        <thead><tr><th></th><th class="me"><span class="mytag">ده</span><br>Ecomatic<small class="n">H6308TT</small></th><th class=""><a href="257019028.html">فرانكي<small class="n">FJO- 624 XS</small><span class="go">افتح ›</span></a></th><th class=""><a href="287019015.html">جورينيه<small class="n">PWHC628EX</small><span class="go">افتح ›</span></a></th><th class=""><a href="111019002.html">بيكو<small class="n">HCA62640BE</small><span class="go">افتح ›</span></a></th></tr></thead>
-        <tbody><tr><th>سعر الكاش</th><td class="me"><span class="n">8,549</span></td><td class=""><span class="n">7,999</span></td><td class=""><span class="n">7,920</span></td><td class="best"><span class="n">7,435</span></td></tr><tr><th>المقاس (سم)</th><td class="me"><span class="n">60</span></td><td class=""><span class="n">60</span></td><td class=""><span class="n">60</span></td><td class=""><span class="n">60</span></td></tr><tr><th>قوة الشفط</th><td class="me best">850 م³/س</td><td class="">460 م³/س</td><td class="">298 م³/س</td><td class="">537 م³/س</td></tr><tr><th>الضمان (سنة)</th><td class="me best"><span class="n">10</span></td><td class="">—</td><td class=""><span class="n">5</span></td><td class=""><span class="n">5</span></td></tr></tbody>
-      </table>
-      <div class="legend">✓ = الأفضل في السطر ده · دوس على اسم أي منتج تشوف صفحته</div>
-    </section>
-  
-    <section>
-      <h2>اعرف قبل ما تختار</h2>
-      <div class="lede">المصطلحات اللي على الكارت، بالعربي</div>
-      <div class="faq"><div class="q"><b>قوة الشفط بتتقاس إزاي؟</b><span>بالمتر المكعب في الساعة (م³/ساعة). كل ما زادت، كل ما شفط الزيت والروايح أسرع، وكل ما الصوت بيعلى شوية.</span></div><div class="q"><b>هرمي ولا مائل ولا بلت إن؟</b><span>الهرمي هو الشكل التقليدي وبيشفط كويس. المائل شكله مودرن وبيوفر مساحة للراس. البلت إن بينتصب جوه الدولاب.</span></div><div class="q"><b>الفلاتر بتتغير كل قد إيه؟</b><span>فلتر الألومنيوم بيتغسل كل شهر تقريبًا. فلتر الفحم (لو الشفاط شغال من غير مدخنة) بيتغير كل 4 لـ 6 شهور.</span></div></div>
-    </section>
-  
-    <section>
-      <h2>أسئلة عن المنتج ده</h2>
-      <div class="faq"><div class="q"><b>الضمان كام؟</b><span>10 أعوام ضمان الوكيل · صنع في تركيا</span></div></div>
-    </section>
-
-  <section><h2>باختصار</h2><div class="facts"><span>المقاس 60 سم</span><span>قوة الشفط: 850 م³/س</span><span>اللون: أسود</span><span>ضمان 10 أعوام</span><span>بلد الصنع تركيا</span></div><p class='about'>شفاط إيكوماتيك 60 سم أسود علي شكل حرف T لوحة تحكم لون أسود قوة شفط850 م³ خاصية CeanAir لهواء نقى وتهوية جيدة تايمر اغلاق أتوماتيك فلاتر معدنية سهلة التنظيف فلاتر كربون أضاءة LED امكانية التشغيل بالطرد الداخلى (فلتر) أو بالطرد الخارجى (مدخنة) ضمان 10 سنوات صنع في تركيا</p></section>
-
-  <section><h2>المواصفات الكاملة</h2><div class="specs"><div class="sp"><div class="k">الحجم</div><div class="v">60 سم</div></div><div class="sp"><div class="k">اللون</div><div class="v">أسود</div></div><div class="sp"><div class="k">الضمان</div><div class="v">10 أعوام</div></div><div class="sp"><div class="k">بلد الصنع</div><div class="v">تركيا</div></div><div class="sp"><div class="k">الوات</div><div class="v">850 m³/h</div></div></div></section>
+      </div></div></details>
+  </section>
 
   <div class="note-foot">
     الأسعار شاملة الضريبة · التوصيل والتركيب مجانًا داخل القاهرة<br>

@@ -30,58 +30,118 @@
     </div>
     
     <div class="fresh"><span class="dot"></span> السعر محدّث النهاردة · السعر في الفرع هو الأساس</div>
+  <div class="fit"><span class="tick">✓</span><p>غسالة <b>12 كيلو</b> مناسبة للغسيل اليومي لأسرة من <b>7 لـ 9 أفراد</b> تقريبًا.</p></div>
   
+  <section id="assistant">
+    <div class="kairo">
+      <div class="kairo-top">
+        <span class="kairo-face">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 3v3M7.5 7.5 5.4 5.4M16.5 7.5l2.1-2.1"/><rect x="4" y="8" width="16" height="12" rx="4"/>
+            <circle cx="9.5" cy="14" r="1.2" fill="currentColor"/><circle cx="14.5" cy="14" r="1.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <div>
+          <b>اسأل كايرو عن المنتج ده</b>
+          <span>مساعد ذكي · بيرد من بيانات المنتج</span>
+        </div>
+      </div>
+      <div class="kairo-thread" id="thread" hidden></div>
+      <div class="kairo-asks" id="asks"><button class="ask" type="button">تنفع لأوضتي؟</button><button class="ask" type="button">فيه أرخص منها؟</button><button class="ask" type="button">إيه أهم مميزاتها؟</button><button class="ask" type="button">الضمان كام؟</button></div>
+      <form class="kairo-bar" id="askform" autocomplete="off">
+        <input id="q" type="text" placeholder="اكتب سؤالك هنا…" maxlength="300" enterkeyhint="send">
+        <button type="submit" aria-label="ابعت">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    var CFG = {"url": "https://lpewwzopojglnqudilms.supabase.co", "key": "sb_publishable_Tjz-Lve2__8Sa8RRZFlCKA_JI7NtYJ9"};
+    var CODE = "119001005";
+    var session = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now());
+    var history = [];
+    var thread = document.getElementById('thread');
+    var form = document.getElementById('askform');
+    var input = document.getElementById('q');
+    var asks = document.getElementById('asks');
+
+    function bubble(role, text) {
+      var row = document.createElement('div');
+      row.className = 'turn ' + role;
+      row.innerHTML = '<div class="b"></div>';
+      row.querySelector('.b').textContent = text;
+      thread.appendChild(row);
+      thread.hidden = false;
+      row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      return row;
+    }
+
+    async function ask(question) {
+      if (!question) return;
+      asks.hidden = true;
+      bubble('me', question);
+      var waiting = bubble('them', '…');
+      input.value = '';
+      try {
+        var r = await fetch(CFG.url + '/functions/v1/ask', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'apikey': CFG.key, 'Authorization': 'Bearer ' + CFG.key },
+          body: JSON.stringify({ code: CODE, question: question, session_id: session, history: history })
+        });
+        var data = await r.json();
+        var answer = data.answer || 'معلش، مش قادر أرد دلوقتي. اسأل البائع من فضلك.';
+        waiting.querySelector('.b').textContent = answer;
+        history.push({ role: 'user', text: question }, { role: 'assistant', text: answer });
+        if (data.handover) {
+          var call = document.createElement('div');
+          call.className = 'turn them';
+          call.innerHTML = '<div class="handover">كلّم البائع</div>';
+          thread.appendChild(call);
+        }
+      } catch (err) {
+        waiting.querySelector('.b').textContent = 'الشبكة ضعيفة دلوقتي — جرّب تاني أو اسأل البائع.';
+      }
+    }
+
+    form.addEventListener('submit', function (ev) { ev.preventDefault(); ask(input.value.trim()); });
+    Array.prototype.forEach.call(asks.querySelectorAll('.ask'), function (b) {
+      b.addEventListener('click', function () { ask(b.textContent); });
+    });
+  })();
+  </script>
   
-    <section>
-      <h2>تحليل سريع</h2>
-      <div class="lede">أرقام محسوبة من المعروض عندنا</div>
-      <div class="stats"><div class="stat"><div class="k">سعره مقارنة بالمقاس ده</div>
+
+  <section><h2>باختصار</h2><div class="facts"><span>المقاس 12 كيلو</span><span>سرعة العصر: 750 لفة</span><span>اللون: فضى</span><span>نوع الفتحة: فتحة علوية</span><span>حلة ستانلس: نعم</span></div></section>
+
+  <section class="more">
+    <details><summary>مقارنة بأقرب المنتجات<span class="chev"></span></summary><div class="inner"><table class="cmp">
+        <thead><tr><th></th><th class="me"><span class="mytag">ده</span><br>KIRIAZI<small class="n">KTW- 1212-CS</small></th><th class=""><a href="104002006.html">تورنيدو<small class="n">TDV-FN128CDX</small><span class="go">افتح ›</span></a></th><th class=""><a href="101001208.html">إل جي<small class="n">T13V1TEHGX</small><span class="go">افتح ›</span></a></th><th class=""><a href="120001069.html">سامسونج<small class="n">WA14F5SAUWAUAS</small><span class="go">افتح ›</span></a></th></tr></thead>
+        <tbody><tr><th>سعر الكاش</th><td class="me"><span class="n">18,249</span></td><td class=""><span class="n">20,388</span></td><td class=""><span class="n">17,999</span></td><td class="best"><span class="n">16,583</span></td></tr><tr><th>سعر التقسيط</th><td class="me">—</td><td class="">—</td><td class=""><span class="n">18,499</span></td><td class="best"><span class="n">16,103</span></td></tr><tr><th>المقاس (كيلو)</th><td class="me"><span class="n">12</span></td><td class=""><span class="n">12</span></td><td class=""><span class="n">13</span></td><td class=""><span class="n">13</span></td></tr><tr><th>سرعة العصر</th><td class="me">750 لفة</td><td class="">—</td><td class="">—</td><td class="">—</td></tr><tr><th>الضمان (سنة)</th><td class="me">—</td><td class="">—</td><td class=""><span class="n">10</span></td><td class="">—</td></tr><tr><th>فرق الكاش</th><td class="me">—</td><td class="">—</td><td class=""><span class="n">500</span></td><td class=""><span class="n">-480</span></td></tr></tbody>
+      </table>
+      <div class="legend">✓ = الأفضل في السطر ده · دوس على اسم أي منتج تشوف صفحته</div></div></details>
+    <details><summary>يناسب مين؟<span class="chev"></span></summary><div class="inner"><div class="advice">
+        <p>غسالة <b>12 كيلو</b> مناسبة للغسيل اليومي لأسرة من <b>7 لـ 9 أفراد</b> تقريبًا.</p>
+        <div class="scale"><div class=""><span>6 - 7 كيلو</span>شخص أو اتنين</div><div class=""><span>8 - 9 كيلو</span>أسرة 3 لـ 5</div><div class="on"><span>10 كيلو فأكثر</span>أسرة كبيرة</div></div>
+        <p style="margin-top:12px;font-size:12px;color:var(--muted)">الكيلو هنا وزن الغسيل الجاف، مش سعة الحلة.</p>
+      </div></div></details>
+    <details><summary>المواصفات الكاملة<span class="chev"></span></summary><div class="inner"><div class="specs"><div class="sp"><div class="k">الحجم</div><div class="v">12 كيلو</div></div><div class="sp"><div class="k">اللون</div><div class="v">فضى</div></div><div class="sp"><div class="k">العرض</div><div class="v">59.5 mm</div></div><div class="sp"><div class="k">العمق</div><div class="v">64.5 mm</div></div><div class="sp"><div class="k">الإرتفاع</div><div class="v">101.5 mm</div></div><div class="sp"><div class="k">الوزن</div><div class="v">12 kg</div></div><div class="sp"><div class="k">عدد الدورات في الدقيقة</div><div class="v">750 rpm</div></div><div class="sp"><div class="k">سخان داخلي</div><div class="v">لا</div></div><div class="sp"><div class="k">طلمبة</div><div class="v">نعم</div></div><div class="sp"><div class="k">مجفف</div><div class="v">لا</div></div><div class="sp"><div class="k">بخار</div><div class="v">لا</div></div><div class="sp"><div class="k">شاشة ديجيتال</div><div class="v">نعم</div></div><div class="sp"><div class="k">نوع الفتحة</div><div class="v">فتحة علوية</div></div><div class="sp"><div class="k">حلة ستانلس</div><div class="v">نعم</div></div><div class="sp"><div class="k">ديجتال</div><div class="v">نعم</div></div></div></div></details>
+    <details><summary>أسئلة عن المنتج ده<span class="chev"></span></summary><div class="inner"><div class="faq"><div class="q"><b>فيها بخار؟</b><span>لأ</span></div><div class="q"><b>بتنشف؟</b><span>لأ، غسالة بس من غير مجفف</span></div><div class="q"><b>الأبعاد؟</b><span>عرض 59.5 mm · عمق 64.5 mm · ارتفاع 101.5 mm</span></div></div></div></details>
+    <details><summary>اعرف قبل ما تختار<span class="chev"></span></summary><div class="inner"><div class="faq"><div class="q"><b>سرعة العصر (اللفة) تفرق؟</b><span>كل ما زادت اللفة، الغسيل بيطلع أنشف وبيجف أسرع. 1000 لفة كفاية، و1400 أحسن للبطاطين والتقيل.</span></div><div class="q"><b>البخار بيعمل إيه؟</b><span>بيساعد في إزالة البقع والحساسية من غير نقع، وبيقلل الكرمشة.</span></div><div class="q"><b>الفرق بين فتحة أمامية وعلوية؟</b><span>الأمامية بتوفر مياه وكهربا وبتتحط تحت الرخامة. العلوية أسهل في التحميل ومش محتاجة تنحني.</span></div></div></div></details>
+    <details><summary>نبذة عن المنتج<span class="chev"></span></summary><div class="inner"><p class="about">النوع : فوق اتوماتيك السعة : 12.5 كيلو شاشة ديجتال معدل الدوران : 750 لفة حلة استنلس مزوده بطلمبة صرف المياه اللون : سيلفر</p></div></details>
+    <details><summary>تحليل السعر<span class="chev"></span></summary><div class="inner"><div class="stats"><div class="stat"><div class="k">سعره مقارنة بالمقاس ده</div>
           <div class="v small">رقم 10 من 62 من الأرخص للأغلى</div>
           <div class="note flat">من بين <span class="n">62</span> منتج بنفس المقاس عندنا</div></div></div>
-      
       <div class="meter">
         <div class="cap">سعره بين 62 منتج بنفس المقاس عندنا</div>
         <div class="track">
           <span class="pin" style="inset-inline-start:9%"><b class="n">18,249</b></span>
         </div>
         <div class="ends"><span>الأرخص <b class="n">7,059</b></span><span>الأغلى <b class="n">132,499</b></span></div>
-      </div>
-    </section>
-  
-    <section>
-      <h2>يناسب مين؟</h2>
-      <div class="lede">إرشادات عامة تساعدك تقرر بنفسك</div>
-      <div class="advice">
-        <p>غسالة <b>12 كيلو</b> مناسبة للغسيل اليومي لأسرة من <b>7 لـ 9 أفراد</b> تقريبًا.</p>
-        <div class="scale"><div class=""><span>6 - 7 كيلو</span>شخص أو اتنين</div><div class=""><span>8 - 9 كيلو</span>أسرة 3 لـ 5</div><div class="on"><span>10 كيلو فأكثر</span>أسرة كبيرة</div></div>
-        <p style="margin-top:12px;font-size:11.5px;color:var(--muted)">الكيلو هنا وزن الغسيل الجاف، مش سعة الحلة.</p>
-      </div>
-    </section>
-  
-    <section>
-      <h2>مقارنة بأقرب المنتجات</h2>
-      <div class="lede">أقرب ٣ منتجات من نفس النوع والمقاس عندنا</div>
-      <table class="cmp">
-        <thead><tr><th></th><th class="me"><span class="mytag">ده</span><br>KIRIAZI<small class="n">KTW- 1212-CS</small></th><th class=""><a href="104002006.html">تورنيدو<small class="n">TDV-FN128CDX</small><span class="go">افتح ›</span></a></th><th class=""><a href="101001208.html">إل جي<small class="n">T13V1TEHGX</small><span class="go">افتح ›</span></a></th><th class=""><a href="120001069.html">سامسونج<small class="n">WA14F5SAUWAUAS</small><span class="go">افتح ›</span></a></th></tr></thead>
-        <tbody><tr><th>سعر الكاش</th><td class="me"><span class="n">18,249</span></td><td class=""><span class="n">20,388</span></td><td class=""><span class="n">17,999</span></td><td class="best"><span class="n">16,583</span></td></tr><tr><th>سعر التقسيط</th><td class="me">—</td><td class="">—</td><td class=""><span class="n">18,499</span></td><td class="best"><span class="n">16,103</span></td></tr><tr><th>المقاس (كيلو)</th><td class="me"><span class="n">12</span></td><td class=""><span class="n">12</span></td><td class=""><span class="n">13</span></td><td class=""><span class="n">13</span></td></tr><tr><th>سرعة العصر</th><td class="me">750 لفة</td><td class="">—</td><td class="">—</td><td class="">—</td></tr><tr><th>الضمان (سنة)</th><td class="me">—</td><td class="">—</td><td class=""><span class="n">10</span></td><td class="">—</td></tr><tr><th>فرق الكاش</th><td class="me">—</td><td class="">—</td><td class=""><span class="n">500</span></td><td class=""><span class="n">-480</span></td></tr></tbody>
-      </table>
-      <div class="legend">✓ = الأفضل في السطر ده · دوس على اسم أي منتج تشوف صفحته</div>
-    </section>
-  
-    <section>
-      <h2>اعرف قبل ما تختار</h2>
-      <div class="lede">المصطلحات اللي على الكارت، بالعربي</div>
-      <div class="faq"><div class="q"><b>سرعة العصر (اللفة) تفرق؟</b><span>كل ما زادت اللفة، الغسيل بيطلع أنشف وبيجف أسرع. 1000 لفة كفاية، و1400 أحسن للبطاطين والتقيل.</span></div><div class="q"><b>البخار بيعمل إيه؟</b><span>بيساعد في إزالة البقع والحساسية من غير نقع، وبيقلل الكرمشة.</span></div><div class="q"><b>الفرق بين فتحة أمامية وعلوية؟</b><span>الأمامية بتوفر مياه وكهربا وبتتحط تحت الرخامة. العلوية أسهل في التحميل ومش محتاجة تنحني.</span></div></div>
-    </section>
-  
-    <section>
-      <h2>أسئلة عن المنتج ده</h2>
-      <div class="faq"><div class="q"><b>فيها بخار؟</b><span>لأ</span></div><div class="q"><b>بتنشف؟</b><span>لأ، غسالة بس من غير مجفف</span></div><div class="q"><b>الأبعاد؟</b><span>عرض 59.5 mm · عمق 64.5 mm · ارتفاع 101.5 mm</span></div></div>
-    </section>
-
-  <section><h2>باختصار</h2><div class="facts"><span>المقاس 12 كيلو</span><span>سرعة العصر: 750 لفة</span><span>اللون: فضى</span><span>نوع الفتحة: فتحة علوية</span><span>حلة ستانلس: نعم</span></div><p class='about'>النوع : فوق اتوماتيك السعة : 12.5 كيلو شاشة ديجتال معدل الدوران : 750 لفة حلة استنلس مزوده بطلمبة صرف المياه اللون : سيلفر</p></section>
-
-  <section><h2>المواصفات الكاملة</h2><div class="specs"><div class="sp"><div class="k">الحجم</div><div class="v">12 كيلو</div></div><div class="sp"><div class="k">اللون</div><div class="v">فضى</div></div><div class="sp"><div class="k">العرض</div><div class="v">59.5 mm</div></div><div class="sp"><div class="k">العمق</div><div class="v">64.5 mm</div></div><div class="sp"><div class="k">الإرتفاع</div><div class="v">101.5 mm</div></div><div class="sp"><div class="k">الوزن</div><div class="v">12 kg</div></div><div class="sp"><div class="k">عدد الدورات في الدقيقة</div><div class="v">750 rpm</div></div><div class="sp"><div class="k">سخان داخلي</div><div class="v">لا</div></div><div class="sp"><div class="k">طلمبة</div><div class="v">نعم</div></div><div class="sp"><div class="k">مجفف</div><div class="v">لا</div></div><div class="sp"><div class="k">بخار</div><div class="v">لا</div></div><div class="sp"><div class="k">شاشة ديجيتال</div><div class="v">نعم</div></div><div class="sp"><div class="k">نوع الفتحة</div><div class="v">فتحة علوية</div></div><div class="sp"><div class="k">حلة ستانلس</div><div class="v">نعم</div></div><div class="sp"><div class="k">ديجتال</div><div class="v">نعم</div></div></div></section>
+      </div></div></details>
+  </section>
 
   <div class="note-foot">
     الأسعار شاملة الضريبة · التوصيل والتركيب مجانًا داخل القاهرة<br>

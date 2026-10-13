@@ -32,47 +32,112 @@
     <div class="fresh"><span class="dot"></span> السعر محدّث النهاردة · السعر في الفرع هو الأساس</div>
   
   
-    <section>
-      <h2>تحليل سريع</h2>
-      <div class="lede">أرقام محسوبة من المعروض عندنا</div>
-      <div class="stats"><div class="stat"><div class="k">سعره مقارنة بالمقاس ده</div>
+  <section id="assistant">
+    <div class="kairo">
+      <div class="kairo-top">
+        <span class="kairo-face">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 3v3M7.5 7.5 5.4 5.4M16.5 7.5l2.1-2.1"/><rect x="4" y="8" width="16" height="12" rx="4"/>
+            <circle cx="9.5" cy="14" r="1.2" fill="currentColor"/><circle cx="14.5" cy="14" r="1.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <div>
+          <b>اسأل كايرو عن المنتج ده</b>
+          <span>مساعد ذكي · بيرد من بيانات المنتج</span>
+        </div>
+      </div>
+      <div class="kairo-thread" id="thread" hidden></div>
+      <div class="kairo-asks" id="asks"><button class="ask" type="button">تنفع لأوضتي؟</button><button class="ask" type="button">فيه أرخص منها؟</button><button class="ask" type="button">إيه أهم مميزاتها؟</button><button class="ask" type="button">الضمان كام؟</button></div>
+      <form class="kairo-bar" id="askform" autocomplete="off">
+        <input id="q" type="text" placeholder="اكتب سؤالك هنا…" maxlength="300" enterkeyhint="send">
+        <button type="submit" aria-label="ابعت">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    var CFG = {"url": "https://lpewwzopojglnqudilms.supabase.co", "key": "sb_publishable_Tjz-Lve2__8Sa8RRZFlCKA_JI7NtYJ9"};
+    var CODE = "113001002";
+    var session = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now());
+    var history = [];
+    var thread = document.getElementById('thread');
+    var form = document.getElementById('askform');
+    var input = document.getElementById('q');
+    var asks = document.getElementById('asks');
+
+    function bubble(role, text) {
+      var row = document.createElement('div');
+      row.className = 'turn ' + role;
+      row.innerHTML = '<div class="b"></div>';
+      row.querySelector('.b').textContent = text;
+      thread.appendChild(row);
+      thread.hidden = false;
+      row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      return row;
+    }
+
+    async function ask(question) {
+      if (!question) return;
+      asks.hidden = true;
+      bubble('me', question);
+      var waiting = bubble('them', '…');
+      input.value = '';
+      try {
+        var r = await fetch(CFG.url + '/functions/v1/ask', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'apikey': CFG.key, 'Authorization': 'Bearer ' + CFG.key },
+          body: JSON.stringify({ code: CODE, question: question, session_id: session, history: history })
+        });
+        var data = await r.json();
+        var answer = data.answer || 'معلش، مش قادر أرد دلوقتي. اسأل البائع من فضلك.';
+        waiting.querySelector('.b').textContent = answer;
+        history.push({ role: 'user', text: question }, { role: 'assistant', text: answer });
+        if (data.handover) {
+          var call = document.createElement('div');
+          call.className = 'turn them';
+          call.innerHTML = '<div class="handover">كلّم البائع</div>';
+          thread.appendChild(call);
+        }
+      } catch (err) {
+        waiting.querySelector('.b').textContent = 'الشبكة ضعيفة دلوقتي — جرّب تاني أو اسأل البائع.';
+      }
+    }
+
+    form.addEventListener('submit', function (ev) { ev.preventDefault(); ask(input.value.trim()); });
+    Array.prototype.forEach.call(asks.querySelectorAll('.ask'), function (b) {
+      b.addEventListener('click', function () { ask(b.textContent); });
+    });
+  })();
+  </script>
+  
+
+  <section><h2>باختصار</h2><div class="facts"><span>سرعة العصر: 1,400 لفة</span><span>اللون: رمادى</span><span>بخار: نعم</span></div></section>
+
+  <section class="more">
+    <details><summary>مقارنة بأقرب المنتجات<span class="chev"></span></summary><div class="inner"><table class="cmp">
+        <thead><tr><th></th><th class="me"><span class="mytag">ده</span><br>Hitachi<small class="n">BD.80YFVEM</small></th><th class=""><a href="120001057.html">سامسونج<small class="n">WWBOT534DANTAS</small><span class="go">افتح ›</span></a></th><th class=""><a href="101001133.html">إل جي<small class="n">F4R5TYG2T</small><span class="go">افتح ›</span></a></th><th class=""><a href="107001797.html">إل جي<small class="n">F4Y2VYGYP</small><span class="go">افتح ›</span></a></th></tr></thead>
+        <tbody><tr><th>سعر الكاش</th><td class="me"><span class="n">24,699</span></td><td class="best"><span class="n">23,999</span></td><td class=""><span class="n">25,449</span></td><td class=""><span class="n">25,549</span></td></tr><tr><th>سعر التقسيط</th><td class="me">—</td><td class="best"><span class="n">25,999</span></td><td class=""><span class="n">26,999</span></td><td class=""><span class="n">26,999</span></td></tr><tr><th>المقاس (كيلو)</th><td class="me">—</td><td class=""><span class="n">8</span></td><td class=""><span class="n">8</span></td><td class=""><span class="n">9</span></td></tr><tr><th>سرعة العصر</th><td class="me">1,400 لفة</td><td class="">1,400 لفة</td><td class="">1,400 لفة</td><td class="">—</td></tr><tr><th>الضمان (سنة)</th><td class="me">—</td><td class="">—</td><td class=""><span class="n">10</span></td><td class=""><span class="n">10</span></td></tr><tr><th>فرق الكاش</th><td class="me">—</td><td class=""><span class="n">2,000</span></td><td class=""><span class="n">1,550</span></td><td class=""><span class="n">1,450</span></td></tr></tbody>
+      </table>
+      <div class="legend">✓ = الأفضل في السطر ده · دوس على اسم أي منتج تشوف صفحته</div></div></details>
+    
+    <details><summary>المواصفات الكاملة<span class="chev"></span></summary><div class="inner"><div class="specs"><div class="sp"><div class="k">اللون</div><div class="v">رمادى</div></div><div class="sp"><div class="k">عدد الدورات في الدقيقة</div><div class="v">1400</div></div><div class="sp"><div class="k">بخار</div><div class="v">نعم</div></div></div></div></details>
+    <details><summary>أسئلة عن المنتج ده<span class="chev"></span></summary><div class="inner"><div class="faq"><div class="q"><b>فيها بخار؟</b><span>أيوه</span></div></div></div></details>
+    <details><summary>اعرف قبل ما تختار<span class="chev"></span></summary><div class="inner"><div class="faq"><div class="q"><b>سرعة العصر (اللفة) تفرق؟</b><span>كل ما زادت اللفة، الغسيل بيطلع أنشف وبيجف أسرع. 1000 لفة كفاية، و1400 أحسن للبطاطين والتقيل.</span></div><div class="q"><b>البخار بيعمل إيه؟</b><span>بيساعد في إزالة البقع والحساسية من غير نقع، وبيقلل الكرمشة.</span></div><div class="q"><b>الفرق بين فتحة أمامية وعلوية؟</b><span>الأمامية بتوفر مياه وكهربا وبتتحط تحت الرخامة. العلوية أسهل في التحميل ومش محتاجة تنحني.</span></div></div></div></details>
+    <details><summary>نبذة عن المنتج<span class="chev"></span></summary><div class="inner"><p class="about">1400 لفة تكنولوجيا البخار SteamCure موتور بروسمارت انفرتر غسيل جاف بالبخار فقط Steam Therapy برنامج سريع 14 دقيقه بلوتوث باب كبير XL لون رمادي</p></div></details>
+    <details><summary>تحليل السعر<span class="chev"></span></summary><div class="inner"><div class="stats"><div class="stat"><div class="k">سعره مقارنة بالمقاس ده</div>
           <div class="v small">رقم 25 من 62 من الأرخص للأغلى</div>
           <div class="note flat">من بين <span class="n">62</span> منتج بنفس المقاس عندنا</div></div></div>
-      
       <div class="meter">
         <div class="cap">سعره بين 62 منتج بنفس المقاس عندنا</div>
         <div class="track">
           <span class="pin" style="inset-inline-start:14%"><b class="n">24,699</b></span>
         </div>
         <div class="ends"><span>الأرخص <b class="n">7,059</b></span><span>الأغلى <b class="n">132,499</b></span></div>
-      </div>
-    </section>
-  
-  
-    <section>
-      <h2>مقارنة بأقرب المنتجات</h2>
-      <div class="lede">أقرب ٣ منتجات من نفس النوع والمقاس عندنا</div>
-      <table class="cmp">
-        <thead><tr><th></th><th class="me"><span class="mytag">ده</span><br>Hitachi<small class="n">BD.80YFVEM</small></th><th class=""><a href="120001057.html">سامسونج<small class="n">WWBOT534DANTAS</small><span class="go">افتح ›</span></a></th><th class=""><a href="101001133.html">إل جي<small class="n">F4R5TYG2T</small><span class="go">افتح ›</span></a></th><th class=""><a href="107001797.html">إل جي<small class="n">F4Y2VYGYP</small><span class="go">افتح ›</span></a></th></tr></thead>
-        <tbody><tr><th>سعر الكاش</th><td class="me"><span class="n">24,699</span></td><td class="best"><span class="n">23,999</span></td><td class=""><span class="n">25,449</span></td><td class=""><span class="n">25,549</span></td></tr><tr><th>سعر التقسيط</th><td class="me">—</td><td class="best"><span class="n">25,999</span></td><td class=""><span class="n">26,999</span></td><td class=""><span class="n">26,999</span></td></tr><tr><th>المقاس (كيلو)</th><td class="me">—</td><td class=""><span class="n">8</span></td><td class=""><span class="n">8</span></td><td class=""><span class="n">9</span></td></tr><tr><th>سرعة العصر</th><td class="me">1,400 لفة</td><td class="">1,400 لفة</td><td class="">1,400 لفة</td><td class="">—</td></tr><tr><th>الضمان (سنة)</th><td class="me">—</td><td class="">—</td><td class=""><span class="n">10</span></td><td class=""><span class="n">10</span></td></tr><tr><th>فرق الكاش</th><td class="me">—</td><td class=""><span class="n">2,000</span></td><td class=""><span class="n">1,550</span></td><td class=""><span class="n">1,450</span></td></tr></tbody>
-      </table>
-      <div class="legend">✓ = الأفضل في السطر ده · دوس على اسم أي منتج تشوف صفحته</div>
-    </section>
-  
-    <section>
-      <h2>اعرف قبل ما تختار</h2>
-      <div class="lede">المصطلحات اللي على الكارت، بالعربي</div>
-      <div class="faq"><div class="q"><b>سرعة العصر (اللفة) تفرق؟</b><span>كل ما زادت اللفة، الغسيل بيطلع أنشف وبيجف أسرع. 1000 لفة كفاية، و1400 أحسن للبطاطين والتقيل.</span></div><div class="q"><b>البخار بيعمل إيه؟</b><span>بيساعد في إزالة البقع والحساسية من غير نقع، وبيقلل الكرمشة.</span></div><div class="q"><b>الفرق بين فتحة أمامية وعلوية؟</b><span>الأمامية بتوفر مياه وكهربا وبتتحط تحت الرخامة. العلوية أسهل في التحميل ومش محتاجة تنحني.</span></div></div>
-    </section>
-  
-    <section>
-      <h2>أسئلة عن المنتج ده</h2>
-      <div class="faq"><div class="q"><b>فيها بخار؟</b><span>أيوه</span></div></div>
-    </section>
-
-  <section><h2>باختصار</h2><div class="facts"><span>سرعة العصر: 1,400 لفة</span><span>اللون: رمادى</span><span>بخار: نعم</span></div><p class='about'>1400 لفة تكنولوجيا البخار SteamCure موتور بروسمارت انفرتر غسيل جاف بالبخار فقط Steam Therapy برنامج سريع 14 دقيقه بلوتوث باب كبير XL لون رمادي</p></section>
-
-  <section><h2>المواصفات الكاملة</h2><div class="specs"><div class="sp"><div class="k">اللون</div><div class="v">رمادى</div></div><div class="sp"><div class="k">عدد الدورات في الدقيقة</div><div class="v">1400</div></div><div class="sp"><div class="k">بخار</div><div class="v">نعم</div></div></div></section>
+      </div></div></details>
+  </section>
 
   <div class="note-foot">
     الأسعار شاملة الضريبة · التوصيل والتركيب مجانًا داخل القاهرة<br>

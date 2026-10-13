@@ -16,6 +16,19 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 DOCS = ROOT / "docs"
 SITE_BASE = "https://cairosalesstores.github.io/qr"
+ASSISTANT_NAME = "كايرو"
+
+
+def public_config():
+    """Supabase URL + publishable key, so the page can reach the assistant.
+    Both are designed to be public; the secret keys never leave this Mac."""
+    env_file = ROOT / ".env"
+    if not env_file.exists():
+        return {}
+    env = dict(line.split("=", 1) for line in env_file.read_text().splitlines()
+               if "=" in line and not line.startswith("#"))
+    url, key = env.get("SUPABASE_URL", "").strip(), env.get("SUPABASE_ANON_KEY", "").strip()
+    return {"url": url, "key": key} if url and key else {}
 
 STORE = {"name": "أسواق القاهرة للمبيعات", "hotline": "16141"}
 INSTALMENT_MONTHS = 12
@@ -229,6 +242,58 @@ h1 { font-family: "Naskh", serif; font-size: 27px; font-weight: 700; line-height
 .soldout { margin: 16px 20px 0; padding: 15px 16px; border-radius: 14px; background: rgba(217,119,87,.1); border: 1px solid rgba(217,119,87,.28); }
 .soldout b { display: block; font-family: "Naskh", serif; font-size: 16px; color: var(--clay-deep); margin-bottom: 5px; }
 .soldout span { font-size: 12px; font-weight: 600; color: var(--ink-soft); line-height: 1.7; }
+
+
+/* ---------- the one line that answers "is it right for me" ---------- */
+.fit { margin: 14px 20px 0; display: flex; gap: 9px; align-items: flex-start; background: var(--card);
+       border: 1px solid var(--line); border-radius: 14px; padding: 13px 15px;
+       font-size: 13px; line-height: 1.7; color: var(--ink-soft); }
+.fit .tick { color: var(--leaf); font-weight: 800; flex-shrink: 0; }
+.fit p { margin: 0; flex: 1; }
+.fit b { color: var(--ink); font-weight: 800; }
+
+/* ---------- كايرو, the assistant ---------- */
+.kairo { margin: 0; background: var(--ink); color: #F3F1EC; border-radius: 18px; padding: 15px; }
+.kairo-top { display: flex; align-items: center; gap: 11px; }
+.kairo-face { width: 38px; height: 38px; border-radius: 12px; flex-shrink: 0; color: #fff;
+              background: linear-gradient(150deg, var(--clay), #E89B7E); display: grid; place-items: center; }
+.kairo-face svg { width: 20px; height: 20px; }
+.kairo-top b { font-size: 14.5px; font-weight: 800; display: block; }
+.kairo-top span { font-size: 11.5px; opacity: .7; }
+.kairo-asks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
+.kairo-asks .ask { font: inherit; font-size: 12px; font-weight: 700; color: #F3F1EC; cursor: pointer;
+                   background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.15);
+                   border-radius: 30px; padding: 8px 13px; }
+.kairo-bar { display: flex; align-items: center; gap: 8px; margin-top: 12px; background: #fff;
+             border-radius: 30px; padding: 6px 6px 6px 16px; }
+.kairo-bar input { flex: 1; border: 0; background: none; font: inherit; font-family: "Cairo", sans-serif;
+                   font-size: 13.5px; color: var(--ink); outline: none; min-width: 0; padding: 6px 0; }
+.kairo-bar button { border: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--clay);
+                    display: grid; place-items: center; cursor: pointer; flex-shrink: 0; }
+.kairo-bar button svg { width: 16px; height: 16px; }
+.kairo-thread { margin-top: 13px; display: flex; flex-direction: column; gap: 9px;
+                max-height: 340px; overflow-y: auto; }
+.turn { display: flex; }
+.turn.me { justify-content: flex-start; }
+.turn.them { justify-content: flex-end; }
+.turn .b { max-width: 88%; border-radius: 14px; padding: 10px 13px; font-size: 13px; line-height: 1.75;
+           white-space: pre-wrap; }
+.turn.me .b { background: rgba(255,255,255,.1); border-start-start-radius: 4px; }
+.turn.them .b { background: #fff; color: var(--ink); border-start-end-radius: 4px; }
+.turn .handover { background: var(--clay); color: #fff; font-size: 12.5px; font-weight: 800;
+                  border-radius: 12px; padding: 10px 16px; }
+
+/* ---------- everything else, one tap away ---------- */
+.more { display: grid; gap: 9px; }
+.more details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.more summary { list-style: none; cursor: pointer; padding: 14px 16px; font-family: "Naskh", serif;
+                font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; }
+.more summary::-webkit-details-marker { display: none; }
+.more .chev { width: 9px; height: 9px; border-inline-start: 2px solid var(--muted);
+              border-bottom: 2px solid var(--muted); transform: rotate(-45deg); transition: transform .15s ease; }
+.more details[open] .chev { transform: rotate(135deg); }
+.more .inner { padding: 0 16px 16px; }
+.more .cmp { border: 0; }
 
 /* ---------- sections ---------- */
 section { margin: 22px 20px 0; }
@@ -545,6 +610,97 @@ def freshness(when=None):
     return "السعر محتاج تحديث — اسأل البائع"
 
 
+def assistant_section(code, product_title):
+    """كايرو — the question box that sits under the price."""
+    cfg = public_config()
+    if not cfg:
+        return ""
+    e = html.escape
+    asks = ["تنفع لأوضتي؟", "فيه أرخص منها؟", "إيه أهم مميزاتها؟", "الضمان كام؟"]
+    chips = "".join(f'<button class="ask" type="button">{e(a)}</button>' for a in asks)
+    return f"""
+  <section id="assistant">
+    <div class="kairo">
+      <div class="kairo-top">
+        <span class="kairo-face">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 3v3M7.5 7.5 5.4 5.4M16.5 7.5l2.1-2.1"/><rect x="4" y="8" width="16" height="12" rx="4"/>
+            <circle cx="9.5" cy="14" r="1.2" fill="currentColor"/><circle cx="14.5" cy="14" r="1.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <div>
+          <b>اسأل {ASSISTANT_NAME} عن المنتج ده</b>
+          <span>مساعد ذكي · بيرد من بيانات المنتج</span>
+        </div>
+      </div>
+      <div class="kairo-thread" id="thread" hidden></div>
+      <div class="kairo-asks" id="asks">{chips}</div>
+      <form class="kairo-bar" id="askform" autocomplete="off">
+        <input id="q" type="text" placeholder="اكتب سؤالك هنا…" maxlength="300" enterkeyhint="send">
+        <button type="submit" aria-label="ابعت">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+  (function () {{
+    var CFG = {json.dumps(cfg)};
+    var CODE = {json.dumps(code)};
+    var session = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now());
+    var history = [];
+    var thread = document.getElementById('thread');
+    var form = document.getElementById('askform');
+    var input = document.getElementById('q');
+    var asks = document.getElementById('asks');
+
+    function bubble(role, text) {{
+      var row = document.createElement('div');
+      row.className = 'turn ' + role;
+      row.innerHTML = '<div class="b"></div>';
+      row.querySelector('.b').textContent = text;
+      thread.appendChild(row);
+      thread.hidden = false;
+      row.scrollIntoView({{ block: 'nearest', behavior: 'smooth' }});
+      return row;
+    }}
+
+    async function ask(question) {{
+      if (!question) return;
+      asks.hidden = true;
+      bubble('me', question);
+      var waiting = bubble('them', '…');
+      input.value = '';
+      try {{
+        var r = await fetch(CFG.url + '/functions/v1/ask', {{
+          method: 'POST',
+          headers: {{ 'Content-Type': 'application/json', 'apikey': CFG.key, 'Authorization': 'Bearer ' + CFG.key }},
+          body: JSON.stringify({{ code: CODE, question: question, session_id: session, history: history }})
+        }});
+        var data = await r.json();
+        var answer = data.answer || 'معلش، مش قادر أرد دلوقتي. اسأل البائع من فضلك.';
+        waiting.querySelector('.b').textContent = answer;
+        history.push({{ role: 'user', text: question }}, {{ role: 'assistant', text: answer }});
+        if (data.handover) {{
+          var call = document.createElement('div');
+          call.className = 'turn them';
+          call.innerHTML = '<div class="handover">كلّم البائع</div>';
+          thread.appendChild(call);
+        }}
+      }} catch (err) {{
+        waiting.querySelector('.b').textContent = 'الشبكة ضعيفة دلوقتي — جرّب تاني أو اسأل البائع.';
+      }}
+    }}
+
+    form.addEventListener('submit', function (ev) {{ ev.preventDefault(); ask(input.value.trim()); }});
+    Array.prototype.forEach.call(asks.querySelectorAll('.ask'), function (b) {{
+      b.addEventListener('click', function () {{ ask(b.textContent); }});
+    }});
+  }})();
+  </script>"""
+
+
 def rank_label(rank, peers):
     """'الأرخص' / 'تاني أرخص' / 'الأغلى' instead of a bare 5-of-5."""
     ordinals = {2: "تاني", 3: "تالت", 4: "رابع", 5: "خامس"}
@@ -655,19 +811,11 @@ def page_html(code, products):
         <div class="ends"><span>الأرخص <b class="n">{fmt(a['min'])}</b></span><span>الأغلى <b class="n">{fmt(a['max'])}</b></span></div>
       </div>"""
 
-    analysis_section = ""
-    if tiles:
-        analysis_section = f"""
-    <section>
-      <h2>تحليل سريع</h2>
-      <div class="lede">أرقام محسوبة من المعروض عندنا</div>
-      <div class="stats">{''.join(tiles)}</div>
-      {meter}
-    </section>"""
+    analysis_inner = f'<div class="stats">{"".join(tiles)}</div>{meter}' if tiles else ""
 
     # ---------- comparison table
     others = rivals(code, products, family) if in_stock else []
-    table = ""
+    table_inner = ""
     if others:
         cols = [code] + others
         rows = [("سعر الكاش", [price_of(products[c]) for c in cols], "low"),
@@ -712,57 +860,41 @@ def page_html(code, products):
                 cells.append(f'<td class="{klass}">{cell}</td>')
             body.append(f"<tr><th>{e(label)}</th>{''.join(cells)}</tr>")
 
-        table = f"""
-    <section>
-      <h2>مقارنة بأقرب المنتجات</h2>
-      <div class="lede">أقرب ٣ منتجات من نفس النوع والمقاس عندنا</div>
-      <table class="cmp">
+        table_inner = f"""<table class="cmp">
         <thead><tr><th></th>{''.join(head)}</tr></thead>
         <tbody>{''.join(body)}</tbody>
       </table>
-      <div class="legend">✓ = الأفضل في السطر ده · دوس على اسم أي منتج تشوف صفحته</div>
-    </section>"""
+      <div class="legend">✓ = الأفضل في السطر ده · دوس على اسم أي منتج تشوف صفحته</div>"""
 
     # ---------- who it suits
     advice = fit_advice(p, family)
-    advice_section = ""
+    advice_inner = ""
+    # the one line worth showing without a tap
+    headline_fit = (f'<div class="fit"><span class="tick">✓</span><p>{advice["text"]}</p></div>'
+                    if advice and in_stock else "")
     if advice:
         scale = "".join(
             f'<div class="{"on" if i == advice["pick"] else ""}"><span>{e(a)}</span>{e(b)}</div>'
             for i, (a, b) in enumerate(advice["scale"]))
-        advice_section = f"""
-    <section>
-      <h2>يناسب مين؟</h2>
-      <div class="lede">إرشادات عامة تساعدك تقرر بنفسك</div>
-      <div class="advice">
+        advice_inner = f"""<div class="advice">
         <p>{advice['text']}</p>
         <div class="scale">{scale}</div>
-        <p style="margin-top:12px;font-size:11.5px;color:var(--muted)">{e(advice['hint'])}</p>
-      </div>
-    </section>"""
+        <p style="margin-top:12px;font-size:12px;color:var(--muted)">{e(advice['hint'])}</p>
+      </div>"""
 
     # ---------- what the numbers mean
     explain = EXPLAINERS.get(family, [])
-    explain_section = ""
+    explain_inner = ""
     if explain:
         items = "".join(f'<div class="q"><b>{e(q)}</b><span>{e(ans)}</span></div>' for q, ans in explain)
-        explain_section = f"""
-    <section>
-      <h2>اعرف قبل ما تختار</h2>
-      <div class="lede">المصطلحات اللي على الكارت، بالعربي</div>
-      <div class="faq">{items}</div>
-    </section>"""
+        explain_inner = items
 
     # ---------- answers from this product's own sheet
     qa = faqs(p, family)
-    faq_section = ""
+    faq_inner = ""
     if qa:
         items = "".join(f'<div class="q"><b>{e(q)}</b><span>{e(ans)}</span></div>' for q, ans in qa)
-        faq_section = f"""
-    <section>
-      <h2>أسئلة عن المنتج ده</h2>
-      <div class="faq">{items}</div>
-    </section>"""
+        faq_inner = items
 
     facts = "".join(f"<span>{e(f)}</span>" for f in quick_facts(p, family))
     about = e(s.get("short_description", "")).strip()
@@ -791,16 +923,21 @@ def page_html(code, products):
 
   {f'<div class="shot">{img}</div>' if img else ''}
   {money}
+  {headline_fit}
+  {assistant_section(code, clean_title(p))}
   {alternatives_html(alt_codes, products) if alt_codes else ''}
-  {analysis_section}
-  {advice_section}
-  {table}
-  {explain_section}
-  {faq_section}
 
-  {f'<section><h2>باختصار</h2><div class="facts">{facts}</div>{f"<p class=\'about\'>{about}</p>" if about else ""}</section>' if facts or about else ''}
+  {f'<section><h2>باختصار</h2><div class="facts">{facts}</div></section>' if facts else ''}
 
-  <section><h2>المواصفات الكاملة</h2><div class="specs">{spec_list}</div></section>
+  <section class="more">
+    {f'<details><summary>مقارنة بأقرب المنتجات<span class="chev"></span></summary><div class="inner">{table_inner}</div></details>' if table_inner else ''}
+    {f'<details><summary>يناسب مين؟<span class="chev"></span></summary><div class="inner">{advice_inner}</div></details>' if advice_inner else ''}
+    <details><summary>المواصفات الكاملة<span class="chev"></span></summary><div class="inner"><div class="specs">{spec_list}</div></div></details>
+    {f'<details><summary>أسئلة عن المنتج ده<span class="chev"></span></summary><div class="inner"><div class="faq">{faq_inner}</div></div></details>' if faq_inner else ''}
+    {f'<details><summary>اعرف قبل ما تختار<span class="chev"></span></summary><div class="inner"><div class="faq">{explain_inner}</div></div></details>' if explain_inner else ''}
+    {f'<details><summary>نبذة عن المنتج<span class="chev"></span></summary><div class="inner"><p class="about">{about}</p></div></details>' if about else ''}
+    {f'<details><summary>تحليل السعر<span class="chev"></span></summary><div class="inner">{analysis_inner}</div></details>' if analysis_inner else ''}
+  </section>
 
   <div class="note-foot">
     الأسعار شاملة الضريبة · التوصيل والتركيب مجانًا داخل القاهرة<br>
