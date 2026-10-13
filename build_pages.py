@@ -142,7 +142,8 @@ def rivals(code, products, family, limit=3):
 def clean_title(p):
     title = p["site"].get("title") or p.get("store_name", "")
     title = title.replace(p["model"], "").strip(" -·")
-    return re.sub(r"\s+", " ", title)
+    title = re.sub(r"\s+TV\s*$", "", title)  # "شاشة … سمارت TV" — the TV only orphans a line
+    return re.sub(r"\s+", " ", title).strip()
 
 
 def quick_facts(p, family):
@@ -152,18 +153,18 @@ def quick_facts(p, family):
     size = size_of(p, family)
     facts = []
     if size:
-        facts.append(f"المقاس {int(size)} {size_unit(family)}")
+        facts.append(("المقاس", f"{int(size)} {size_unit(family)}"))
     if perf["text"] and perf["text"] != "—":
-        facts.append(f"{perf['label']}: {perf['text']}")
+        facts.append((perf["label"], perf["text"]))
     for key in ("دقة", "نظام التشغيل", "اللون", "شكل الشفاط", "نوع الفتحة", "عدد الفلاتر",
                 "ريسيفر داخلي", "سمارت", "مدخنة", "بخار", "مجفف", "حلة ستانلس"):
         v = (s.get(key) or "").strip()
         if v and v.lower() not in ("no", "لا"):
-            facts.append(f"{key}: {'نعم' if v.lower() == 'yes' else v}")
+            facts.append((key, "نعم" if v.lower() == "yes" else v))
     if s.get("الضمان"):
-        facts.append(f"ضمان {s['الضمان']}")
+        facts.append(("الضمان", s["الضمان"]))
     if s.get("بلد الصنع"):
-        facts.append(f"بلد الصنع {s['بلد الصنع']}")
+        facts.append(("بلد الصنع", s["بلد الصنع"]))
     return facts[:6]
 
 
@@ -183,7 +184,8 @@ def fmt(n):
 CSS = """
 @font-face { font-family: "Cairo"; src: url("../assets/Cairo.ttf"); font-weight: 200 1000; }
 @font-face { font-family: "Inter"; src: url("../assets/Inter.ttf"); font-weight: 100 900; }
-@font-face { font-family: "Naskh"; src: url("../assets/NotoNaskhArabic.ttf"); font-weight: 400 700; }
+@font-face { font-family: "Naskh"; src: url("../assets/NotoNaskhArabic.ttf"); font-weight: 400 700;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F; }
 :root {
   --paper: #F0EEE6;       /* warm background */
   --card: #FAF9F5;        /* raised surface */
@@ -200,12 +202,12 @@ CSS = """
 body { background: var(--paper); font-family: "Cairo", system-ui, sans-serif; color: var(--ink); padding-bottom: 24px; }
 .sheet { max-width: 460px; margin: 0 auto; background: var(--paper); min-height: 100vh; }
 .n { font-family: "Inter", sans-serif; direction: ltr; unicode-bidi: isolate; font-feature-settings: "tnum"; }
-.serif { font-family: "Naskh", "Cairo", serif; }
+.serif { font-family: "Naskh", "Inter", serif; }
 img { max-width: 100%; display: block; }
 
 /* ---------- identity ---------- */
-.band { padding: 18px 20px 20px; }
-.band .line { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.band { padding: 15px 20px 13px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.head { padding: 18px 20px 0; }
 .band .store { display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 12px; font-weight: 700; color: var(--muted); }
 .band .store img { width: 28px; height: 28px; border-radius: 50%; }
 .stock { font-size: 10.5px; font-weight: 700; border-radius: 30px; padding: 5px 11px; background: rgba(92,127,88,.14); color: var(--leaf); white-space: nowrap; }
@@ -213,19 +215,31 @@ img { max-width: 100%; display: block; }
 .stock.checking { background: rgba(204,155,122,.2); color: #8A6440; }
 .soldout.checking { background: rgba(204,155,122,.14); border-color: rgba(204,155,122,.4); }
 .soldout.checking b { color: #8A6440; }
-h1 { font-family: "Naskh", serif; font-size: 27px; font-weight: 700; line-height: 1.5; margin-top: 16px; letter-spacing: -.2px; }
-.meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-.meta span { font-size: 11.5px; font-weight: 600; color: var(--ink-soft); background: rgba(20,20,19,.045); border-radius: 7px; padding: 5px 10px; }
-.meta .brand { font-family: "Inter"; font-weight: 800; background: var(--ink); color: var(--paper); }
+h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 700; line-height: 1.6; letter-spacing: -.2px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
+.meta span { font-size: 11.5px; font-weight: 700; color: var(--muted); }
+.meta span + span::before { content: "·"; margin-inline-end: 6px; color: var(--line); }
 
 /* ---------- photo + price ---------- */
-.shot { margin: 0 20px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 22px; }
+.shot { margin: 0 14px; border-radius: 24px; padding: 14px 16px; background: #FFFFFF;
+        box-shadow: 0 1px 2px rgba(20,20,19,.04), 0 10px 24px -14px rgba(20,20,19,.25); }
+.shot img { margin: 0 auto; max-height: 215px; width: auto; }
 .money { margin: 14px 20px 0; display: flex; align-items: flex-end; gap: 12px; }
 .money .lbl { font-size: 10.5px; font-weight: 700; color: var(--muted); letter-spacing: .4px; }
 .money .cash { font-family: "Inter"; font-weight: 800; font-size: 38px; letter-spacing: -1.4px; line-height: 1.05; }
 .money .cur { font-size: 13px; font-weight: 700; color: var(--muted); }
 .money .inst { margin-inline-start: auto; text-align: left; font-size: 10.5px; font-weight: 600; color: var(--muted); line-height: 1.7; }
 .money .inst b { font-family: "Inter"; font-weight: 800; font-size: 15px; color: var(--ink); }
+.price { margin: 20px 20px 0; }
+.price .lbl { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .3px; }
+.price .big { font-family: "Inter", sans-serif; font-weight: 800; font-size: 44px; letter-spacing: -2px;
+              line-height: 1.12; margin-top: 1px; display: flex; align-items: baseline; gap: 7px;
+              direction: ltr; unicode-bidi: isolate; justify-content: flex-end; }
+.price .big small { font-family: "Cairo", sans-serif; font-size: 14px; font-weight: 700; color: var(--muted); letter-spacing: 0; }
+.price .save { display: inline-block; margin-top: 10px; font-size: 11.5px; font-weight: 800; color: var(--leaf);
+               background: rgba(92,127,88,.12); border-radius: 30px; padding: 6px 12px; }
+.price .inst { margin-top: 9px; font-size: 12.5px; font-weight: 600; color: var(--ink-soft); }
+.price .inst b { font-weight: 800; color: var(--ink); }
 .pay { margin: 16px 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .pay .opt { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px; }
 .pay .opt.cash { background: rgba(217,119,87,.1); border-color: rgba(217,119,87,.3); }
@@ -240,30 +254,30 @@ h1 { font-family: "Naskh", serif; font-size: 27px; font-weight: 700; line-height
 .fresh { margin: 10px 20px 0; display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 700; color: var(--muted); }
 .fresh .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--leaf); flex-shrink: 0; }
 .soldout { margin: 16px 20px 0; padding: 15px 16px; border-radius: 14px; background: rgba(217,119,87,.1); border: 1px solid rgba(217,119,87,.28); }
-.soldout b { display: block; font-family: "Naskh", serif; font-size: 16px; color: var(--clay-deep); margin-bottom: 5px; }
+.soldout b { display: block; font-family: "Naskh", "Inter", sans-serif; font-size: 16px; color: var(--clay-deep); margin-bottom: 5px; }
 .soldout span { font-size: 12px; font-weight: 600; color: var(--ink-soft); line-height: 1.7; }
 
 
 /* ---------- the one line that answers "is it right for me" ---------- */
-.fit { margin: 14px 20px 0; display: flex; gap: 9px; align-items: flex-start; background: var(--card);
-       border: 1px solid var(--line); border-radius: 14px; padding: 13px 15px;
-       font-size: 13px; line-height: 1.7; color: var(--ink-soft); }
+.fit { margin: 16px 20px 0; display: flex; gap: 9px; align-items: flex-start;
+       border-inline-start: 3px solid rgba(92,127,88,.45); padding: 2px 13px 2px 0;
+       font-size: 13px; line-height: 1.8; color: var(--ink-soft); }
 .fit .tick { color: var(--leaf); font-weight: 800; flex-shrink: 0; }
 .fit p { margin: 0; flex: 1; }
 .fit b { color: var(--ink); font-weight: 800; }
 
 /* ---------- كايرو, the assistant ---------- */
-.kairo { margin: 0; background: var(--ink); color: #F3F1EC; border-radius: 18px; padding: 15px; }
+.kairo { margin: 0; background: #1B1B19; color: #F3F1EC; border-radius: 20px; padding: 16px 15px 15px; }
 .kairo-top { display: flex; align-items: center; gap: 11px; }
-.kairo-face { width: 38px; height: 38px; border-radius: 12px; flex-shrink: 0; color: #fff;
-              background: linear-gradient(150deg, var(--clay), #E89B7E); display: grid; place-items: center; }
-.kairo-face svg { width: 20px; height: 20px; }
-.kairo-top b { font-size: 14.5px; font-weight: 800; display: block; }
-.kairo-top span { font-size: 11.5px; opacity: .7; }
-.kairo-asks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
-.kairo-asks .ask { font: inherit; font-size: 12px; font-weight: 700; color: #F3F1EC; cursor: pointer;
-                   background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.15);
-                   border-radius: 30px; padding: 8px 13px; }
+.kairo-face { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; color: #fff;
+              background: linear-gradient(150deg, var(--clay), #E0906F); display: grid; place-items: center; }
+.kairo-face svg { width: 19px; height: 19px; }
+.kairo-top b { font-family: "Naskh", "Inter", sans-serif; font-size: 15px; font-weight: 700; display: block; }
+.kairo-top span { font-size: 11px; opacity: .62; }
+.kairo-asks { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+.kairo-asks .ask { font: inherit; font-size: 12px; font-weight: 700; color: #FFF6F1; cursor: pointer;
+                   background: rgba(217,119,87,.18); border: 1px solid rgba(217,119,87,.45);
+                   border-radius: 30px; padding: 8px 14px; }
 .kairo-bar { display: flex; align-items: center; gap: 8px; margin-top: 12px; background: #fff;
              border-radius: 30px; padding: 6px 6px 6px 16px; }
 .kairo-bar input { flex: 1; border: 0; background: none; font: inherit; font-family: "Cairo", sans-serif;
@@ -286,18 +300,21 @@ h1 { font-family: "Naskh", serif; font-size: 27px; font-weight: 700; line-height
 /* ---------- everything else, one tap away ---------- */
 .more { display: grid; gap: 9px; }
 .more details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.more summary { list-style: none; cursor: pointer; padding: 14px 16px; font-family: "Naskh", serif;
-                font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; }
+.more summary { list-style: none; cursor: pointer; padding: 13px 16px; gap: 12px;
+                display: flex; align-items: center; justify-content: space-between; }
+.more summary div b { display: block; font-family: "Naskh", "Inter", sans-serif; font-size: 14.5px; font-weight: 700; }
+.more summary div span { display: block; font-size: 11px; font-weight: 600; color: var(--muted); margin-top: 3px; }
 .more summary::-webkit-details-marker { display: none; }
-.more .chev { width: 9px; height: 9px; border-inline-start: 2px solid var(--muted);
-              border-bottom: 2px solid var(--muted); transform: rotate(-45deg); transition: transform .15s ease; }
-.more details[open] .chev { transform: rotate(135deg); }
+.more .chev { width: 9px; height: 9px; flex-shrink: 0; border-right: 2px solid var(--muted);
+              border-bottom: 2px solid var(--muted); transform: rotate(45deg) translate(-2px,-2px);
+              transition: transform .15s ease; }
+.more details[open] .chev { transform: rotate(-135deg) translate(-2px,-2px); }
 .more .inner { padding: 0 16px 16px; }
 .more .cmp { border: 0; }
 
 /* ---------- sections ---------- */
 section { margin: 22px 20px 0; }
-h2 { font-family: "Naskh", serif; font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+h2 { font-family: "Naskh", "Inter", sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 4px; }
 .lede { font-size: 12.5px; font-weight: 600; color: var(--muted); line-height: 1.7; margin-bottom: 13px; }
 
 /* stat tiles */
@@ -352,8 +369,11 @@ h2 { font-family: "Naskh", serif; font-size: 17px; font-weight: 700; margin-bott
 .legend { margin-top: 10px; font-size: 12px; color: var(--muted); font-weight: 600; line-height: 1.6; }
 
 /* facts + specs */
-.facts { display: flex; flex-wrap: wrap; gap: 7px; }
-.facts span { font-size: 11px; font-weight: 600; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 7px 11px; }
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line);
+         border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.fct { background: var(--card); padding: 12px 14px; display: flex; flex-direction: column; gap: 3px; }
+.fct span { font-size: 10.5px; font-weight: 700; color: var(--muted); }
+.fct b { font-size: 13px; font-weight: 800; color: var(--ink); }
 .about { font-size: 12.5px; line-height: 1.9; color: var(--ink-soft); margin-top: 12px; }
 .specs { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 15px; }
 .sp { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
@@ -392,7 +412,7 @@ h2 { font-family: "Naskh", serif; font-size: 17px; font-weight: 700; margin-bott
 .top { padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .brandline { display: flex; align-items: center; gap: 9px; text-decoration: none; color: inherit; }
 .brandline img { width: 32px; height: 32px; border-radius: 50%; }
-.brandline b { font-family: "Naskh", serif; font-size: 15px; font-weight: 700; }
+.brandline b { font-family: "Naskh", "Inter", sans-serif; font-size: 15px; font-weight: 700; }
 .brandline span { display: block; font-size: 10px; color: var(--muted); font-weight: 600; }
 .where { font-size: 10.5px; font-weight: 700; color: var(--muted); background: rgba(20,20,19,.05); border-radius: 8px; padding: 6px 10px; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; padding: 8px 20px 24px; }
@@ -738,15 +758,13 @@ def page_html(code, products):
     alt_codes = [] if in_stock else alternatives(code, products, family, last_price)
 
     # ---------- identity chips
-    meta = [f'<span class="brand">{e(s.get("brand") or "")}</span>' if s.get("brand") else ""]
+    meta = []
     if size:
         meta.append(f'<span>{int(size)} {size_unit(family)}</span>')
     if perf["text"] != "—":
         meta.append(f'<span>{e(perf["text"])}</span>')
     if specs.get("الضمان"):
         meta.append(f'<span>ضمان {e(specs["الضمان"])}</span>')
-    if specs.get("بلد الصنع"):
-        meta.append(f'<span>صنع في {e(specs["بلد الصنع"])}</span>')
 
     # ---------- price block
     if in_stock:
@@ -754,19 +772,12 @@ def page_html(code, products):
         saving = int(inst - price) if has_inst else 0
         saving_pct = round(saving / inst * 100) if has_inst and inst else 0
         money = f"""
-    <div class="pay">
-      <div class="opt cash">
-        <div class="k">كاش</div>
-        <div class="v"><span class="n">{fmt(price)}</span> <small>جنيه</small></div>
-        {f'<div class="tip">توفّر <span class="n">{fmt(saving)}</span> جنيه ({saving_pct}%)</div>' if has_inst else ''}
-      </div>
-      {f"""<div class="opt">
-        <div class="k">بالتقسيط</div>
-        <div class="v"><span class="n">{fmt(inst)}</span> <small>جنيه</small></div>
-        <div class="tip">أغلى من الكاش بـ <span class="n">{fmt(saving)}</span> جنيه</div>
-      </div>""" if has_inst else ''}
+    <div class="price">
+      <div class="lbl">سعر الكاش</div>
+      <div class="big"><span class="n">{fmt(price)}</span> <small>جنيه</small></div>
+      {f'<div class="save">توفّر <span class="n">{fmt(saving)}</span> جنيه عن التقسيط ({saving_pct}%)</div>' if has_inst else ''}
+      {f'<div class="inst">أو بالتقسيط — الإجمالي <b class="n">{fmt(inst)}</b> جنيه</div>' if has_inst else ''}
     </div>
-    {f'<div class="paynote">لو دفعت <b>كاش</b> هتدفع <b class="n">{fmt(price)}</b> جنيه بدل <b class="n">{fmt(inst)}</b>، يعني <b>توفّر <span class="n">{fmt(saving)}</span> جنيه</b> ({saving_pct}%) على نفس المنتج.</div>' if has_inst else ''}
     <div class="fresh"><span class="dot"></span> {freshness()} · السعر في الفرع هو الأساس</div>"""
     elif confirming:
         money = f"""
@@ -896,7 +907,8 @@ def page_html(code, products):
         items = "".join(f'<div class="q"><b>{e(q)}</b><span>{e(ans)}</span></div>' for q, ans in qa)
         faq_inner = items
 
-    facts = "".join(f"<span>{e(f)}</span>" for f in quick_facts(p, family))
+    facts = "".join(f'<div class="fct"><span>{e(k)}</span><b>{e(v)}</b></div>'
+                    for k, v in quick_facts(p, family))
     about = e(s.get("short_description", "")).strip()
     spec_list = "".join(f'<div class="sp"><div class="k">{e(k)}</div><div class="v">{e(v)}</div></div>'
                         for k, v in spec_rows(p))
@@ -913,15 +925,17 @@ def page_html(code, products):
 <div class="sheet">
 
   <div class="band">
-    <div class="line">
-      <a class="store" href="../index.html"><img src="../assets/logo.jpeg" alt=""> {STORE['name']}</a>
-      <span class="stock{'' if in_stock else (' checking' if confirming else ' out')}">{'● متوفر' if in_stock else ('● بنأكد السعر' if confirming else '● غير متوفر حاليًا')}</span>
-    </div>
-    <h1>{e(clean_title(p))}</h1>
-    <div class="meta">{''.join(meta)}<span class="n">{e(p['model'])}</span></div>
+    <a class="store" href="../index.html"><img src="../assets/logo.jpeg" alt=""> {STORE['name']}</a>
+    <span class="stock{'' if in_stock else (' checking' if confirming else ' out')}">{'● متوفر' if in_stock else ('● بنأكد السعر' if confirming else '● غير متوفر حاليًا')}</span>
   </div>
 
   {f'<div class="shot">{img}</div>' if img else ''}
+
+  <div class="head">
+    <h1>{e(clean_title(p))}</h1>
+    <div class="meta">{''.join(meta)}</div>
+  </div>
+
   {money}
   {headline_fit}
   {assistant_section(code, clean_title(p))}
@@ -930,13 +944,14 @@ def page_html(code, products):
   {f'<section><h2>باختصار</h2><div class="facts">{facts}</div></section>' if facts else ''}
 
   <section class="more">
-    {f'<details><summary>مقارنة بأقرب المنتجات<span class="chev"></span></summary><div class="inner">{table_inner}</div></details>' if table_inner else ''}
-    {f'<details><summary>يناسب مين؟<span class="chev"></span></summary><div class="inner">{advice_inner}</div></details>' if advice_inner else ''}
-    <details><summary>المواصفات الكاملة<span class="chev"></span></summary><div class="inner"><div class="specs">{spec_list}</div></div></details>
-    {f'<details><summary>أسئلة عن المنتج ده<span class="chev"></span></summary><div class="inner"><div class="faq">{faq_inner}</div></div></details>' if faq_inner else ''}
-    {f'<details><summary>اعرف قبل ما تختار<span class="chev"></span></summary><div class="inner"><div class="faq">{explain_inner}</div></div></details>' if explain_inner else ''}
-    {f'<details><summary>نبذة عن المنتج<span class="chev"></span></summary><div class="inner"><p class="about">{about}</p></div></details>' if about else ''}
-    {f'<details><summary>تحليل السعر<span class="chev"></span></summary><div class="inner">{analysis_inner}</div></details>' if analysis_inner else ''}
+    {f'''<details><summary><div><b>السعر والمقارنة</b><span>غالي ولا رخيص جنب اللي زيه</span></div><span class="chev"></span></summary>
+      <div class="inner">{analysis_inner}{table_inner}</div></details>''' if (table_inner or analysis_inner) else ''}
+    {f'''<details><summary><div><b>يناسب مين؟</b><span>مين المفروض يشتريه ومين لأ</span></div><span class="chev"></span></summary>
+      <div class="inner">{advice_inner}{f'<div class="faq">{explain_inner}</div>' if explain_inner else ''}</div></details>''' if advice_inner else ''}
+    <details><summary><div><b>المواصفات الكاملة</b><span>كل التفاصيل من كتالوج الشركة</span></div><span class="chev"></span></summary>
+      <div class="inner">{f'<p class="about">{about}</p>' if about else ''}<div class="specs">{spec_list}</div></div></details>
+    {f'''<details><summary><div><b>أسئلة بتتسأل كتير</b><span>إجابات من بيانات المنتج نفسه</span></div><span class="chev"></span></summary>
+      <div class="inner"><div class="faq">{faq_inner}</div></div></details>''' if faq_inner else ''}
   </section>
 
   <div class="note-foot">
