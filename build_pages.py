@@ -31,7 +31,6 @@ def public_config():
     return {"url": url, "key": key} if url and key else {}
 
 STORE = {"name": "أسواق القاهرة للمبيعات", "hotline": "16141"}
-INSTALMENT_MONTHS = 12
 
 BRAND_AR = {
     "LG": "إل جي", "SAMSUNG": "سامسونج", "TORNADO": "تورنيدو", "BEKO": "بيكو",
@@ -744,7 +743,6 @@ def page_html(code, products):
     perf = performance_of(p, family)
     price = price_of(p)
     inst = num(s.get("price_installment")) or price
-    monthly = round(inst / INSTALMENT_MONTHS) if inst else None
     # Stock rule: a price means we have it. No price for one run only means we are still
     # checking — a single missing price is as likely to be a website hiccup as a sold-out item.
     in_stock = bool(price)
@@ -773,10 +771,8 @@ def page_html(code, products):
         saving_pct = round(saving / inst * 100) if has_inst and inst else 0
         money = f"""
     <div class="price">
-      <div class="lbl">سعر الكاش</div>
+      <div class="lbl">السعر كاش</div>
       <div class="big"><span class="n">{fmt(price)}</span> <small>جنيه</small></div>
-      {f'<div class="save">توفّر <span class="n">{fmt(saving)}</span> جنيه عن التقسيط ({saving_pct}%)</div>' if has_inst else ''}
-      {f'<div class="inst">أو بالتقسيط — الإجمالي <b class="n">{fmt(inst)}</b> جنيه</div>' if has_inst else ''}
     </div>
     <div class="fresh"><span class="dot"></span> {freshness()} · السعر في الفرع هو الأساس</div>"""
     elif confirming:
@@ -802,10 +798,6 @@ def page_html(code, products):
         tiles.append(f"""<div class="stat"><div class="k">سعره مقارنة بالمقاس ده</div>
           <div class="v small">{e(rank_label(a['rank'], a['peers']))}</div>
           <div class="note flat">من بين <span class="n">{a['peers']}</span> منتج بنفس المقاس عندنا</div></div>""")
-    if a.get("cash_saving"):
-        tiles.append(f"""<div class="stat"><div class="k">توفير الكاش</div>
-          <div class="v"><span class="n">{fmt(a['cash_saving'])}</span> <small>جنيه</small></div>
-          <div class="note down">أقل من سعر التقسيط بـ <span class="n">{a['cash_saving_pct']}%</span></div></div>""")
     if a.get("warranty"):
         tiles.append(f"""<div class="stat"><div class="k">الضمان</div>
           <div class="v"><span class="n">{int(a['warranty'])}</span> <small>سنة</small></div>
@@ -836,12 +828,6 @@ def page_html(code, products):
             rows.append((perf["label"], [x["value"] for x in perfs],
                          "high" if any(x["value"] for x in perfs) else None))
         rows.append(("الضمان (سنة)", [warranty_years(products[c]) for c in cols], "high"))
-        insts = [num(products[c]["site"].get("price_installment")) for c in cols]
-        if any(insts):
-            # blank, not a made-up number, where a product has no instalment price
-            rows.insert(1, ("سعر التقسيط", list(insts), "low"))
-            rows.append(("فرق الكاش", [round(x - price_of(products[c])) if x else None
-                                       for x, c in zip(insts, cols)], None))
 
         head = []
         for i, c in enumerate(cols):

@@ -30,6 +30,7 @@ const RULES = `
 - اتكلم فقط من بيانات المنتج والمنتجات المشابهة اللي هتتبعتلك تحت. ممنوع تخمّن أو تخترع أي رقم أو مواصفة.
 - لو السؤال محتاج معلومة مش موجودة في البيانات (مواعيد التوصيل، التركيب، فرع معين، مقارنة بمحل تاني)، قول إنك متأكدش واعرض إنك تنادي البائع.
 - ممنوع تتفاوض على السعر أو توعد بخصم أو عرض. لو العميل طلب خصم: قوله ده قرار البائع واعرض تنادي حد.
+- السعر اللي بتتعامل بيه هو سعر الكاش بس. لو سأل عن التقسيط أو القسط الشهري أو مدة التقسيط: متقولش أي رقم، قوله إن التقسيط بيتظبط مع البائع واعرض تنادي حد.
 - الأسعار اللي بتقولها هي اللي في البيانات بالظبط، وقول إن سعر الفرع هو الأساس.
 - لو المنتج مش متوفر، قول كده بوضوح واقترح البدائل المتاحة اللي في البيانات.
 - متقولش إنك إنسان. لو سألوك، قول إنك مساعد ذكي بيساعدهم يختاروا.
@@ -43,14 +44,13 @@ function productFacts(p: Record<string, unknown>): string {
     ? Object.entries(p.specs as Record<string, string>).map(([k, v]) => `${k}: ${v}`).join(" · ")
     : "";
   const cash = p.price_cash as number | null;
-  const inst = p.price_instalment as number | null;
   return [
     `المنتج: ${p.title ?? p.name}`,
     `الموديل: ${p.model}`,
     `الماركة: ${p.brand}`,
     `القسم: ${p.category}`,
     cash ? `سعر الكاش: ${Math.round(cash).toLocaleString("en")} جنيه` : "السعر: غير متاح حاليًا (المنتج غير متوفر)",
-    inst ? `سعر التقسيط: ${Math.round(inst).toLocaleString("en")} جنيه` : "",
+
     p.warranty ? `الضمان: ${p.warranty}` : "",
     p.country ? `بلد الصنع: ${p.country}` : "",
     specs ? `المواصفات: ${specs}` : "",
@@ -96,7 +96,7 @@ Deno.serve(async (req) => {
     // Similar products in stock, so it can answer "is there a cheaper one?" honestly
     const { data: similar } = await db
       .from("products")
-      .select("code, title, model, price_cash, price_instalment, specs")
+      .select("code, title, model, price_cash, specs")
       .eq("family", product.family)
       .not("price_cash", "is", null)
       .neq("code", code)

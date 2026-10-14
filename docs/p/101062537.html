@@ -3,153 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>إل جي شاشة 65 بوصة OLED AI B6 فور كيه سمارت ماجيك ريموت مكبر صوت و نظام WebOS26 -SH5A - أسواق القاهرة للمبيعات</title>
+<title>شاشة ال جي OLED ذكية مقاس 65 بوصة بدقة 4K - أسواق القاهرة للمبيعات</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<div class="sheet">
-
-  <div class="band">
-    <a class="store" href="../index.html"><img src="../assets/logo.jpeg" alt=""> أسواق القاهرة للمبيعات</a>
-    <span class="stock">● متوفر</span>
+<div class="page">
+  <div class="top">
+    <a class="brandline" href="../index.html">
+      <img src="../assets/logo.jpeg" alt="">
+      <div><b>أسواق القاهرة للمبيعات</b></div>
+    </a>
+    <div class="where">شاشات</div>
   </div>
-
-  <div class="shot"><picture><source type="image/webp" srcset="../img/101062537-400.webp 400w, ../img/101062537-800.webp 800w" sizes="(max-width: 460px) 100vw, 460px"><img src="../img/101062537.jpg" alt="OLED65B66LA" class="" loading="lazy" decoding="async"></picture></div>
-
-  <div class="head">
-    <h1>إل جي شاشة 65 بوصة OLED AI B6 فور كيه سمارت ماجيك ريموت مكبر صوت و نظام WebOS26 -SH5A</h1>
-    <div class="meta"><span>65 بوصة</span><span>OLED</span><span>ضمان عامين</span></div>
-  </div>
-
-  
-    <div class="price">
-      <div class="lbl">سعر الكاش</div>
-      <div class="big"><span class="n">66,599</span> <small>جنيه</small></div>
-      <div class="save">توفّر <span class="n">7,400</span> جنيه عن التقسيط (10%)</div>
-      <div class="inst">أو بالتقسيط — الإجمالي <b class="n">73,999</b> جنيه</div>
-    </div>
-    <div class="fresh"><span class="dot"></span> السعر محدّث النهاردة · السعر في الفرع هو الأساس</div>
-  <div class="fit"><span class="tick">✓</span><p>شاشة <b>65 بوصة</b> بتبان أحسن لما تقعد على بُعد <b>2.6 لـ 4.1 متر</b> منها تقريبًا.</p></div>
-  
-  <section id="assistant">
-    <div class="kairo">
-      <div class="kairo-top">
-        <span class="kairo-face">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M12 3v3M7.5 7.5 5.4 5.4M16.5 7.5l2.1-2.1"/><rect x="4" y="8" width="16" height="12" rx="4"/>
-            <circle cx="9.5" cy="14" r="1.2" fill="currentColor"/><circle cx="14.5" cy="14" r="1.2" fill="currentColor"/>
-          </svg>
-        </span>
-        <div>
-          <b>اسأل كايرو عن المنتج ده</b>
-          <span>مساعد ذكي · بيرد من بيانات المنتج</span>
-        </div>
+  <div class="wrap">
+    <div class="card">
+      <div class="kicker"><span>شاشات</span></div>
+      <h1>شاشة ال جي OLED ذكية مقاس 65 بوصة بدقة 4K</h1>
+      <div class="sub">الموديل <b>OLED65B66LA</b></div>
+      <div class="soldout">
+        <b>المنتج ده مش متوفر دلوقتي</b>
+        <span>اسأل البائع عن وجوده في الفرع أو إمتى هيوصل</span>
       </div>
-      <div class="kairo-thread" id="thread" hidden></div>
-      <div class="kairo-asks" id="asks"><button class="ask" type="button">تنفع لأوضتي؟</button><button class="ask" type="button">فيه أرخص منها؟</button><button class="ask" type="button">إيه أهم مميزاتها؟</button><button class="ask" type="button">الضمان كام؟</button></div>
-      <form class="kairo-bar" id="askform" autocomplete="off">
-        <input id="q" type="text" placeholder="اكتب سؤالك هنا…" maxlength="300" enterkeyhint="send">
-        <button type="submit" aria-label="ابعت">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-        </button>
-      </form>
     </div>
-  </section>
-
-  <script>
-  (function () {
-    var CFG = {"url": "https://lpewwzopojglnqudilms.supabase.co", "key": "sb_publishable_Tjz-Lve2__8Sa8RRZFlCKA_JI7NtYJ9"};
-    var CODE = "101062537";
-    var session = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now());
-    var history = [];
-    var thread = document.getElementById('thread');
-    var form = document.getElementById('askform');
-    var input = document.getElementById('q');
-    var asks = document.getElementById('asks');
-
-    function bubble(role, text) {
-      var row = document.createElement('div');
-      row.className = 'turn ' + role;
-      row.innerHTML = '<div class="b"></div>';
-      row.querySelector('.b').textContent = text;
-      thread.appendChild(row);
-      thread.hidden = false;
-      row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-      return row;
-    }
-
-    async function ask(question) {
-      if (!question) return;
-      asks.hidden = true;
-      bubble('me', question);
-      var waiting = bubble('them', '…');
-      input.value = '';
-      try {
-        var r = await fetch(CFG.url + '/functions/v1/ask', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'apikey': CFG.key, 'Authorization': 'Bearer ' + CFG.key },
-          body: JSON.stringify({ code: CODE, question: question, session_id: session, history: history })
-        });
-        var data = await r.json();
-        var answer = data.answer || 'معلش، مش قادر أرد دلوقتي. اسأل البائع من فضلك.';
-        waiting.querySelector('.b').textContent = answer;
-        history.push({ role: 'user', text: question }, { role: 'assistant', text: answer });
-        if (data.handover) {
-          var call = document.createElement('div');
-          call.className = 'turn them';
-          call.innerHTML = '<div class="handover">كلّم البائع</div>';
-          thread.appendChild(call);
-        }
-      } catch (err) {
-        waiting.querySelector('.b').textContent = 'الشبكة ضعيفة دلوقتي — جرّب تاني أو اسأل البائع.';
-      }
-    }
-
-    form.addEventListener('submit', function (ev) { ev.preventDefault(); ask(input.value.trim()); });
-    Array.prototype.forEach.call(asks.querySelectorAll('.ask'), function (b) {
-      b.addEventListener('click', function () { ask(b.textContent); });
-    });
-  })();
-  </script>
-  
-
-  <section><h2>باختصار</h2><div class="facts"><div class="fct"><span>المقاس</span><b>65 بوصة</b></div><div class="fct"><span>نوع الشاشة</span><b>OLED</b></div><div class="fct"><span>نظام التشغيل</span><b>WebOS</b></div><div class="fct"><span>ريسيفر داخلي</span><b>نعم</b></div><div class="fct"><span>سمارت</span><b>نعم</b></div><div class="fct"><span>الضمان</span><b>عامين</b></div></div></section>
-
-  <section class="more">
-    <details><summary><div><b>السعر والمقارنة</b><span>غالي ولا رخيص جنب اللي زيه</span></div><span class="chev"></span></summary>
-      <div class="inner"><div class="stats"><div class="stat"><div class="k">سعره مقارنة بالمقاس ده</div>
-          <div class="v small">تالت أغلى</div>
-          <div class="note flat">من بين <span class="n">11</span> منتج بنفس المقاس عندنا</div></div><div class="stat"><div class="k">توفير الكاش</div>
-          <div class="v"><span class="n">7,400</span> <small>جنيه</small></div>
-          <div class="note down">أقل من سعر التقسيط بـ <span class="n">10%</span></div></div><div class="stat"><div class="k">الضمان</div>
-          <div class="v"><span class="n">2</span> <small>سنة</small></div>
-          <div class="note flat">ضمان الوكيل</div></div></div>
-      <div class="meter">
-        <div class="cap">سعره بين 11 منتج بنفس المقاس عندنا</div>
-        <div class="track">
-          <span class="pin" style="inset-inline-start:71%"><b class="n">66,599</b></span>
-        </div>
-        <div class="ends"><span>الأرخص <b class="n">23,999</b></span><span>الأغلى <b class="n">83,599</b></span></div>
-      </div><table class="cmp">
-        <thead><tr><th></th><th class="me"><span class="mytag">ده</span><br>إل جي<small class="n">OLED65B66LA</small></th><th class=""><a href="101062465.html">إل جي<small class="n">65QNED86T6A</small><span class="go">افتح ›</span></a></th><th class=""><a href="120062440.html">سامسونج<small class="n">65QN80F</small><span class="go">افتح ›</span></a></th><th class=""><a href="101062555.html">إل جي<small class="n">65QNED85B6T</small><span class="go">افتح ›</span></a></th></tr></thead>
-        <tbody><tr><th>سعر الكاش</th><td class="me"><span class="n">66,599</span></td><td class=""><span class="n">71,248</span></td><td class=""><span class="n">57,499</span></td><td class="best"><span class="n">55,990</span></td></tr><tr><th>سعر التقسيط</th><td class="me"><span class="n">73,999</span></td><td class=""><span class="n">74,999</span></td><td class="best"><span class="n">59,999</span></td><td class=""><span class="n">60,999</span></td></tr><tr><th>المقاس (بوصة)</th><td class="me"><span class="n">65</span></td><td class=""><span class="n">65</span></td><td class=""><span class="n">65</span></td><td class=""><span class="n">65</span></td></tr><tr><th>نوع الشاشة</th><td class="me">OLED</td><td class="">QNED</td><td class="">Neo QLED</td><td class="">QNED</td></tr><tr><th>الضمان (سنة)</th><td class="me"><span class="n">2</span></td><td class=""><span class="n">2</span></td><td class=""><span class="n">2</span></td><td class=""><span class="n">2</span></td></tr><tr><th>فرق الكاش</th><td class="me"><span class="n">7,400</span></td><td class=""><span class="n">3,751</span></td><td class=""><span class="n">2,500</span></td><td class=""><span class="n">5,009</span></td></tr></tbody>
-      </table>
-      <div class="legend">✓ = الأفضل في السطر ده · دوس على اسم أي منتج تشوف صفحته</div></div></details>
-    <details><summary><div><b>يناسب مين؟</b><span>مين المفروض يشتريه ومين لأ</span></div><span class="chev"></span></summary>
-      <div class="inner"><div class="advice">
-        <p>شاشة <b>65 بوصة</b> بتبان أحسن لما تقعد على بُعد <b>2.6 لـ 4.1 متر</b> منها تقريبًا.</p>
-        <div class="scale"><div class=""><span>أقل من 43</span>أوضة نوم</div><div class=""><span>50 - 55</span>أوضة معيشة صغيرة</div><div class="on"><span>65 - 75</span>صالة كبيرة</div><div class=""><span>أكبر من 75</span>صالة واسعة جدًا</div></div>
-        <p style="margin-top:12px;font-size:12px;color:var(--muted)">قِس المسافة بين الكنبة والحيطة اللي هتعلق عليها، والرقم ده يقولك المقاس المناسب.</p>
-      </div><div class="faq"><div class="q"><b>يعني إيه 4K؟</b><span>دقة 3840×2160 بيكسل، يعني 4 أضعاف الفل إتش دي. الفرق بيبان أكتر في المقاسات من 55 بوصة وفوق.</span></div><div class="q"><b>الفرق بين OLED و QNED و LED؟</b><span>OLED كل بيكسل بينوّر لوحده، فالأسود بيبقى أسود حقيقي وده الأغلى. QNED و QLED شاشات LED بألوان أنقى. LED العادية أرخص وألوانها أقل.</span></div><div class="q"><b>سمارت وريسيفر داخلي؟</b><span>سمارت يعني نتفليكس ويوتيوب من غير جهاز زيادة. ريسيفر داخلي يعني القنوات الأرضية تشتغل من غير ريسيفر منفصل.</span></div></div></div></details>
-    <details><summary><div><b>المواصفات الكاملة</b><span>كل التفاصيل من كتالوج الشركة</span></div><span class="chev"></span></summary>
-      <div class="inner"><p class="about">تصميم نحيف وعصري. تقنية OLED لأسود مثالي وألوان حقيقية وراحة للعين. معالج α8 AI Processor Gen3 مع AI Super Upscaling 4K. صوت وصورة سينمائية مع Dolby Vision وDolby Atmos. ألعاب حتى 144Hz VRR مع G‑SYNC وFreeSync Premium. webOS الذكي مع AI Magic Remote وLG Shield. تحديثات webOS لمدة 5 سنوات. إل جي ساوند بار 4.1 قناة / 600 واط SH5A *ملاحظة: الصورة المجمعة للمنتجات لا تعكس الحجم أو النسبة الفعلية للمنتجات.</p><div class="specs"><div class="sp"><div class="k">الحجم</div><div class="v">بوصة 65</div></div><div class="sp"><div class="k">الضمان</div><div class="v">عامين</div></div><div class="sp"><div class="k">بلد الصنع</div><div class="v">مصر</div></div><div class="sp"><div class="k">سمارت</div><div class="v">نعم</div></div><div class="sp"><div class="k">منحنى</div><div class="v">لا</div></div><div class="sp"><div class="k">ريسيفر داخلي</div><div class="v">نعم</div></div><div class="sp"><div class="k">إلترا</div><div class="v">نعم</div></div><div class="sp"><div class="k">دقة الشاشة</div><div class="v">UHD 4K</div></div><div class="sp"><div class="k">نظام التشغيل</div><div class="v">WebOS</div></div></div></div></details>
-    <details><summary><div><b>أسئلة بتتسأل كتير</b><span>إجابات من بيانات المنتج نفسه</span></div><span class="chev"></span></summary>
-      <div class="inner"><div class="faq"><div class="q"><b>الضمان كام؟</b><span>عامين ضمان الوكيل · صنع في مصر</span></div><div class="q"><b>سمارت؟</b><span>أيوه، بنظام WebOS</span></div><div class="q"><b>ريسيفر داخلي؟</b><span>أيوه، مش محتاج ريسيفر منفصل</span></div></div></div></details>
-  </section>
-
-  <div class="note-foot">
-    الأسعار شاملة الضريبة · التوصيل والتركيب مجانًا داخل القاهرة<br>
-    آخر تحديث للأسعار <b class="n">2026-10-13</b>
+    <section><h2>بدائل متوفرة دلوقتي</h2><div class="lede">أقرب المنتجات المتاحة عندنا</div><div class="alts"><a class="alt-card" href="290062006.html"><picture><source type="image/webp" srcset="../img/290062006-400.webp 400w, ../img/290062006-800.webp 800w" sizes="(max-width: 460px) 100vw, 460px"><img src="../img/290062006.jpg" alt="UT32AS" class="" loading="lazy" decoding="async"></picture><b>الترا تلفزيون 32 بوصة سمارت ليد بدقة اتش دي</b><span class="n">5,499 <small>جنيه</small></span></a><a class="alt-card" href="104062291.html"><picture><source type="image/webp" srcset="../img/104062291-400.webp 400w, ../img/104062291-800.webp 800w" sizes="(max-width: 460px) 100vw, 460px"><img src="../img/104062291.jpg" alt="55P7K" class="" loading="lazy" decoding="async"></picture><b>تي سي إل شاشة 4K سمارت بدون فريم QLED 55 بوصة ريسيفر داخلي</b><span class="n">23,789 <small>جنيه</small></span></a><a class="alt-card" href="120062440.html"><picture><source type="image/webp" srcset="../img/120062440-400.webp 400w, ../img/120062440-800.webp 800w" sizes="(max-width: 460px) 100vw, 460px"><img src="../img/120062440.jpg" alt="65QN80F" class="" loading="lazy" decoding="async"></picture><b>سامسونج شاشة سمارت 65 بوصة Neo QLED</b><span class="n">57,499 <small>جنيه</small></span></a></div></section>
+    <div class="note">آخر تحديث <b class="n">2026-10-14</b></div>
   </div>
 </div>
 </body>
