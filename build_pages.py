@@ -707,7 +707,7 @@ def assistant_section(code, product_title):
           var step = await reader.read();
           if (step.done) break;
           buf += dec.decode(step.value, {{ stream: true }});
-          var lines = buf.split('\n');
+          var lines = buf.split('\\n');
           buf = lines.pop();
           for (var i = 0; i < lines.length; i++) {{
             if (!lines[i].trim()) continue;
