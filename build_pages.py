@@ -293,6 +293,8 @@ h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 70
            white-space: pre-wrap; }
 .turn.me .b { background: rgba(255,255,255,.1); border-start-start-radius: 4px; }
 .turn.them .b { background: #fff; color: var(--ink); border-start-end-radius: 4px; }
+.turn .b.dots { color: var(--muted); letter-spacing: 3px; animation: breathe 1.1s ease-in-out infinite; }
+@keyframes breathe { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
 .turn .handover { background: var(--clay); color: #fff; font-size: 12.5px; font-weight: 800;
                   border-radius: 12px; padding: 10px 16px; }
 
@@ -689,26 +691,54 @@ def assistant_section(code, product_title):
       if (!question) return;
       asks.hidden = true;
       bubble('me', question);
-      var waiting = bubble('them', '…');
+      var waiting = bubble('them', '•••');
+      waiting.querySelector('.b').classList.add('dots');
       input.value = '';
+      var bubbleText = waiting.querySelector('.b');
       try {{
         var r = await fetch(CFG.url + '/functions/v1/ask', {{
           method: 'POST',
           headers: {{ 'Content-Type': 'application/json', 'apikey': CFG.key, 'Authorization': 'Bearer ' + CFG.key }},
-          body: JSON.stringify({{ code: CODE, question: question, session_id: session, history: history }})
+          body: JSON.stringify({{ code: CODE, question: question, session_id: session, history: history, stream: true }})
         }});
-        var data = await r.json();
-        var answer = data.answer || 'معلش، مش قادر أرد دلوقتي. اسأل البائع من فضلك.';
-        waiting.querySelector('.b').textContent = answer;
+        // The answer arrives word by word, so the customer reads while it is still writing.
+        var reader = r.body.getReader(), dec = new TextDecoder(), buf = '', answer = '', meta = null, failed = false;
+        while (true) {{
+          var step = await reader.read();
+          if (step.done) break;
+          buf += dec.decode(step.value, {{ stream: true }});
+          var lines = buf.split('\n');
+          buf = lines.pop();
+          for (var i = 0; i < lines.length; i++) {{
+            if (!lines[i].trim()) continue;
+            var o;
+            try {{ o = JSON.parse(lines[i]); }} catch (e) {{ continue; }}
+            if (o.t) {{
+              if (!answer) bubbleText.classList.remove('dots');
+              answer += o.t;
+              bubbleText.textContent = answer;
+              waiting.scrollIntoView({{ block: 'nearest' }});
+            }} else if (o.done) {{ meta = o.done; }}
+            else if (o.error) {{ failed = true; }}
+          }}
+        }}
+        if (!answer.trim()) {{
+          bubbleText.classList.remove('dots');
+          bubbleText.textContent = failed
+            ? 'معلش، مش قادر أرد دلوقتي. اسأل البائع من فضلك.'
+            : 'معلش، حصلت مشكلة. جرّب تاني.';
+          return;
+        }}
         history.push({{ role: 'user', text: question }}, {{ role: 'assistant', text: answer }});
-        if (data.handover) {{
+        if (meta && meta.handover) {{
           var call = document.createElement('div');
           call.className = 'turn them';
           call.innerHTML = '<div class="handover">كلّم البائع</div>';
           thread.appendChild(call);
         }}
       }} catch (err) {{
-        waiting.querySelector('.b').textContent = 'الشبكة ضعيفة دلوقتي — جرّب تاني أو اسأل البائع.';
+        bubbleText.classList.remove('dots');
+        bubbleText.textContent = 'الشبكة ضعيفة دلوقتي — جرّب تاني أو اسأل البائع.';
       }}
     }}
 

@@ -10,8 +10,6 @@
 // Deploy: Supabase dashboard → Edge Functions → Deploy a new function → name it "ask"
 // → paste this file → Deploy. Secrets needed: GEMINI_API_KEY, GEMINI_MODEL.
 
-import { createClient } from "jsr:@supabase/supabase-js@2";
-
 const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
@@ -19,6 +17,10 @@ const CORS = {
 };
 
 const MAX_QUESTION = 400;
+// Gemini answers in 1-2s, but now and then a call stalls for 20s and returns nothing.
+// Rather than wait it out, a second request goes off after this long and whichever
+// answers first wins. The customer never pays for the stalled one.
+const HEDGE_MS = 4000;
 const MAX_HISTORY = 6;
 
 // What the assistant may and may not do. Everything it says must come from the data below.
@@ -36,8 +38,28 @@ const RULES = `
 - متقولش إنك إنسان. لو سألوك، قول إنك مساعد ذكي بيساعدهم يختاروا.
 
 في آخر ردك اكتب سطر لوحده بالشكل ده بالظبط (مش هيتعرض للعميل):
-META: intent=<price|fit|compare|stock|warranty|discount|other>; answered=<yes|no>; handover=<yes|no>; refusal=<none|outside_data|discount|personal>
+META: intent=<price|fit|compare|stock|warranty|discount|instalment|other>; answered=<yes|no>; handover=<yes|no>; refusal=<none|outside_data|discount|personal>
 `.trim();
+
+// PostgREST straight over fetch — no client library, nothing to compile on boot.
+const DB = Deno.env.get("SUPABASE_URL")!;
+const KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SERVICE_KEY")!;
+
+async function rest(path: string, method = "GET", body?: unknown) {
+  const r = await fetch(`${DB}/rest/v1/${path}`, {
+    method,
+    headers: {
+      apikey: KEY,
+      Authorization: `Bearer ${KEY}`,
+      "Content-Type": "application/json",
+      ...(method === "POST" ? { Prefer: "return=minimal" } : {}),
+    },
+    body: body === undefined ? undefined : JSON.stringify(body),
+  });
+  if (!r.ok) throw new Error(`db ${r.status} ${(await r.text()).slice(0, 200)}`);
+  const text = method === "GET" ? await r.text() : "";
+  return { data: text ? JSON.parse(text) : null };
+}
 
 function productFacts(p: Record<string, unknown>): string {
   const specs = p.specs && typeof p.specs === "object"
@@ -70,12 +92,50 @@ function parseMeta(text: string) {
   };
 }
 
+/** Reads Gemini's SSE stream and calls back with each new piece of text. */
+async function streamGemini(
+  url: string, body: string, signal: AbortSignal, onText: (piece: string) => void,
+): Promise<string> {
+  const res = await fetch(url, {
+    method: "POST",
+    signal,
+    headers: { "content-type": "application/json", "x-goog-api-key": Deno.env.get("GEMINI_API_KEY")! },
+    body,
+  });
+  if (!res.ok || !res.body) {
+    console.error("gemini stream", res.status, (await res.text()).slice(0, 300));
+    return "";
+  }
+  const reader = res.body.getReader();
+  const dec = new TextDecoder();
+  let buf = "", full = "";
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += dec.decode(value, { stream: true });
+    const lines = buf.split("\n");
+    buf = lines.pop() ?? "";
+    for (const line of lines) {
+      if (!line.startsWith("data:")) continue;
+      const payload = line.slice(5).trim();
+      if (!payload || payload === "[DONE]") continue;
+      try {
+        const j = JSON.parse(payload);
+        const piece = (j?.candidates?.[0]?.content?.parts ?? [])
+          .map((p: { text?: string }) => p.text ?? "").join("");
+        if (piece) { full += piece; onText(piece); }
+      } catch { /* a partial frame; the next read completes it */ }
+    }
+  }
+  return full;
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
   const started = Date.now();
 
   try {
-    const { code, question, session_id, history = [], voice = false } = await req.json();
+    const { code, question, session_id, history = [], voice = false, stream = false } = await req.json();
     if (!code || !question) {
       return Response.json({ error: "code and question are required" }, { status: 400, headers: CORS });
     }
@@ -83,25 +143,26 @@ Deno.serve(async (req) => {
       return Response.json({ error: "question too long" }, { status: 400, headers: CORS });
     }
 
-    const db = createClient(
-      Deno.env.get("SUPABASE_URL")!,
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SERVICE_KEY")!,
-    );
-
-    const { data: product } = await db.from("products").select("*").eq("code", code).single();
+    const { data: rows } = await rest(`products?code=eq.${encodeURIComponent(code)}&select=*`);
+    const product = rows?.[0];
     if (!product) {
       return Response.json({ error: "unknown product" }, { status: 404, headers: CORS });
     }
 
-    // Similar products in stock, so it can answer "is there a cheaper one?" honestly
-    const { data: similar } = await db
-      .from("products")
-      .select("code, title, model, price_cash, specs")
-      .eq("family", product.family)
-      .not("price_cash", "is", null)
-      .neq("code", code)
-      .order("price_cash", { ascending: true })
-      .limit(6);
+    // Products a customer would really weigh against this one. Ordering by price
+    // alone offered a 10,000 EGP set to someone standing at a 71,000 EGP one, so
+    // peers are taken from a band around this product's own price.
+    const peers = async (lo: number, hi: number) => {
+      const band = lo && hi ? `&price_cash=gte.${Math.round(lo)}&price_cash=lte.${Math.round(hi)}` : "";
+      const { data } = await rest(
+        `products?family=eq.${encodeURIComponent(product.family ?? "")}` +
+        `&price_cash=not.is.null&code=neq.${encodeURIComponent(code)}${band}` +
+        `&select=code,title,model,price_cash,specs&order=price_cash.asc&limit=6`);
+      return data ?? [];
+    };
+    const cash = product.price_cash as number | null;
+    let similar: Record<string, unknown>[] = cash ? await peers(cash * 0.55, cash * 1.6) : await peers(0, 0);
+    if (cash && similar.length < 3) similar = await peers(cash * 0.3, cash * 2.5);
 
     const context = [
       "بيانات المنتج اللي العميل بيسأل عنه:",
@@ -109,67 +170,142 @@ Deno.serve(async (req) => {
       "",
       "منتجات مشابهة متوفرة دلوقتي (استخدمها لو سأل عن أرخص أو مقارنة):",
       ...(similar ?? []).map((s) =>
-        `- ${s.title} (${s.model}): كاش ${Math.round(s.price_cash).toLocaleString("en")} جنيه`
+        `- ${s.title} (${s.model}): كاش ${Math.round(Number(s.price_cash)).toLocaleString("en")} جنيه`
       ),
     ].join("\n");
 
-    const model = Deno.env.get("GEMINI_MODEL") ?? "gemini-3.1-flash-lite";
+    const model = Deno.env.get("GEMINI_MODEL") ?? "gemini-3.5-flash-lite";
     const turns = (history as { role: string; text: string }[]).slice(-MAX_HISTORY).map((t) => ({
       role: t.role === "assistant" ? "model" : "user",
       parts: [{ text: t.text }],
     }));
 
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "x-goog-api-key": Deno.env.get("GEMINI_API_KEY")!,
-        },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: `${RULES}\n\n${context}` }] },
-          contents: [...turns, { role: "user", parts: [{ text: question }] }],
-          generationConfig: { temperature: 0.3, maxOutputTokens: 400 },
-        }),
-      },
-    );
+    const geminiBody = JSON.stringify({
+      systemInstruction: { parts: [{ text: `${RULES}\n\n${context}` }] },
+      contents: [...turns, { role: "user", parts: [{ text: question }] }],
+      generationConfig: { temperature: 0.3, maxOutputTokens: 220 },
+    });
 
-    if (!res.ok) {
-      const detail = await res.text();
-      console.error("gemini", res.status, detail.slice(0, 300));
-      return Response.json({ error: "assistant unavailable" }, { status: 502, headers: CORS });
+    // One place that writes the turn away for the supervisors' reports.
+    const logTurn = async (parsed: ReturnType<typeof parseMeta>) => {
+      try {
+        await rest("conversations", "POST", {
+          session_id: session_id ?? null,
+          turn: Math.floor((history as unknown[]).length / 2) + 1,
+          code,
+          question,
+          answer: parsed.answer,
+          intent: parsed.intent,
+          answered: parsed.answered,
+          refusal_reason: parsed.refusal_reason,
+          handed_over: parsed.handed_over,
+          voice_used: Boolean(voice),
+          answer_ms: Date.now() - started,
+          model,
+        });
+      } catch (e) {
+        console.error("log failed", e);
+      }
+    };
+
+    // ---- streaming: the page shows each word as it arrives instead of a blank wait
+    if (stream) {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse`;
+      const enc = new TextEncoder();
+      const body = new ReadableStream({
+        async start(controller) {
+          const send = (o: unknown) => controller.enqueue(enc.encode(JSON.stringify(o) + "\n"));
+          const ac = new AbortController();
+          let full = "", sent = 0;
+          // Everything from the META line on is for us, not the customer. Holding
+          // back a short tail stops a half-written "META:" reaching the screen.
+          const flush = (final = false) => {
+            const cut = full.indexOf("META:");
+            const show = cut >= 0 ? full.slice(0, cut) : (final ? full : full.slice(0, Math.max(0, full.length - 6)));
+            if (show.length > sent) { send({ t: show.slice(sent) }); sent = show.length; }
+          };
+          try {
+            full = await streamGemini(url, geminiBody, ac.signal, () => flush());
+            flush(true);
+            const parsed = parseMeta(full);
+            if (!parsed.answer) send({ error: "assistant unavailable" });
+            else {
+              send({ done: { intent: parsed.intent, handover: parsed.handed_over } });
+              await logTurn(parsed);
+            }
+          } catch (e) {
+            console.error("stream", (e as Error).message);
+            send({ error: "assistant unavailable" });
+          }
+          controller.close();
+        },
+      });
+      return new Response(body, {
+        headers: { ...CORS, "Content-Type": "application/x-ndjson; charset=utf-8", "Cache-Control": "no-cache" },
+      });
     }
 
-    const payload = await res.json();
-    const raw = payload?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? "").join("") ?? "";
+    const callGemini = async (signal: AbortSignal) => {
+      try {
+        const res = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+          {
+            method: "POST",
+            signal,
+            headers: {
+              "content-type": "application/json",
+              "x-goog-api-key": Deno.env.get("GEMINI_API_KEY")!,
+            },
+            body: geminiBody,
+          },
+        );
+        if (!res.ok) {
+          console.error("gemini", res.status, (await res.text()).slice(0, 300));
+          return "";
+        }
+        const payload = await res.json();
+        return payload?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? "").join("") ?? "";
+      } catch (e) {
+        if ((e as Error).name !== "AbortError") console.error("gemini call", (e as Error).message);
+        return "";
+      }
+    };
+
+    const answered = (p: Promise<string>) =>
+      p.then((t) => (t.trim() ? t : Promise.reject(new Error("empty"))));
+
+    // The free tier drops a request now and then. One retry, so a hiccup does not
+    // reach a customer standing in the shop as "I cannot answer".
+    const dbDone = Date.now();
+    const a = new AbortController();
+    const first = callGemini(a.signal);
+    let hedged = false;
+    let raw = await Promise.race([
+      answered(first).catch(() => ""),
+      new Promise<string>((r) => setTimeout(() => r(""), HEDGE_MS)),
+    ]);
+    if (!raw.trim()) {
+      hedged = true;
+      const b = new AbortController();
+      const second = callGemini(b.signal);
+      raw = await Promise.any([answered(first), answered(second)]).catch(() => "");
+      a.abort();
+      b.abort();
+    }
+    const firstDone = Date.now();
     const parsed = parseMeta(raw);
     if (!parsed.answer) {
       return Response.json({ error: "assistant unavailable" }, { status: 502, headers: CORS });
     }
 
-    // Log it for the supervisors' reports. A failure here must not cost the customer an answer.
-    try {
-      await db.from("conversations").insert({
-        session_id: session_id ?? null,
-        turn: Math.floor((history as unknown[]).length / 2) + 1,
-        code,
-        question,
-        answer: parsed.answer,
-        intent: parsed.intent,
-        answered: parsed.answered,
-        refusal_reason: parsed.refusal_reason,
-        handed_over: parsed.handed_over,
-        voice_used: Boolean(voice),
-        answer_ms: Date.now() - started,
-        model,
-      });
-    } catch (e) {
-      console.error("log failed", e);
-    }
+    await logTurn(parsed);
 
     return Response.json(
-      { answer: parsed.answer, intent: parsed.intent, handover: parsed.handed_over },
+      {
+        answer: parsed.answer, intent: parsed.intent, handover: parsed.handed_over,
+        timing: { db_ms: dbDone - started, gemini_ms: firstDone - dbDone,
+                  hedged, total_ms: Date.now() - started },
+      },
       { headers: CORS },
     );
   } catch (e) {
