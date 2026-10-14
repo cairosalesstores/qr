@@ -145,6 +145,16 @@ def clean_title(p):
     return re.sub(r"\s+", " ", title).strip()
 
 
+def short_title(p, limit=38):
+    """A comparison row needs a name, not the whole catalogue line."""
+    t = clean_title(p)
+    for cut in (" و ساوند", " و مكبر", " + ", " / "):
+        if cut in t:
+            t = t.split(cut)[0]
+    t = re.split(r"\s+-\s+", t)[0].strip()
+    return t if len(t) <= limit else t[:limit].rsplit(" ", 1)[0] + "…"
+
+
 def quick_facts(p, family):
     """A few headline facts, built from the spec table (no guessing)."""
     s = p["site"]["specs"]
@@ -256,6 +266,29 @@ h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 70
 .soldout b { display: block; font-family: "Naskh", "Inter", sans-serif; font-size: 16px; color: var(--clay-deep); margin-bottom: 5px; }
 .soldout span { font-size: 12px; font-weight: 600; color: var(--ink-soft); line-height: 1.7; }
 
+
+/* ---------- why this product ---------- */
+.points { margin: 24px 20px 0; }
+.points .pt { display: flex; gap: 10px; align-items: flex-start; padding: 9px 0; }
+.points .pt + .pt { border-top: 1px solid var(--line); }
+.points .pt i { width: 5px; height: 5px; border-radius: 50%; background: var(--clay);
+                margin-top: 9px; flex-shrink: 0; }
+.points .pt p { margin: 0; font-size: 13.5px; line-height: 1.75; color: var(--ink-soft); }
+.points .pt b { color: var(--ink); font-weight: 800; }
+
+/* ---------- this price, beside the nearest ones ---------- */
+.compare { margin: 26px 20px 0; }
+.cmp-list { display: grid; gap: 7px; }
+.cmp-row { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px;
+           background: var(--card); border: 1px solid var(--line); text-decoration: none; color: inherit; }
+.cmp-row.me { background: var(--ink); border-color: var(--ink); color: #F3F1EC; }
+.cmp-name { flex: 1; font-size: 12px; font-weight: 700; line-height: 1.55; }
+.cmp-price { font-family: "Inter", sans-serif; font-weight: 800; font-size: 13.5px; white-space: nowrap; }
+.cmp-diff { font-size: 10.5px; font-weight: 800; white-space: nowrap; border-radius: 20px; padding: 5px 9px; }
+.cmp-diff.up { color: var(--clay-deep); background: rgba(181,87,59,.12); }
+.cmp-diff.down { color: var(--leaf); background: rgba(92,127,88,.14); }
+.cmp-diff.here { color: rgba(243,241,236,.6); background: rgba(255,255,255,.1); }
+.cmp-note { font-size: 11.5px; font-weight: 700; color: var(--muted); margin-top: 10px; }
 
 /* ---------- the one line that answers "is it right for me" ---------- */
 .fit { margin: 16px 20px 0; display: flex; gap: 9px; align-items: flex-start;
@@ -564,6 +597,89 @@ def analysis(code, products, family):
         out["warranty"] = years
         out["warranty_best"] = bool(peer_years) and years >= max(peer_years) and len(set(peer_years)) > 1
     return out
+
+
+PANEL_WORDS = [
+    ("OLED", "شاشة OLED — الأسود أسود حقيقي والألوان أدق"),
+    ("QNED", "تقنية QNED — ألوان أنقى وسطوع أعلى من اللي قبلها"),
+    ("QLED", "تقنية QLED — ألوان أنقى وسطوع أعلى من اللي قبلها"),
+    ("NANOCELL", "تقنية NanoCell — ألوان أدق من الشاشة العادية"),
+    ("MINI", "إضاءة Mini LED — تباين أعلى وسطوع أقوى"),
+]
+
+
+def key_points(p, family):
+    """The few things worth knowing, each one read straight off the spec sheet."""
+    s = p["site"]["specs"]
+    yes = lambda v: (v or "").strip().lower() in ("نعم", "yes")
+    size = size_of(p, family)
+    out = []
+
+    if family == "tv":
+        if size:
+            low, high = round(size * 0.04, 1), round(size * 0.063, 1)
+            out.append(f"<b>{int(size)} بوصة</b> — أحسن مشاهدة على بُعد {low} لـ {high} متر")
+        panel = performance_of(p, family)["text"].upper()   # read off the title, not a spec row
+        for key, line in PANEL_WORDS:
+            if key in panel:
+                out.append(line)
+                break
+        res = s.get("دقة") or ""
+        if "4320" in res:
+            out.append("<b>دقة 8K</b> — أعلى دقة متاحة دلوقتي")
+        elif "2160" in res:
+            out.append("<b>دقة 4K</b> — صورة حادة حتى لو قاعد قريب")
+        if yes(s.get("سمارت")):
+            system = (s.get("نظام التشغيل") or "").strip()
+            out.append(f"سمارت{' بنظام ' + system if system else ''} — نتفليكس ويوتيوب من غير جهاز زيادة")
+        if yes(s.get("ريسيفر داخلي")):
+            out.append("ريسيفر داخلي — القنوات شغالة من غير علبة")
+
+    elif family == "hood":
+        perf = performance_of(p, family)
+        if size:
+            out.append(f"<b>{int(size)} سم</b> — يتحط فوق بوتاجاز بنفس العرض أو أصغر")
+        if perf["value"]:
+            out.append(f"شفط <b>{int(perf['value']):,} م³/ساعة</b> — يكفي مطبخ لحد "
+                       f"{round(perf['value'] / 12)} متر مربع")
+        if s.get("شكل الشفاط"):
+            out.append(f"شكل {s['شكل الشفاط']}")
+        if s.get("عدد الفلاتر"):
+            out.append(f"{s['عدد الفلاتر']} فلتر")
+
+    elif family == "washer":
+        if size:
+            out.append(f"<b>{int(size)} كيلو</b> — تكفي أسرة من {max(1, int(size) - 5)} لـ {int(size) - 3} أفراد")
+        if s.get("نوع الفتحة"):
+            out.append(f"فتحة {s['نوع الفتحة']}")
+        if yes(s.get("بخار")):
+            out.append("بخار — يساعد على البقع والحساسية من غير نقع")
+        if yes(s.get("مجفف")):
+            out.append("مجفف — الغسيل بيطلع ناشف")
+
+    if s.get("الضمان"):
+        out.append(f"ضمان <b>{s['الضمان']}</b> من الوكيل")
+    return out[:4]
+
+
+def price_compare(code, products, family):
+    """This product beside the closest ones we sell, as a plain price difference."""
+    price = price_of(products[code])
+    if not price:
+        return None
+    rows = []
+    for c in rivals(code, products, family, limit=3):
+        peer_price = price_of(products[c])
+        if not peer_price:
+            continue
+        rows.append({"code": c, "title": short_title(products[c]),
+                     "size": size_of(products[c], family), "price": peer_price,
+                     "diff": round(peer_price - price)})
+    if not rows:
+        return None
+    peers = sorted(price_of(products[c]) for c in peer_set(code, products, family))
+    return {"rows": rows, "peers": len(peers),
+            "low": peers[0] if peers else None, "high": peers[-1] if peers else None}
 
 
 def photo(code, fallback="", alt="", cls="", prefix="../"):
@@ -923,8 +1039,31 @@ def page_html(code, products):
         items = "".join(f'<div class="q"><b>{e(q)}</b><span>{e(ans)}</span></div>' for q, ans in qa)
         faq_inner = items
 
-    facts = "".join(f'<div class="fct"><span>{e(k)}</span><b>{e(v)}</b></div>'
-                    for k, v in quick_facts(p, family))
+    points = key_points(p, family)
+    points_html = ""
+    if points and in_stock:
+        items = "".join(f'<div class="pt"><i></i><p>{t}</p></div>' for t in points)
+        points_html = f'<section class="points"><h2>ليه المنتج ده</h2>{items}</section>'
+
+    cmp_data = price_compare(code, products, family) if in_stock else None
+    compare_html = ""
+    if cmp_data:
+        me_row = (f'<div class="cmp-row me"><div class="cmp-name">{e(short_title(p))}</div>'
+                  f'<div class="cmp-price n">{fmt(price)}</div>'
+                  f'<div class="cmp-diff here">ده</div></div>')
+        others = "".join(
+            f'<a class="cmp-row" href="{r["code"]}.html"><div class="cmp-name">{e(r["title"])}</div>'
+            f'<div class="cmp-price n">{fmt(r["price"])}</div>'
+            f'<div class="cmp-diff {"up" if r["diff"] > 0 else "down"}">'
+            f'{"أغلى" if r["diff"] > 0 else "أرخص"} بـ <span class="n">{fmt(abs(r["diff"]))}</span></div></a>'
+            for r in cmp_data["rows"])
+        note = (f'عندنا <span class="n">{cmp_data["peers"]}</span> منتج بنفس المقاس، '
+                f'أسعارها من <span class="n">{fmt(cmp_data["low"])}</span> لـ '
+                f'<span class="n">{fmt(cmp_data["high"])}</span> جنيه'
+                if cmp_data["peers"] > 1 and cmp_data["low"] != cmp_data["high"] else "")
+        compare_html = (f'<section class="compare"><h2>السعر جنب الشبيه</h2>'
+                        f'<div class="cmp-list">{me_row}{others}</div>'
+                        f'{f"<div class=\'cmp-note\'>{note}</div>" if note else ""}</section>')
     about = e(s.get("short_description", "")).strip()
     spec_list = "".join(f'<div class="sp"><div class="k">{e(k)}</div><div class="v">{e(v)}</div></div>'
                         for k, v in spec_rows(p))
@@ -953,21 +1092,14 @@ def page_html(code, products):
   </div>
 
   {money}
-  {headline_fit}
+  {points_html}
+  {compare_html}
   {assistant_section(code, clean_title(p))}
   {alternatives_html(alt_codes, products) if alt_codes else ''}
 
-  {f'<section><h2>باختصار</h2><div class="facts">{facts}</div></section>' if facts else ''}
-
   <section class="more">
-    {f'''<details><summary><div><b>السعر والمقارنة</b><span>غالي ولا رخيص جنب اللي زيه</span></div><span class="chev"></span></summary>
-      <div class="inner">{analysis_inner}{table_inner}</div></details>''' if (table_inner or analysis_inner) else ''}
-    {f'''<details><summary><div><b>يناسب مين؟</b><span>مين المفروض يشتريه ومين لأ</span></div><span class="chev"></span></summary>
-      <div class="inner">{advice_inner}{f'<div class="faq">{explain_inner}</div>' if explain_inner else ''}</div></details>''' if advice_inner else ''}
     <details><summary><div><b>المواصفات الكاملة</b><span>كل التفاصيل من كتالوج الشركة</span></div><span class="chev"></span></summary>
       <div class="inner">{f'<p class="about">{about}</p>' if about else ''}<div class="specs">{spec_list}</div></div></details>
-    {f'''<details><summary><div><b>أسئلة بتتسأل كتير</b><span>إجابات من بيانات المنتج نفسه</span></div><span class="chev"></span></summary>
-      <div class="inner"><div class="faq">{faq_inner}</div></div></details>''' if faq_inner else ''}
   </section>
 
   <div class="note-foot">

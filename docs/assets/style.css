@@ -75,6 +75,29 @@ h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 70
 .soldout span { font-size: 12px; font-weight: 600; color: var(--ink-soft); line-height: 1.7; }
 
 
+/* ---------- why this product ---------- */
+.points { margin: 24px 20px 0; }
+.points .pt { display: flex; gap: 10px; align-items: flex-start; padding: 9px 0; }
+.points .pt + .pt { border-top: 1px solid var(--line); }
+.points .pt i { width: 5px; height: 5px; border-radius: 50%; background: var(--clay);
+                margin-top: 9px; flex-shrink: 0; }
+.points .pt p { margin: 0; font-size: 13.5px; line-height: 1.75; color: var(--ink-soft); }
+.points .pt b { color: var(--ink); font-weight: 800; }
+
+/* ---------- this price, beside the nearest ones ---------- */
+.compare { margin: 26px 20px 0; }
+.cmp-list { display: grid; gap: 7px; }
+.cmp-row { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px;
+           background: var(--card); border: 1px solid var(--line); text-decoration: none; color: inherit; }
+.cmp-row.me { background: var(--ink); border-color: var(--ink); color: #F3F1EC; }
+.cmp-name { flex: 1; font-size: 12px; font-weight: 700; line-height: 1.55; }
+.cmp-price { font-family: "Inter", sans-serif; font-weight: 800; font-size: 13.5px; white-space: nowrap; }
+.cmp-diff { font-size: 10.5px; font-weight: 800; white-space: nowrap; border-radius: 20px; padding: 5px 9px; }
+.cmp-diff.up { color: var(--clay-deep); background: rgba(181,87,59,.12); }
+.cmp-diff.down { color: var(--leaf); background: rgba(92,127,88,.14); }
+.cmp-diff.here { color: rgba(243,241,236,.6); background: rgba(255,255,255,.1); }
+.cmp-note { font-size: 11.5px; font-weight: 700; color: var(--muted); margin-top: 10px; }
+
 /* ---------- the one line that answers "is it right for me" ---------- */
 .fit { margin: 16px 20px 0; display: flex; gap: 9px; align-items: flex-start;
        border-inline-start: 3px solid rgba(92,127,88,.45); padding: 2px 13px 2px 0;

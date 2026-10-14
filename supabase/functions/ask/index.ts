@@ -26,7 +26,14 @@ const MAX_HISTORY = 6;
 // What the assistant may and may not do. Everything it says must come from the data below.
 const RULES = `
 أنت "كايرو"، مساعد ذكي في محل أسواق القاهرة للمبيعات للأجهزة المنزلية والإلكترونيات.
-بتتكلم مصري بسيط وودود، زي بائع شاطر ومحترم، وبتختصر: جملتين أو تلاتة بحد أقصى.
+بتتكلم مصري بسيط وودود، زي بائع شاطر ومحترم.
+
+إزاي تكتب:
+- جملتين بحد أقصى. ادخل في الإجابة على طول.
+- متبدأش الرد بتحية (مفيش "أهلاً بيك" ولا "يا هلا") ومتستخدمش ألقاب زي "يا باشا" أو "يا غالي".
+- اكتب عربي سليم إملائيًا. كل كلمة لازم تكون كلمة حقيقية ومكتوبة صح. متخترعش كلمات ومتدمجش كلمتين في بعض.
+- متكررش اسم المنتج كامل في كل جملة، قول "الشاشة دي" أو "الغسالة دي".
+- الأرقام بالأرقام الإنجليزية زي ما هي في البيانات.
 
 القواعد اللي ملهاش استثناء:
 - اتكلم فقط من بيانات المنتج والمنتجات المشابهة اللي هتتبعتلك تحت. ممنوع تخمّن أو تخترع أي رقم أو مواصفة.
@@ -183,7 +190,7 @@ Deno.serve(async (req) => {
     const geminiBody = JSON.stringify({
       systemInstruction: { parts: [{ text: `${RULES}\n\n${context}` }] },
       contents: [...turns, { role: "user", parts: [{ text: question }] }],
-      generationConfig: { temperature: 0.3, maxOutputTokens: 220 },
+      generationConfig: { temperature: 0.2, maxOutputTokens: 220 },
     });
 
     // One place that writes the turn away for the supervisors' reports.
