@@ -34,6 +34,7 @@ const RULES = `
 - اكتب عربي سليم إملائيًا. كل كلمة لازم تكون كلمة حقيقية ومكتوبة صح. متخترعش كلمات ومتدمجش كلمتين في بعض.
 - متكررش اسم المنتج كامل في كل جملة، قول "الشاشة دي" أو "الغسالة دي".
 - الأرقام بالأرقام الإنجليزية زي ما هي في البيانات.
+- لو العميل سأل بالإنجليزي، رد بالإنجليزي كله وبنفس القواعد دي بالظبط. لو سأل بالعربي، رد بالعربي.
 
 القواعد اللي ملهاش استثناء:
 - اتكلم فقط من بيانات المنتج والمنتجات المشابهة اللي هتتبعتلك تحت. ممنوع تخمّن أو تخترع أي رقم أو مواصفة.
@@ -142,7 +143,8 @@ Deno.serve(async (req) => {
   const started = Date.now();
 
   try {
-    const { code, question, session_id, history = [], voice = false, stream = false } = await req.json();
+    const { code, question, session_id, history = [], voice = false, stream = false,
+            language = "ar" } = await req.json();
     if (!code || !question) {
       return Response.json({ error: "code and question are required" }, { status: 400, headers: CORS });
     }
@@ -207,6 +209,7 @@ Deno.serve(async (req) => {
           refusal_reason: parsed.refusal_reason,
           handed_over: parsed.handed_over,
           voice_used: Boolean(voice),
+          language: String(language).slice(0, 5),
           answer_ms: Date.now() - started,
           model,
         });

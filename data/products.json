@@ -3,7 +3,7 @@
     "code": "101001133",
     "model": "F4R5TYG2T",
     "store_name": "غسالة ملابس ال جى 8 ك 1400 لفة سيلفر",
-    "scraped_at": "2026-10-14T03:00:33",
+    "scraped_at": "2026-10-15T13:30:52",
     "status": "ok",
     "site": {
       "id_product": "13692",
@@ -61,7 +61,7 @@
     },
     "checked_at": "2026-10-14T15:43:48",
     "last_price_cash": "25349",
-    "last_price_at": "2026-10-14T03:00:33",
+    "last_price_at": "2026-10-15T13:30:52",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/washers-dryers/lg-vivace-8-kg-vivace-washing-machine-with-ai-dd-technology-f4r5tyg2t.html"
   },
@@ -69,7 +69,7 @@
     "code": "101019001",
     "model": "HC7Z3625S",
     "store_name": "ال جي شفاط مطبخ بيلت ان 90 سم 830 م3/ساعة",
-    "scraped_at": "2026-10-14T03:16:59",
+    "scraped_at": "2026-10-15T13:53:53",
     "status": "ok",
     "site": {
       "id_product": "42227",
@@ -106,14 +106,14 @@
     },
     "checked_at": "2026-09-27T11:05:42",
     "last_price_cash": "18699",
-    "last_price_at": "2026-10-14T03:16:59",
+    "last_price_at": "2026-10-15T13:53:53",
     "price_missing_runs": 0
   },
   "101062465": {
     "code": "101062465",
     "model": "65QNED86T6A",
     "store_name": "ال جى شاشة كيوليد 65 بوصة سمارت",
-    "scraped_at": "2026-10-14T03:17:17",
+    "scraped_at": "2026-10-15T13:54:05",
     "status": "ok",
     "site": {
       "id_product": "40845",
@@ -161,10 +161,11 @@
       "url": "https://cairosales.com/ar/led-plasma-tvs/lg-65-inch-lg-qned-qned86t-4k-smart-tv-ai-magic-remote-hdr10-webos24-65qned86t6a.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=40845"
     },
-    "checked_at": "2026-09-27T11:05:51",
+    "checked_at": "2026-10-15T11:46:53",
     "last_price_cash": "71248",
-    "last_price_at": "2026-10-14T03:17:17",
-    "price_missing_runs": 0
+    "last_price_at": "2026-10-15T13:54:05",
+    "price_missing_runs": 0,
+    "last_error": "timed out loading https://cairosales.com/ar/led-plasma-tvs/lg-65-inch-lg-qned-qned86t-4k-smart-tv-ai-magic-remote-hdr10-webos24-65qned86t6a.html"
   },
   "292062007": {
     "code": "292062007",
@@ -219,7 +220,7 @@
     "code": "101062505",
     "model": "OLED77C56LA",
     "store_name": "ال جى شاشة 77 بوصة اوليد سمارت",
-    "scraped_at": "2026-10-14T03:18:09",
+    "scraped_at": "2026-10-15T13:54:18",
     "status": "ok",
     "site": {
       "id_product": "44641",
@@ -284,14 +285,14 @@
     },
     "checked_at": "2026-09-27T11:05:59",
     "last_price_cash": "121999",
-    "last_price_at": "2026-10-14T03:18:09",
+    "last_price_at": "2026-10-15T13:54:18",
     "price_missing_runs": 0
   },
   "101062516": {
     "code": "101062516",
     "model": "100QNED86A6A",
     "store_name": "إل جي شاشة 100 بوصة QNED86 MiniLED 4KTV",
-    "scraped_at": "2026-10-14T03:18:27",
+    "scraped_at": "2026-10-15T13:54:31",
     "status": "ok",
     "site": {
       "id_product": "45891",
@@ -355,14 +356,14 @@
     },
     "checked_at": "2026-09-27T11:06:07",
     "last_price_cash": "302999",
-    "last_price_at": "2026-10-14T03:18:27",
+    "last_price_at": "2026-10-15T13:54:31",
     "price_missing_runs": 0
   },
   "101062528": {
     "code": "101062528",
     "model": "50QNED70B6T",
     "store_name": "إل جي شاشة 50 بوصة QNED Mini LED سمارت",
-    "scraped_at": "2026-10-14T03:18:45",
+    "scraped_at": "2026-10-15T13:54:44",
     "status": "ok",
     "site": {
       "id_product": "49458",
@@ -404,16 +405,16 @@
       "url": "https://cairosales.com/ar/led-plasma-tvs/lg-50-inch-qned-ai-qned70-4k-mini-led-smart-50qned70b6t.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=49458"
     },
-    "checked_at": "2026-09-27T11:06:15",
+    "checked_at": "2026-10-14T17:05:03",
     "last_price_cash": "22499",
-    "last_price_at": "2026-10-14T03:18:45",
+    "last_price_at": "2026-10-15T13:54:44",
     "price_missing_runs": 0
   },
   "101062531": {
     "code": "101062531",
     "model": "OLED65CS6VA",
     "store_name": "إل جي شاشة 65 بوصة إل إي دي الترا اتش دي 3840*2160 بيكسل سمارت",
-    "scraped_at": "2026-10-14T03:19:02",
+    "scraped_at": "2026-10-15T13:54:57",
     "status": "ok",
     "site": {
       "id_product": "53037",
@@ -464,16 +465,17 @@
       "url": "https://cairosales.com/ar/led-plasma-tvs/lg-65-inch-oled-evo-ai-cs6-4k-144hz-smart-tv-and-sound-bar-with-wow-orchestra-powerful-600w-oled65cs6va-sh5a.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=53037"
     },
-    "checked_at": "2026-09-27T11:06:23",
+    "checked_at": "2026-10-15T11:53:43",
     "last_price_cash": "83599",
-    "last_price_at": "2026-10-14T03:19:02",
-    "price_missing_runs": 0
+    "last_price_at": "2026-10-15T13:54:57",
+    "price_missing_runs": 0,
+    "last_error": "timed out loading https://cairosales.com/ar/led-plasma-tvs/lg-65-inch-oled-evo-ai-cs6-4k-144hz-smart-tv-and-sound-bar-with-wow-orchestra-powerful-600w-oled65cs6va-sh5a.html"
   },
   "101062532": {
     "code": "101062532",
     "model": "OLED55CS6VA",
     "store_name": "إل جي شاشة 55 بوصة إل إي دي الترا اتش دي 3840*2160 بيكسل سمارت",
-    "scraped_at": "2026-10-14T03:19:20",
+    "scraped_at": "2026-10-15T13:55:10",
     "status": "ok",
     "site": {
       "id_product": "53047",
@@ -525,16 +527,16 @@
       "url": "https://cairosales.com/ar/led-plasma-tvs/lg-55-inch-oled-evo-ai-cs6-4k-smart-tv-and-sound-bar-with-wow-orchestra-powerful-600w-oled55cs6va-sh5a.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=53047"
     },
-    "checked_at": "2026-09-27T11:06:31",
+    "checked_at": "2026-10-15T11:54:00",
     "last_price_cash": "67999",
-    "last_price_at": "2026-10-14T03:19:20",
+    "last_price_at": "2026-10-15T13:55:10",
     "price_missing_runs": 0
   },
   "101062534": {
     "code": "101062534",
     "model": "75NU850B6LA",
     "store_name": "شاشة ال جي 75 بو صة سمارت NANO 4K UHD",
-    "scraped_at": "2026-10-14T03:19:38",
+    "scraped_at": "2026-10-15T13:55:22",
     "status": "ok",
     "site": {
       "id_product": "49498",
@@ -582,17 +584,18 @@
       "url": "https://cairosales.com/ar/led-plasma-tvs/lg-75-inch-nano-ai-nu85-4k-smart-tv-magic-remote-75nu850b6la.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=49498"
     },
-    "checked_at": "2026-10-08T13:16:37",
+    "checked_at": "2026-10-15T11:57:10",
     "last_price_cash": "35299",
-    "last_price_at": "2026-10-14T03:19:38",
-    "price_missing_runs": 0
+    "last_price_at": "2026-10-15T13:55:22",
+    "price_missing_runs": 0,
+    "last_error": "timed out loading https://cairosales.com/ar/led-plasma-tvs/lg-75-inch-nano-ai-nu85-4k-smart-tv-magic-remote-75nu850b6la.html"
   },
   "101062537": {
     "code": "101062537",
     "model": "OLED65B66LA",
     "store_name": "شاشة ال جي OLED ذكية مقاس 65 بوصة بدقة 4K",
-    "scraped_at": "2026-10-10T09:26:24",
-    "status": "stale",
+    "scraped_at": "2026-10-15T13:55:35",
+    "status": "ok",
     "site": {
       "id_product": "49824",
       "reference": "OLED65B66LA-SH5A",
@@ -602,7 +605,7 @@
       "breadcrumb": [
         "شاشات و تليفزيونات"
       ],
-      "price_cash": "66599",
+      "price_cash": "70299",
       "price_installment": "73999",
       "currency": "EGP",
       "availability": "instock",
@@ -639,15 +642,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=49824"
     },
     "checked_at": "2026-10-14T03:19:53",
-    "last_price_cash": "66599",
-    "last_price_at": "2026-10-10T09:26:24",
+    "last_price_cash": "70299",
+    "last_price_at": "2026-10-15T13:55:35",
     "price_missing_runs": 0
   },
   "101062538": {
     "code": "101062538",
     "model": "OLED77G66LW",
     "store_name": "شاشة ال جي OLED ذكية مقاس 77 بوصة بدقة 4K",
-    "scraped_at": "2026-10-14T03:20:44",
+    "scraped_at": "2026-10-15T13:55:47",
     "status": "ok",
     "site": {
       "id_product": "53015",
@@ -702,14 +705,14 @@
     },
     "checked_at": "2026-09-27T11:06:55",
     "last_price_cash": "213799",
-    "last_price_at": "2026-10-14T03:20:44",
+    "last_price_at": "2026-10-15T13:55:47",
     "price_missing_runs": 0
   },
   "101062539": {
     "code": "101062539",
     "model": "OLED83C66LA",
     "store_name": "شاشة ال جي OLED ذكية مقاس 83 بوصة بدقة 4K",
-    "scraped_at": "2026-10-14T03:21:35",
+    "scraped_at": "2026-10-15T13:56:00",
     "status": "ok",
     "site": {
       "id_product": "53018",
@@ -767,14 +770,14 @@
     },
     "checked_at": "2026-10-08T14:31:28",
     "last_price_cash": "196649",
-    "last_price_at": "2026-10-14T03:21:35",
+    "last_price_at": "2026-10-15T13:56:00",
     "price_missing_runs": 0
   },
   "101062542": {
     "code": "101062542",
     "model": "75QNED85B6T",
     "store_name": "شاشة ال جي 75 بوصه سمارت",
-    "scraped_at": "2026-10-14T03:22:29",
+    "scraped_at": "2026-10-15T13:56:12",
     "status": "ok",
     "site": {
       "id_product": "49733",
@@ -823,14 +826,14 @@
     },
     "checked_at": "2026-10-08T14:31:33",
     "last_price_cash": "71099",
-    "last_price_at": "2026-10-14T03:22:29",
+    "last_price_at": "2026-10-15T13:56:12",
     "price_missing_runs": 0
   },
   "101062555": {
     "code": "101062555",
     "model": "65QNED85B6T",
     "store_name": "تلفزيون ال جي LG QNED evo AI QNED85 Mini LED 4K Smart TV 2026 الذكي مقاس 65بوصة",
-    "scraped_at": "2026-10-14T03:23:19",
+    "scraped_at": "2026-10-15T13:56:24",
     "status": "ok",
     "site": {
       "id_product": "49789",
@@ -879,14 +882,14 @@
     },
     "checked_at": "2026-09-27T11:07:17",
     "last_price_cash": "55990",
-    "last_price_at": "2026-10-14T03:23:19",
+    "last_price_at": "2026-10-15T13:56:24",
     "price_missing_runs": 0
   },
   "101062558": {
     "code": "101062558",
     "model": "86QNED85B6T",
     "store_name": "تلفزيون ال جي LG QNED evo AI QNED85 Mini LED 4K Smart TV 2026 الذكي مقاس 86 بوصة",
-    "scraped_at": "2026-10-14T03:24:11",
+    "scraped_at": "2026-10-15T13:56:36",
     "status": "ok",
     "site": {
       "id_product": "50887",
@@ -921,14 +924,14 @@
     },
     "checked_at": "2026-09-27T11:07:24",
     "last_price_cash": "111599",
-    "last_price_at": "2026-10-14T03:24:11",
+    "last_price_at": "2026-10-15T13:56:36",
     "price_missing_runs": 0
   },
   "101062561": {
     "code": "101062561",
     "model": "55QNED85B6T",
     "store_name": "ال جى شاشة 55 بوصه بدقة 4 K يدعم VRR سمارت مع ريموت ماجيك",
-    "scraped_at": "2026-10-14T03:25:01",
+    "scraped_at": "2026-10-15T13:56:49",
     "status": "ok",
     "site": {
       "id_product": "51230",
@@ -968,14 +971,14 @@
     },
     "checked_at": "2026-09-27T11:07:31",
     "last_price_cash": "35999",
-    "last_price_at": "2026-10-14T03:25:01",
+    "last_price_at": "2026-10-15T13:56:49",
     "price_missing_runs": 0
   },
   "104019011": {
     "code": "104019011",
     "model": "HO60DS-1",
     "store_name": "شفاط تورنادو60 سم ديكوراتف ديجيتال استانلس بلت ان",
-    "scraped_at": "2026-10-14T03:37:19",
+    "scraped_at": "2026-10-15T12:22:25",
     "status": "ok",
     "site": {
       "id_product": "3456",
@@ -1005,16 +1008,16 @@
       "url": "https://cairosales.com/ar/kitchen-bath-hoods/tornado-kitchen-chimney-hood-60-cm-touch-control-stainless-ho60ds-1.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=3456"
     },
-    "checked_at": "2026-10-09T03:14:56",
+    "checked_at": "2026-10-14T17:43:24",
     "last_price_cash": "6569",
-    "last_price_at": "2026-10-14T03:37:19",
+    "last_price_at": "2026-10-15T12:22:25",
     "price_missing_runs": 0
   },
   "104062201": {
     "code": "104062201",
     "model": "43EL8250E-B",
     "store_name": "شاشة ال اى دى تورنيدو 43 بوصة",
-    "scraped_at": "2026-10-14T03:37:31",
+    "scraped_at": "2026-10-15T12:23:15",
     "status": "ok",
     "site": {
       "id_product": "12111",
@@ -1050,16 +1053,17 @@
       "url": "https://cairosales.com/ar/offers-packages/tornado-led-tv-43-inch-full-hd-with-2-hdmi-and-2-usb-inputs-43el8250e-b.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=12111"
     },
-    "checked_at": "2026-10-09T03:15:05",
+    "checked_at": "2026-10-14T17:46:33",
     "last_price_cash": "12549",
-    "last_price_at": "2026-10-14T03:37:31",
-    "price_missing_runs": 0
+    "last_price_at": "2026-10-15T12:23:15",
+    "price_missing_runs": 0,
+    "last_error": "timed out loading https://cairosales.com/ar/offers-packages/tornado-led-tv-43-inch-full-hd-with-2-hdmi-and-2-usb-inputs-43el8250e-b.html"
   },
   "104062256": {
     "code": "104062256",
     "model": "50US1500E",
     "store_name": "شاشة تورنيدو 4K سمارت 50 بوصة DLED ، تدعم الواي فاي",
-    "scraped_at": "2026-10-14T03:37:43",
+    "scraped_at": "2026-10-15T12:24:05",
     "status": "ok",
     "site": {
       "id_product": "31652",
@@ -1096,14 +1100,14 @@
     },
     "checked_at": "2026-10-09T03:15:14",
     "last_price_cash": "18899",
-    "last_price_at": "2026-10-14T03:37:43",
+    "last_price_at": "2026-10-15T12:24:05",
     "price_missing_runs": 0
   },
   "104062265": {
     "code": "104062265",
     "model": "43EC3300E",
     "store_name": "شاشة تليفزيون تورنيدو 43 بوصة FHD دي إل إي دي ريسيفر داخلي",
-    "scraped_at": "2026-10-14T03:37:55",
+    "scraped_at": "2026-10-15T12:25:58",
     "status": "ok",
     "site": {
       "id_product": "40638",
@@ -1148,14 +1152,14 @@
     },
     "checked_at": "2026-10-09T03:15:23",
     "last_price_cash": "12649",
-    "last_price_at": "2026-10-14T03:37:55",
+    "last_price_at": "2026-10-15T12:25:58",
     "price_missing_runs": 0
   },
   "104062285": {
     "code": "104062285",
     "model": "50UA5300E",
     "store_name": "شاشة تورنيدو 4K بدون فريم 50 بوصة أندرويد ريسيفر داخلي",
-    "scraped_at": "2026-10-14T03:38:07",
+    "scraped_at": "2026-10-15T12:26:49",
     "status": "ok",
     "site": {
       "id_product": "46998",
@@ -1203,7 +1207,7 @@
     },
     "checked_at": "2026-10-09T04:09:59",
     "last_price_cash": "16489",
-    "last_price_at": "2026-10-14T03:38:07",
+    "last_price_at": "2026-10-15T12:26:49",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/led-plasma-tvs/tornado-4k-smart-frameless-led-tv-50-inch-with-android-system-built-in-receiver-50ua5300e.html"
   },
@@ -1211,7 +1215,7 @@
     "code": "104062289",
     "model": "55C6K",
     "store_name": "شاشة تي سي إل 4K سمارت بدون فريم QD-Mini LED 55 بوصة ريسيفر داخلي",
-    "scraped_at": "2026-10-14T03:38:18",
+    "scraped_at": "2026-10-15T12:27:12",
     "status": "ok",
     "site": {
       "id_product": "46276",
@@ -1252,14 +1256,14 @@
     },
     "checked_at": "2026-09-27T12:06:28",
     "last_price_cash": "31399",
-    "last_price_at": "2026-10-14T03:38:18",
+    "last_price_at": "2026-10-15T12:27:12",
     "price_missing_runs": 0
   },
   "104062291": {
     "code": "104062291",
     "model": "55P7K",
     "store_name": "شاشة تي سي إل 4K سمارت بدون فريم QLED 55 بوصة ريسيفر داخلي",
-    "scraped_at": "2026-10-14T03:38:31",
+    "scraped_at": "2026-10-15T12:27:36",
     "status": "ok",
     "site": {
       "id_product": "46278",
@@ -1303,14 +1307,14 @@
     },
     "checked_at": "2026-09-27T12:06:36",
     "last_price_cash": "23789",
-    "last_price_at": "2026-10-14T03:38:31",
+    "last_price_at": "2026-10-15T12:27:36",
     "price_missing_runs": 0
   },
   "111019002": {
     "code": "111019002",
     "model": "HCA62640BE",
     "store_name": "شفاط مطبخ 60 سم - زجاج اسود - مدخنة",
-    "scraped_at": "2026-10-14T03:50:12",
+    "scraped_at": "2026-10-15T12:49:43",
     "status": "ok",
     "site": {
       "id_product": "11301",
@@ -1345,7 +1349,7 @@
     },
     "checked_at": "2026-09-30T05:19:55",
     "last_price_cash": "7940",
-    "last_price_at": "2026-10-14T03:50:12",
+    "last_price_at": "2026-10-15T12:49:43",
     "price_missing_runs": 0
   },
   "111019003": {
@@ -1367,7 +1371,7 @@
     "code": "111019006",
     "model": "CWB 9441 XNH",
     "store_name": "بيكو شفاط بالمدخنة 90 سم",
-    "scraped_at": "2026-10-14T03:51:04",
+    "scraped_at": "2026-10-15T12:49:57",
     "status": "ok",
     "site": {
       "id_product": "26046",
@@ -1399,14 +1403,14 @@
     },
     "checked_at": "2026-09-30T05:20:03",
     "last_price_cash": "10299",
-    "last_price_at": "2026-10-14T03:51:04",
+    "last_price_at": "2026-10-15T12:49:57",
     "price_missing_runs": 0
   },
   "112019001": {
     "code": "112019001",
     "model": "BOCP413/G",
     "store_name": "بومباني شفاط هرمي بالمدخنة 60 سم 550 م3/ساعة 4 سرعات لون استانليس ستيل",
-    "scraped_at": "2026-10-14T03:51:22",
+    "scraped_at": "2026-10-15T12:50:09",
     "status": "ok",
     "site": {
       "id_product": "11567",
@@ -1439,14 +1443,14 @@
     },
     "checked_at": "2026-09-30T05:20:11",
     "last_price_cash": "5675",
-    "last_price_at": "2026-10-14T03:51:22",
+    "last_price_at": "2026-10-15T12:50:09",
     "price_missing_runs": 0
   },
   "115019001": {
     "code": "115019001",
     "model": "AHPN 9.4F LM X",
     "store_name": "شفاط اريستون 90 سم هرمي بالمدخنة 416م3/ثانية استانليس",
-    "scraped_at": "2026-10-14T03:56:02",
+    "scraped_at": "2026-10-14T18:23:28",
     "status": "ok",
     "site": {
       "id_product": "44051",
@@ -1483,14 +1487,14 @@
     },
     "checked_at": "2026-09-30T06:56:10",
     "last_price_cash": "13499",
-    "last_price_at": "2026-10-14T03:56:02",
+    "last_price_at": "2026-10-14T18:23:28",
     "price_missing_runs": 0
   },
   "115019014": {
     "code": "115019014",
     "model": "ARO V9442 F BNA",
     "store_name": "شفاط اريستون 90 سم ديجيتال",
-    "scraped_at": "2026-10-14T03:56:15",
+    "scraped_at": "2026-10-14T18:24:19",
     "status": "ok",
     "site": {
       "id_product": "47264",
@@ -1528,7 +1532,7 @@
     },
     "checked_at": "2026-10-02T06:35:58",
     "last_price_cash": "19949",
-    "last_price_at": "2026-10-14T03:56:15",
+    "last_price_at": "2026-10-14T18:24:19",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/kitchen-bath-hoods/kitchen-hoods/ariston-chimney-hood-90-cm-441mh-black-aro-v9442f-bna.html"
   },
@@ -1536,7 +1540,7 @@
     "code": "117019028",
     "model": "STRIPE-LUX-90-BL-KL",
     "store_name": "إليكا شفاط ديكوري 90 سم 900 م3/ساعة لون اسود",
-    "scraped_at": "2026-10-14T03:56:27",
+    "scraped_at": "2026-10-14T18:25:10",
     "status": "ok",
     "site": {
       "id_product": "50231",
@@ -1567,7 +1571,7 @@
     },
     "checked_at": "2026-09-30T07:34:31",
     "last_price_cash": "22535",
-    "last_price_at": "2026-10-14T03:56:27",
+    "last_price_at": "2026-10-14T18:25:10",
     "price_missing_runs": 0
   },
   "117019033": {
@@ -1589,7 +1593,7 @@
     "code": "117019042",
     "model": "Krea-60-KL",
     "store_name": "إليكا كيتشن لاين شفاط 60 سم - 450 متر مكعب/ساعة لون استانلس ستيل",
-    "scraped_at": "2026-10-14T03:56:39",
+    "scraped_at": "2026-10-14T18:25:59",
     "status": "ok",
     "site": {
       "id_product": "5393",
@@ -1623,7 +1627,7 @@
     },
     "checked_at": "2026-09-30T07:34:39",
     "last_price_cash": "5290",
-    "last_price_at": "2026-10-14T03:56:39",
+    "last_price_at": "2026-10-14T18:25:59",
     "price_missing_runs": 0
   },
   "117019044": {
@@ -1645,7 +1649,7 @@
     "code": "117019045",
     "model": "KREA-BLACK-KL",
     "store_name": "إليكا كيتشن لاين شفاط 60 سم- 450 متر مكعب/ساعة لون أسود",
-    "scraped_at": "2026-10-14T03:56:57",
+    "scraped_at": "2026-10-14T18:26:49",
     "status": "ok",
     "site": {
       "id_product": "45215",
@@ -1680,14 +1684,14 @@
     },
     "checked_at": "2026-09-30T07:46:07",
     "last_price_cash": "6000",
-    "last_price_at": "2026-10-14T03:56:57",
+    "last_price_at": "2026-10-14T18:26:49",
     "price_missing_runs": 0
   },
   "117019051": {
     "code": "117019051",
     "model": "TAMAYA-90-KL",
     "store_name": "إليكا شفاط هرمي 90 سم 600 متر3/ ساعة لون أسود",
-    "scraped_at": "2026-10-14T03:57:30",
+    "scraped_at": "2026-10-14T18:27:41",
     "status": "ok",
     "site": {
       "id_product": "35243",
@@ -1722,7 +1726,7 @@
     },
     "checked_at": "2026-09-30T07:46:13",
     "last_price_cash": "11699",
-    "last_price_at": "2026-10-14T03:57:30",
+    "last_price_at": "2026-10-14T18:27:41",
     "price_missing_runs": 0
   },
   "117019052": {
@@ -4669,7 +4673,7 @@
     "code": "101001134",
     "model": "FARSVGG2E",
     "store_name": "استلمم افول 200 بلة ملايس ال جى 9 ك و5 ك مجنف-4R5VGG2E",
-    "scraped_at": "2026-10-14T16:33:13",
+    "scraped_at": "2026-10-15T13:31:43",
     "status": "ok",
     "site": {
       "id_product": "14269",
@@ -4729,14 +4733,14 @@
     "checked_at": "2026-10-11T03:08:58",
     "last_error": "timed out loading https://cairosales.com/ar/washers-dryers/lg-vivace-9-kg-5-kg-dryer-with-ai-dd-technology-f4r5vgg2e.html",
     "last_price_cash": "34799",
-    "last_price_at": "2026-10-14T16:33:13",
+    "last_price_at": "2026-10-15T13:31:43",
     "price_missing_runs": 0
   },
   "101001155": {
     "code": "101001155",
     "model": "FAJ3TMGSP",
     "store_name": "ل حى غسالة فول أوتوماتيك B كيلو.F4J3TMG5P",
-    "scraped_at": "2026-10-14T16:34:04",
+    "scraped_at": "2026-10-15T13:32:34",
     "status": "ok",
     "site": {
       "id_product": "22139",
@@ -4786,7 +4790,7 @@
     },
     "checked_at": "2026-10-11T03:12:07",
     "last_price_cash": "26999",
-    "last_price_at": "2026-10-14T16:34:04",
+    "last_price_at": "2026-10-15T13:32:34",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/washers-dryers/lg-front-load-with-dd-motor-85kg-washing-machine-chrome-knob-f4j3tmg5p.html"
   },
@@ -4794,7 +4798,7 @@
     "code": "101001156",
     "model": "FWT2116BS",
     "store_name": "",
-    "scraped_at": "2026-10-14T16:34:54",
+    "scraped_at": "2026-10-15T13:33:24",
     "status": "ok",
     "site": {
       "id_product": "23539",
@@ -4866,14 +4870,14 @@
     "checked_at": "2026-10-11T03:15:17",
     "last_error": "timed out loading https://cairosales.com/ar/washers-dryers/lg-washtower-with-center-control-turbowash360-ready-to-dry-inverter-heat-pum-dryer-fwt2116bs.html",
     "last_price_cash": "107999",
-    "last_price_at": "2026-10-14T16:34:54",
+    "last_price_at": "2026-10-15T13:33:24",
     "price_missing_runs": 0
   },
   "101001173": {
     "code": "101001173",
     "model": "FWT1310BG",
     "store_name": "غسالة واش تور بالمجلف -FWT1310BG",
-    "scraped_at": "2026-10-14T16:35:45",
+    "scraped_at": "2026-10-15T13:35:18",
     "status": "ok",
     "site": {
       "id_product": "36515",
@@ -4919,7 +4923,7 @@
     "checked_at": "2026-10-08T04:24:45",
     "last_error": "timed out loading https://cairosales.com/ar/washers-dryers/lg-washtower-with-dryer-1310-kg-with-steam-fwt1310bg.html",
     "last_price_cash": "90999",
-    "last_price_at": "2026-10-14T16:35:45",
+    "last_price_at": "2026-10-15T13:35:18",
     "price_missing_runs": 0
   },
   "101001188": {
@@ -4942,7 +4946,7 @@
     "code": "101001192",
     "model": "FOZEDRP24",
     "store_name": "لا جى غسالة ملابس تحميل امامى 0Z6DRP24 - 15",
-    "scraped_at": "2026-10-14T16:36:36",
+    "scraped_at": "2026-10-15T13:36:10",
     "status": "ok",
     "site": {
       "id_product": "44229",
@@ -4993,14 +4997,14 @@
     },
     "checked_at": "2026-10-11T03:18:18",
     "last_price_cash": "49999",
-    "last_price_at": "2026-10-14T16:36:36",
+    "last_price_at": "2026-10-15T13:36:10",
     "price_missing_runs": 0
   },
   "101001193": {
     "code": "101001193",
     "model": "F4Y2TYGYP",
     "store_name": "غسالة ملابس ال حى اتحميل امامى 8 ك - F4Y2TYGYP",
-    "scraped_at": "2026-10-14T16:37:25",
+    "scraped_at": "2026-10-15T13:37:02",
     "status": "ok",
     "site": {
       "id_product": "46099",
@@ -5045,14 +5049,14 @@
     },
     "checked_at": "2026-10-11T03:20:22",
     "last_price_cash": "23509",
-    "last_price_at": "2026-10-14T16:37:25",
+    "last_price_at": "2026-10-15T13:37:02",
     "price_missing_runs": 0
   },
   "101001194": {
     "code": "101001194",
     "model": "F4Y20YG6P",
     "store_name": "ال جى غسلة ملابس 7 كيلو 1400 لفه-F4Y2QYG6P",
-    "scraped_at": "2026-10-14T16:38:15",
+    "scraped_at": "2026-10-15T13:37:54",
     "status": "ok",
     "site": {
       "id_product": "46101",
@@ -5094,14 +5098,14 @@
     },
     "checked_at": "2026-10-11T03:21:13",
     "last_price_cash": "18699",
-    "last_price_at": "2026-10-14T16:38:15",
+    "last_price_at": "2026-10-15T13:37:54",
     "price_missing_runs": 0
   },
   "101001196": {
     "code": "101001196",
     "model": "F4Y2TYGYZ",
     "store_name": "غسالة قول اتوماتيك ال جى الفرتر F4Y2TYGYZ - 8",
-    "scraped_at": "2026-10-14T16:39:06",
+    "scraped_at": "2026-10-15T13:38:44",
     "status": "ok",
     "site": {
       "id_product": "46097",
@@ -5150,7 +5154,7 @@
     },
     "checked_at": "2026-10-11T03:23:14",
     "last_price_cash": "23399",
-    "last_price_at": "2026-10-14T16:39:06",
+    "last_price_at": "2026-10-15T13:38:44",
     "price_missing_runs": 0
   },
   "101001199": {
@@ -5165,7 +5169,7 @@
     "code": "101001202",
     "model": "F4X5EYG24",
     "store_name": "ل جى غسالة ملايس أمامية التحميل سعة - F4X5EYG24",
-    "scraped_at": "2026-10-14T16:39:57",
+    "scraped_at": "2026-10-15T13:39:36",
     "status": "ok",
     "site": {
       "id_product": "48088",
@@ -5215,14 +5219,14 @@
     },
     "checked_at": "2026-10-11T03:26:11",
     "last_price_cash": "31990",
-    "last_price_at": "2026-10-14T16:39:57",
+    "last_price_at": "2026-10-15T13:39:36",
     "price_missing_runs": 0
   },
   "101001207": {
     "code": "101001207",
     "model": "T23X5EHHSTX",
     "store_name": "",
-    "scraped_at": "2026-10-14T16:40:49",
+    "scraped_at": "2026-10-15T13:40:09",
     "status": "ok",
     "site": {
       "id_product": "48288",
@@ -5270,14 +5274,14 @@
     },
     "checked_at": "2026-09-29T06:14:25",
     "last_price_cash": "43799",
-    "last_price_at": "2026-10-14T16:40:49",
+    "last_price_at": "2026-10-15T13:40:09",
     "price_missing_runs": 0
   },
   "101001208": {
     "code": "101001208",
     "model": "T13V1TEHGX",
     "store_name": "نسالة ال جي فرق اتوماتيك 13 كبار - T13V1TEHGX",
-    "scraped_at": "2026-10-14T16:41:40",
+    "scraped_at": "2026-10-15T13:41:00",
     "status": "ok",
     "site": {
       "id_product": "49494",
@@ -5324,14 +5328,14 @@
     },
     "checked_at": "2026-09-29T06:14:31",
     "last_price_cash": "17999",
-    "last_price_at": "2026-10-14T16:41:40",
+    "last_price_at": "2026-10-15T13:41:00",
     "price_missing_runs": 0
   },
   "101001215": {
     "code": "101001215",
     "model": "FWT25WBS",
     "store_name": "غسالة ملابس ال حى - FWT25WBS",
-    "scraped_at": "2026-10-14T16:43:33",
+    "scraped_at": "2026-10-15T13:41:24",
     "status": "ok",
     "site": {
       "id_product": "51495",
@@ -5342,7 +5346,7 @@
       "breadcrumb": [
         "غسالات ملابس و مجففات"
       ],
-      "price_cash": "130999",
+      "price_cash": "130990",
       "price_installment": "135999",
       "currency": "EGP",
       "availability": "instock",
@@ -5371,15 +5375,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=51495"
     },
     "checked_at": "2026-09-29T06:14:39",
-    "last_price_cash": "130999",
-    "last_price_at": "2026-10-14T16:43:33",
+    "last_price_cash": "130990",
+    "last_price_at": "2026-10-15T13:41:24",
     "price_missing_runs": 0
   },
   "101001216": {
     "code": "101001216",
     "model": "FWT25WSS",
     "store_name": "غسلة ملابس ال جى - FWT25WSS",
-    "scraped_at": "2026-10-14T16:44:24",
+    "scraped_at": "2026-10-15T13:42:14",
     "status": "ok",
     "site": {
       "id_product": "51497",
@@ -5420,14 +5424,14 @@
     },
     "checked_at": "2026-09-29T06:14:47",
     "last_price_cash": "129499",
-    "last_price_at": "2026-10-14T16:44:24",
+    "last_price_at": "2026-10-15T13:42:14",
     "price_missing_runs": 0
   },
   "101002014": {
     "code": "101002014",
     "model": "DFB325HS",
     "store_name": "غسالة اطباق ال حى 14 فرد-DFB325HS",
-    "scraped_at": "2026-10-14T16:45:17",
+    "scraped_at": "2026-10-15T13:44:08",
     "status": "ok",
     "site": {
       "id_product": "22571",
@@ -5472,14 +5476,14 @@
     },
     "checked_at": "2026-09-29T06:14:55",
     "last_price_cash": "44439",
-    "last_price_at": "2026-10-14T16:45:17",
+    "last_price_at": "2026-10-15T13:44:08",
     "price_missing_runs": 0
   },
   "101002018": {
     "code": "101002018",
     "model": "DFC513FVE",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:07:21",
+    "scraped_at": "2026-10-15T13:44:58",
     "status": "ok",
     "site": {
       "id_product": "46907",
@@ -5523,15 +5527,15 @@
     },
     "checked_at": "2026-09-27T06:15:12",
     "last_price_cash": "36469",
-    "last_price_at": "2026-10-14T03:07:21",
+    "last_price_at": "2026-10-15T13:44:58",
     "price_missing_runs": 0
   },
   "101002019": {
     "code": "101002019",
     "model": "DFC287HVS",
     "store_name": "ال جى غسالة اطباق 14 مكان-DFC287HVS",
-    "scraped_at": "2026-10-14T03:08:12",
-    "status": "ok",
+    "scraped_at": "2026-10-15T08:19:07",
+    "status": "stale",
     "site": {
       "id_product": "46908",
       "reference": "DFC287HVS",
@@ -5541,7 +5545,7 @@
       "breadcrumb": [
         "غسالات أطباق"
       ],
-      "price_cash": "49499",
+      "price_cash": "51829",
       "price_installment": "53999",
       "currency": "EGP",
       "availability": "instock",
@@ -5572,18 +5576,18 @@
       "url": "https://cairosales.com/ar/dishwashers/lg-14-places-quadwash-dishwasher-heat-dry-dfc287hvs.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=46908"
     },
-    "checked_at": "2026-09-29T06:15:03",
+    "checked_at": "2026-10-15T13:45:04",
     "last_error": "timed out loading https://cairosales.com/ar/dishwashers/lg-14-places-quadwash-dishwasher-heat-dry-dfc287hvs.html",
-    "last_price_cash": "49499",
-    "last_price_at": "2026-10-14T03:08:12",
+    "last_price_cash": "51829",
+    "last_price_at": "2026-10-15T08:19:07",
     "price_missing_runs": 0
   },
   "101002020": {
     "code": "101002020",
     "model": "DFC287HMS",
     "store_name": "ال جى غسالة أطباق 14 فرد اسود - DFC287HMS",
-    "scraped_at": "2026-10-14T03:08:30",
-    "status": "ok",
+    "scraped_at": "2026-10-14T16:47:48",
+    "status": "stale",
     "site": {
       "id_product": "46979",
       "reference": "DFC287HMS",
@@ -5627,18 +5631,18 @@
       "url": "https://cairosales.com/ar/dishwashers/lg-14-places-quadwash-dishwasher-heat-dry-dfc287hms.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=46979"
     },
-    "checked_at": "2026-09-29T06:16:35",
+    "checked_at": "2026-10-15T13:45:10",
     "last_error": "timed out loading https://cairosales.com/ar/dishwashers/lg-14-places-quadwash-dishwasher-heat-dry-dfc287hms.html",
     "last_price_cash": "53749",
-    "last_price_at": "2026-10-14T03:08:30",
+    "last_price_at": "2026-10-14T16:47:48",
     "price_missing_runs": 0
   },
   "101002021": {
     "code": "101002021",
     "model": "DFC435FP",
     "store_name": "ال جي غسالة اطباق 14 مكان لون سيلفر - DFC435FP",
-    "scraped_at": "2026-10-14T03:08:48",
-    "status": "ok",
+    "scraped_at": "2026-10-15T09:20:50",
+    "status": "stale",
     "site": {
       "id_product": "48580",
       "reference": "DFC435FP",
@@ -5679,17 +5683,17 @@
       "url": "https://cairosales.com/ar/dishwashers/lg-14-places-dishwasher-inverter-thinq-dfc435fp.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=48580"
     },
-    "checked_at": "2026-09-29T06:19:20",
+    "checked_at": "2026-10-15T13:45:15",
     "last_price_cash": "40499",
-    "last_price_at": "2026-10-14T03:08:48",
+    "last_price_at": "2026-10-15T09:20:50",
     "price_missing_runs": 0
   },
   "101004122": {
     "code": "101004122",
     "model": "GC-X22FTOEL",
     "store_name": "GC-X22FTQEL-508 ياب 4 ثلاجة ال جى",
-    "scraped_at": "2026-10-14T03:09:06",
-    "status": "ok",
+    "scraped_at": "2026-10-15T09:38:34",
+    "status": "stale",
     "site": {
       "id_product": "18431",
       "reference": "GC-X22FTQEL",
@@ -5786,17 +5790,17 @@
       "url": "https://cairosales.com/ar/refrigerators/lg-refrigerator-instaview-508-liter-indoor-ice-maker-door-in-door-black-steel-gc-x22ftqel.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=18431"
     },
-    "checked_at": "2026-09-27T09:12:10",
+    "checked_at": "2026-10-15T13:45:21",
     "last_price_cash": "146459",
-    "last_price_at": "2026-10-14T03:09:06",
+    "last_price_at": "2026-10-15T09:38:34",
     "price_missing_runs": 0
   },
   "101004125": {
     "code": "101004125",
     "model": "GC-B257SLWL",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:09:57",
-    "status": "ok",
+    "scraped_at": "2026-10-15T10:05:43",
+    "status": "stale",
     "site": {
       "id_product": "22416",
       "reference": "GC-B257SLWL",
@@ -5841,17 +5845,17 @@
       "url": "https://cairosales.com/ar/refrigerators/lg-side-by-side-inverter-linear-compressor-net-655l-gc-b257slwl.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=22416"
     },
-    "checked_at": "2026-09-27T09:12:18",
+    "checked_at": "2026-10-15T13:45:27",
     "last_price_cash": "92990",
-    "last_price_at": "2026-10-14T03:09:57",
+    "last_price_at": "2026-10-15T10:05:43",
     "price_missing_runs": 0
   },
   "101004126": {
     "code": "101004126",
     "model": "GC-X257COHS",
     "store_name": "ل حي ثلاجة 24 قدم 665 لتر-C-X257CQHS:",
-    "scraped_at": "2026-10-14T03:10:48",
-    "status": "ok",
+    "scraped_at": "2026-10-15T10:22:34",
+    "status": "stale",
     "site": {
       "id_product": "22414",
       "reference": "GC-X257CQHS",
@@ -5911,17 +5915,17 @@
       "url": "https://cairosales.com/ar/refrigerators/lg-instaview-door-in-door-side-by-side-net-635l-gc-x257cqhs.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=22414"
     },
-    "checked_at": "2026-09-27T09:12:26",
+    "checked_at": "2026-10-15T13:45:32",
     "last_price_cash": "139999",
-    "last_price_at": "2026-10-14T03:10:48",
+    "last_price_at": "2026-10-15T10:22:34",
     "price_missing_runs": 0
   },
   "101004139": {
     "code": "101004139",
     "model": "GCFB507PQAM",
     "store_name": "ثلاجة ال حى انفرتر 519 لتر -GCFB507PQAM",
-    "scraped_at": "2026-10-14T03:11:07",
-    "status": "ok",
+    "scraped_at": "2026-10-15T10:38:57",
+    "status": "stale",
     "site": {
       "id_product": "32512",
       "reference": "GCFB507PQAM",
@@ -5970,9 +5974,9 @@
       "url": "https://cairosales.com/ar/refrigerators/lg-519-liter-side-by-side-refrigerator-inverter-gcfb507pqam.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=32512"
     },
-    "checked_at": "2026-09-27T09:12:34",
+    "checked_at": "2026-10-15T13:45:38",
     "last_price_cash": "53749",
-    "last_price_at": "2026-10-14T03:11:07",
+    "last_price_at": "2026-10-15T10:38:57",
     "price_missing_runs": 0
   },
   "101004145": {
@@ -5994,8 +5998,8 @@
     "code": "101004158",
     "model": "GTF569PVAM",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:11:57",
-    "status": "ok",
+    "scraped_at": "2026-10-15T11:21:09",
+    "status": "stale",
     "site": {
       "id_product": "44196",
       "reference": "GTF569PVAM",
@@ -6040,9 +6044,9 @@
       "url": "https://cairosales.com/ar/refrigerators/lg-bottom-freezer-588-l-smart-inverter-with-fresh-0-zone-gtf569pvam.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=44196"
     },
-    "checked_at": "2026-09-27T10:04:11",
+    "checked_at": "2026-10-15T13:45:43",
     "last_price_cash": "51289",
-    "last_price_at": "2026-10-14T03:11:57",
+    "last_price_at": "2026-10-15T11:21:09",
     "price_missing_runs": 0
   },
   "101004159": {
@@ -6057,7 +6061,7 @@
     "code": "101004169",
     "model": "GRTB622PFBO",
     "store_name": "ل حى ثلاجة تو فروست الفرتر،GRTB622PFBQ",
-    "scraped_at": "2026-10-14T03:12:49",
+    "scraped_at": "2026-10-15T13:46:35",
     "status": "ok",
     "site": {
       "id_product": "46668",
@@ -6094,7 +6098,7 @@
     },
     "checked_at": "2026-09-27T10:04:16",
     "last_price_cash": "80099",
-    "last_price_at": "2026-10-14T03:12:49",
+    "last_price_at": "2026-10-15T13:46:35",
     "price_missing_runs": 0
   },
   "101004173": {
@@ -6148,7 +6152,7 @@
       "url": "https://cairosales.com/ar/refrigerators/lg-refrigerator-no-frost-5450-liters-black-gtf452ssan.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=47294"
     },
-    "checked_at": "2026-10-14T03:13:08"
+    "checked_at": "2026-10-15T13:47:27"
   },
   "101004175": {
     "code": "101004175",
@@ -6170,7 +6174,7 @@
     "code": "101005009",
     "model": "RH1OX5TV2NP",
     "store_name": "RH10X5TV2NP - ك 10 مجنف ال جى",
-    "scraped_at": "2026-10-14T03:13:27",
+    "scraped_at": "2026-10-15T13:48:19",
     "status": "ok",
     "site": {
       "id_product": "51528",
@@ -6181,7 +6185,7 @@
       "breadcrumb": [
         "غسالات ملابس و مجففات"
       ],
-      "price_cash": "42990",
+      "price_cash": "40999",
       "price_installment": "42999",
       "currency": "EGP",
       "availability": "instock",
@@ -6220,15 +6224,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=51528"
     },
     "checked_at": "2026-09-27T10:04:32",
-    "last_price_cash": "42990",
-    "last_price_at": "2026-10-14T03:13:27",
+    "last_price_cash": "40999",
+    "last_price_at": "2026-10-15T13:48:19",
     "price_missing_runs": 0
   },
   "101005010": {
     "code": "101005010",
     "model": "RH1OX54V2NP",
     "store_name": "RH1OX54V2NP - مجنف ال جى",
-    "scraped_at": "2026-10-14T03:13:44",
+    "scraped_at": "2026-10-15T13:49:11",
     "status": "ok",
     "site": {
       "id_product": "51526",
@@ -6280,14 +6284,14 @@
     },
     "checked_at": "2026-09-27T10:04:40",
     "last_price_cash": "42499",
-    "last_price_at": "2026-10-14T03:13:44",
+    "last_price_at": "2026-10-15T13:49:11",
     "price_missing_runs": 0
   },
   "101005011": {
     "code": "101005011",
     "model": "FWT2ODBS",
     "store_name": "ال جى مجفف ملابس 20 ك - FWT20DBS",
-    "scraped_at": "2026-10-14T03:14:35",
+    "scraped_at": "2026-10-15T13:50:03",
     "status": "ok",
     "site": {
       "id_product": "51495",
@@ -6298,7 +6302,7 @@
       "breadcrumb": [
         "غسالات ملابس و مجففات"
       ],
-      "price_cash": "130999",
+      "price_cash": "130990",
       "price_installment": "135999",
       "currency": "EGP",
       "availability": "instock",
@@ -6327,15 +6331,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=51495"
     },
     "checked_at": "2026-09-27T10:04:47",
-    "last_price_cash": "130999",
-    "last_price_at": "2026-10-14T03:14:35",
+    "last_price_cash": "130990",
+    "last_price_at": "2026-10-15T13:50:03",
     "price_missing_runs": 0
   },
   "101005012": {
     "code": "101005012",
     "model": "FWT20DSS",
     "store_name": "FWT2ODSS - ك 20 ال جى مجقف ملابس",
-    "scraped_at": "2026-10-14T03:14:53",
+    "scraped_at": "2026-10-15T13:50:54",
     "status": "ok",
     "site": {
       "id_product": "51497",
@@ -6374,16 +6378,17 @@
       "url": "https://cairosales.com/ar/washers-dryers/lg-washtower-with-center-control-turbowash360-ready-to-dry-inverter-heat-pum-dryer-fwt25wss-fwt20dss.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=51497"
     },
-    "checked_at": "2026-09-27T11:05:07",
+    "checked_at": "2026-10-15T11:31:05",
     "last_price_cash": "129499",
-    "last_price_at": "2026-10-14T03:14:53",
-    "price_missing_runs": 0
+    "last_price_at": "2026-10-15T13:50:54",
+    "price_missing_runs": 0,
+    "last_error": "timed out loading https://cairosales.com/ar/washers-dryers/lg-washtower-with-center-control-turbowash360-ready-to-dry-inverter-heat-pum-dryer-fwt25wss-fwt20dss.html"
   },
   "101016001": {
     "code": "101016001",
     "model": "HU641BBG",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:15:12",
+    "scraped_at": "2026-10-15T13:51:46",
     "status": "ok",
     "site": {
       "id_product": "42224",
@@ -6422,7 +6427,7 @@
     },
     "checked_at": "2026-09-27T11:05:13",
     "last_price_cash": "13999",
-    "last_price_at": "2026-10-14T03:15:12",
+    "last_price_at": "2026-10-15T13:51:46",
     "price_missing_runs": 0
   },
   "101016002": {
@@ -6437,7 +6442,7 @@
     "code": "101018001",
     "model": "WSEZM722552",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:15:30",
+    "scraped_at": "2026-10-15T13:52:37",
     "status": "ok",
     "site": {
       "id_product": "42738",
@@ -6487,14 +6492,14 @@
     },
     "checked_at": "2026-09-27T11:05:18",
     "last_price_cash": "65199",
-    "last_price_at": "2026-10-14T03:15:30",
+    "last_price_at": "2026-10-15T13:52:37",
     "price_missing_runs": 0
   },
   "101018002": {
     "code": "101018002",
     "model": "WSED7667M",
     "store_name": "ال جي فرن كهرباء بلت إن 60 سم - WSED7667M",
-    "scraped_at": "2026-10-14T03:16:22",
+    "scraped_at": "2026-10-15T13:53:28",
     "status": "ok",
     "site": {
       "id_product": "42221",
@@ -6543,16 +6548,17 @@
       "url": "https://cairosales.com/ar/built-in-kitchen-products/lg-instaview-built-in-electric-oven-60-cm-76-l-air-fry-and-steam-matt-black-wsed7667m.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=42221"
     },
-    "checked_at": "2026-09-27T11:05:26",
+    "checked_at": "2026-10-15T11:38:38",
     "last_price_cash": "62999",
-    "last_price_at": "2026-10-14T03:16:22",
-    "price_missing_runs": 0
+    "last_price_at": "2026-10-15T13:53:28",
+    "price_missing_runs": 0,
+    "last_error": "timed out loading https://cairosales.com/ar/built-in-kitchen-products/lg-instaview-built-in-electric-oven-60-cm-76-l-air-fry-and-steam-matt-black-wsed7667m.html"
   },
   "101018003": {
     "code": "101018003",
     "model": "WSED7613S",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:16:39",
+    "scraped_at": "2026-10-15T13:53:40",
     "status": "ok",
     "site": {
       "id_product": "42259",
@@ -6595,10 +6601,11 @@
       "url": "https://cairosales.com/ar/built-in-kitchen-products/lg-instaview-built-in-electric-oven-60-cm-76-l-air-fry-and-steam-wsed7613s.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=42259"
     },
-    "checked_at": "2026-09-27T11:05:34",
+    "checked_at": "2026-10-15T11:41:47",
     "last_price_cash": "43999",
-    "last_price_at": "2026-10-14T03:16:39",
-    "price_missing_runs": 0
+    "last_price_at": "2026-10-15T13:53:40",
+    "price_missing_runs": 0,
+    "last_error": "timed out loading https://cairosales.com/ar/built-in-kitchen-products/lg-instaview-built-in-electric-oven-60-cm-76-l-air-fry-and-steam-wsed7613s.html"
   },
   "102002005": {
     "code": "102002005",
@@ -6683,7 +6690,7 @@
     "code": "103004121",
     "model": "WR-4385HSS",
     "store_name": "ثلاجة 2 باب استانلس 430 لتر - WR-4385HSS",
-    "scraped_at": "2026-10-14T03:26:57",
+    "scraped_at": "2026-10-15T13:57:01",
     "status": "ok",
     "site": {
       "id_product": "43500",
@@ -6720,7 +6727,7 @@
     },
     "checked_at": "2026-10-08T16:30:22",
     "last_price_cash": "23199",
-    "last_price_at": "2026-10-14T03:26:57",
+    "last_price_at": "2026-10-15T13:57:01",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/refrigerators/-430-wr-4385-hssv.html"
   },
@@ -6728,7 +6735,7 @@
     "code": "103004122",
     "model": "WR-6399AB INV",
     "store_name": "ثلاجة رايت ويل 4 باب اسود - WR-6399AB INV",
-    "scraped_at": "2026-10-14T03:27:48",
+    "scraped_at": "2026-10-15T13:57:13",
     "status": "ok",
     "site": {
       "id_product": "29962",
@@ -6765,14 +6772,14 @@
     },
     "checked_at": "2026-09-27T11:07:44",
     "last_price_cash": "55990",
-    "last_price_at": "2026-10-14T03:27:48",
+    "last_price_at": "2026-10-15T13:57:13",
     "price_missing_runs": 0
   },
   "103004127": {
     "code": "103004127",
     "model": "WR-5395 HBX",
     "store_name": "ثلاجة وايت ويل 2 باب اسود الفرتر - WR-5395 HBX",
-    "scraped_at": "2026-10-14T03:28:39",
+    "scraped_at": "2026-10-15T13:57:26",
     "status": "ok",
     "site": {
       "id_product": "31712",
@@ -6804,14 +6811,14 @@
     },
     "checked_at": "2026-09-27T11:07:50",
     "last_price_cash": "35449",
-    "last_price_at": "2026-10-14T03:28:39",
+    "last_price_at": "2026-10-15T13:57:26",
     "price_missing_runs": 0
   },
   "103004132": {
     "code": "103004132",
     "model": "WR-4385 HB",
     "store_name": "ثلاجه جباب أسود 430 لتر بشاشة - WR.4385 HB",
-    "scraped_at": "2026-10-14T03:29:03",
+    "scraped_at": "2026-10-15T13:57:38",
     "status": "ok",
     "site": {
       "id_product": "34450",
@@ -6845,7 +6852,7 @@
     },
     "checked_at": "2026-10-08T17:18:36",
     "last_price_cash": "21849",
-    "last_price_at": "2026-10-14T03:29:03",
+    "last_price_at": "2026-10-15T13:57:38",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/refrigerators/white-whale-refrigerator-430-l-wr-4385-hb.html"
   },
@@ -6853,7 +6860,7 @@
     "code": "103004135",
     "model": "WR-6395 HB",
     "store_name": "ثلاجة 2 باب لو فروست 640 لتر - WR-6395 HB",
-    "scraped_at": "2026-10-14T03:30:30",
+    "scraped_at": "2026-10-15T13:57:51",
     "status": "ok",
     "site": {
       "id_product": "39156",
@@ -6887,16 +6894,17 @@
       "url": "https://cairosales.com/ar/refrigerators/white-whale-refrigerator-640-l-inverter-digital-black-wr-6395-hb.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=39156"
     },
-    "checked_at": "2026-09-27T11:08:03",
+    "checked_at": "2026-10-14T17:20:20",
     "last_price_cash": "58989",
-    "last_price_at": "2026-10-14T03:30:30",
-    "price_missing_runs": 0
+    "last_price_at": "2026-10-15T13:57:51",
+    "price_missing_runs": 0,
+    "last_error": "timed out loading https://cairosales.com/ar/refrigerators/white-whale-refrigerator-640-l-inverter-digital-black-wr-6395-hb.html"
   },
   "103004136": {
     "code": "103004136",
     "model": "WR-G43B5HBV",
     "store_name": "وايت ويل ثلاجة 2 بابا نوفروست-WR-G4385HBV",
-    "scraped_at": "2026-10-14T03:31:20",
+    "scraped_at": "2026-10-15T13:58:05",
     "status": "ok",
     "site": {
       "id_product": "40330",
@@ -6930,7 +6938,7 @@
     },
     "checked_at": "2026-09-27T11:08:08",
     "last_price_cash": "24198",
-    "last_price_at": "2026-10-14T03:31:20",
+    "last_price_at": "2026-10-15T13:58:05",
     "price_missing_runs": 0
   },
   "103018001": {
@@ -6967,7 +6975,7 @@
     "code": "104001007",
     "model": "VH-720",
     "store_name": "غسالة ملابس توشريا حرضين 7ك -VH-720",
-    "scraped_at": "2026-10-14T03:31:44",
+    "scraped_at": "2026-10-15T13:58:20",
     "status": "ok",
     "site": {
       "id_product": "2826",
@@ -7008,14 +7016,14 @@
     },
     "checked_at": "2026-09-27T11:08:14",
     "last_price_cash": "7059",
-    "last_price_at": "2026-10-14T03:31:44",
+    "last_price_at": "2026-10-15T13:58:20",
     "price_missing_runs": 0
   },
   "104001064": {
     "code": "104001064",
     "model": "TWV-FN812BKOA",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:32:35",
+    "scraped_at": "2026-10-15T13:58:38",
     "status": "ok",
     "site": {
       "id_product": "25113",
@@ -7054,7 +7062,7 @@
     },
     "checked_at": "2026-09-27T11:08:20",
     "last_price_cash": "18526",
-    "last_price_at": "2026-10-14T03:32:35",
+    "last_price_at": "2026-10-15T13:58:38",
     "price_missing_runs": 0
   },
   "104001066": {
@@ -7076,7 +7084,7 @@
     "code": "104002005",
     "model": "TDV-FN107DDS",
     "store_name": "، غسالة أطباق تورنيدو 10 أفراد-TDV-FN1O7DDS",
-    "scraped_at": "2026-10-14T03:33:26",
+    "scraped_at": "2026-10-15T13:59:30",
     "status": "ok",
     "site": {
       "id_product": "23476",
@@ -7109,16 +7117,17 @@
       "url": "https://cairosales.com/ar/dishwashers/tornado-dishwasher-10-person-45-cm-digital-7-programs-dark-silver-tdv-fn107dds.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=23476"
     },
-    "checked_at": "2026-10-05T03:49:33",
+    "checked_at": "2026-10-14T17:30:30",
     "last_price_cash": "18817",
-    "last_price_at": "2026-10-14T03:33:26",
-    "price_missing_runs": 0
+    "last_price_at": "2026-10-15T13:59:30",
+    "price_missing_runs": 0,
+    "last_error": "timed out loading https://cairosales.com/ar/dishwashers/tornado-dishwasher-10-person-45-cm-digital-7-programs-dark-silver-tdv-fn107dds.html"
   },
   "104002006": {
     "code": "104002006",
     "model": "TDV-FN128CDX",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:34:17",
+    "scraped_at": "2026-10-15T13:59:54",
     "status": "ok",
     "site": {
       "id_product": "25839",
@@ -7151,14 +7160,14 @@
     },
     "checked_at": "2026-09-27T11:08:32",
     "last_price_cash": "20388",
-    "last_price_at": "2026-10-14T03:34:17",
+    "last_price_at": "2026-10-15T13:59:54",
     "price_missing_runs": 0
   },
   "104003012": {
     "code": "104003012",
     "model": "RH-H1ET-BK",
     "store_name": "اتيب فريزز ثورنينو 5 درج 185 لئر - RH-H18T-BK",
-    "scraped_at": "2026-10-14T03:35:07",
+    "scraped_at": "2026-10-15T14:00:17",
     "status": "ok",
     "site": {
       "id_product": "29986",
@@ -7191,14 +7200,14 @@
     },
     "checked_at": "2026-09-27T11:08:38",
     "last_price_cash": "19764",
-    "last_price_at": "2026-10-14T03:35:07",
+    "last_price_at": "2026-10-15T14:00:17",
     "price_missing_runs": 0
   },
   "104004101": {
     "code": "104004101",
     "model": "RF.452BVT-SLS",
     "store_name": "ثلاجة تورتينو ديجيتال ، فريزر-RF-452BVT-SLS",
-    "scraped_at": "2026-10-14T03:36:00",
+    "scraped_at": "2026-10-15T14:01:08",
     "status": "ok",
     "site": {
       "id_product": "23682",
@@ -7234,16 +7243,17 @@
       "url": "https://cairosales.com/ar/refrigerators/tornado-refrigerator-digital-with-bottom-freezer-advanced-no-frost-430-l-shiny-silver-rf-452bvt-sls.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=23682"
     },
-    "checked_at": "2026-09-27T11:08:43",
+    "checked_at": "2026-10-14T17:38:33",
     "last_price_cash": "32009",
-    "last_price_at": "2026-10-14T03:36:00",
-    "price_missing_runs": 0
+    "last_price_at": "2026-10-15T14:01:08",
+    "price_missing_runs": 0,
+    "last_error": "timed out loading https://cairosales.com/ar/refrigerators/tornado-refrigerator-digital-with-bottom-freezer-advanced-no-frost-430-l-shiny-silver-rf-452bvt-sls.html"
   },
   "104004126": {
     "code": "104004126",
     "model": "RF-40FT-SL",
     "store_name": "ثلاجة تورنيتو 2 باب 355 لتر بلازما - AF-4OFT-SL",
-    "scraped_at": "2026-10-14T03:36:52",
+    "scraped_at": "2026-10-15T14:03:02",
     "status": "ok",
     "site": {
       "id_product": "35766",
@@ -7277,7 +7287,7 @@
     },
     "checked_at": "2026-09-27T11:08:49",
     "last_price_cash": "20259",
-    "last_price_at": "2026-10-14T03:36:52",
+    "last_price_at": "2026-10-15T14:03:02",
     "price_missing_runs": 0
   },
   "104004138": {
@@ -7299,7 +7309,7 @@
     "code": "104004142",
     "model": "RF-33FT-SL",
     "store_name": "اثلاجة اتورنيدو توفروست 304 لتر سرلفر - RF-33FT-SL",
-    "scraped_at": "2026-10-14T03:37:07",
+    "scraped_at": "2026-10-15T12:20:31",
     "status": "ok",
     "site": {
       "id_product": "41090",
@@ -7332,10 +7342,11 @@
       "url": "https://cairosales.com/ar/refrigerators/tornado-refrigerator-no-frost-304-liter-silver-rf-33ft-sl.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=41090"
     },
-    "checked_at": "2026-09-27T11:08:55",
+    "checked_at": "2026-10-14T17:42:34",
     "last_price_cash": "18699",
-    "last_price_at": "2026-10-14T03:37:07",
-    "price_missing_runs": 0
+    "last_price_at": "2026-10-15T12:20:31",
+    "price_missing_runs": 0,
+    "last_error": "timed out loading https://cairosales.com/ar/refrigerators/tornado-refrigerator-no-frost-304-liter-silver-rf-33ft-sl.html"
   },
   "104016008": {
     "code": "104016008",
@@ -7356,7 +7367,7 @@
     "code": "105001031",
     "model": "ES-TD15GBKP",
     "store_name": ": ملايس شارب 15 كجم فرق - TD15GBKP.",
-    "scraped_at": "2026-10-14T03:38:44",
+    "scraped_at": "2026-10-15T12:28:29",
     "status": "ok",
     "site": {
       "id_product": "41479",
@@ -7392,14 +7403,14 @@
     },
     "checked_at": "2026-09-27T12:06:44",
     "last_price_cash": "22309",
-    "last_price_at": "2026-10-14T03:38:44",
+    "last_price_at": "2026-10-15T12:28:29",
     "price_missing_runs": 0
   },
   "105001035": {
     "code": "105001035",
     "model": "ES-FP132KLE-G",
     "store_name": "غسالة ملابس شارب E1E",
-    "scraped_at": "2026-10-14T03:38:54",
+    "scraped_at": "2026-10-15T12:30:23",
     "status": "ok",
     "site": {
       "id_product": "47021",
@@ -7442,14 +7453,14 @@
     },
     "checked_at": "2026-09-27T12:06:52",
     "last_price_cash": "35317",
-    "last_price_at": "2026-10-14T03:38:54",
+    "last_price_at": "2026-10-15T12:30:23",
     "price_missing_runs": 0
   },
   "105001036": {
     "code": "105001036",
     "model": "ES-FS104KLE-G",
     "store_name": "غسالة ملابس شارب EE",
-    "scraped_at": "2026-10-14T03:39:06",
+    "scraped_at": "2026-10-15T12:31:13",
     "status": "ok",
     "site": {
       "id_product": "47024",
@@ -7495,14 +7506,14 @@
     },
     "checked_at": "2026-09-27T13:07:11",
     "last_price_cash": "28209",
-    "last_price_at": "2026-10-14T03:39:06",
+    "last_price_at": "2026-10-15T12:31:13",
     "price_missing_runs": 0
   },
   "105001038": {
     "code": "105001038",
     "model": "ES-FSB52KLE-G",
     "store_name": "غسالة ملاس شارب E",
-    "scraped_at": "2026-10-14T03:39:18",
+    "scraped_at": "2026-10-15T12:31:37",
     "status": "ok",
     "site": {
       "id_product": "47019",
@@ -7513,7 +7524,7 @@
       "breadcrumb": [
         "غسالات ملابس و مجففات"
       ],
-      "price_cash": "25895",
+      "price_cash": "25449",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -7540,15 +7551,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=47019"
     },
     "checked_at": "2026-09-27T13:07:17",
-    "last_price_cash": "25895",
-    "last_price_at": "2026-10-14T03:39:18",
+    "last_price_cash": "25449",
+    "last_price_at": "2026-10-15T12:31:37",
     "price_missing_runs": 0
   },
   "105001039": {
     "code": "105001039",
     "model": "ES-DP114KLE-G",
     "store_name": "غسالة ملابس شارب EE",
-    "scraped_at": "2026-10-14T03:39:31",
+    "scraped_at": "2026-10-15T12:32:01",
     "status": "ok",
     "site": {
       "id_product": "47020",
@@ -7590,14 +7601,14 @@
     },
     "checked_at": "2026-09-27T13:07:22",
     "last_price_cash": "39565",
-    "last_price_at": "2026-10-14T03:39:31",
+    "last_price_at": "2026-10-15T12:32:01",
     "price_missing_runs": 0
   },
   "105002009": {
     "code": "105002009",
     "model": "QW-V1015A-BK",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:39:44",
+    "scraped_at": "2026-10-15T12:32:53",
     "status": "ok",
     "site": {
       "id_product": "43817",
@@ -7632,14 +7643,14 @@
     },
     "checked_at": "2026-09-27T13:07:30",
     "last_price_cash": "32610",
-    "last_price_at": "2026-10-14T03:39:44",
+    "last_price_at": "2026-10-15T12:32:53",
     "price_missing_runs": 0
   },
   "105003002": {
     "code": "105003002",
     "model": "FJ-EC2TIST",
     "store_name": "ب فريزر شارب انفرتر ديجيتال -J-EC27(ST",
-    "scraped_at": "2026-10-14T03:39:56",
+    "scraped_at": "2026-10-15T12:33:45",
     "status": "ok",
     "site": {
       "id_product": "17495",
@@ -7679,14 +7690,14 @@
     },
     "checked_at": "2026-09-27T13:07:38",
     "last_price_cash": "30999",
-    "last_price_at": "2026-10-14T03:39:56",
+    "last_price_at": "2026-10-15T12:33:45",
     "price_missing_runs": 0
   },
   "105004048": {
     "code": "105004048",
     "model": "SJ-PC5BA(ST",
     "store_name": "ثلاجة شارب 2 باب 450 لتر بلازما-SJ-PC5BA(ST",
-    "scraped_at": "2026-10-14T03:40:08",
+    "scraped_at": "2026-10-15T12:34:36",
     "status": "ok",
     "site": {
       "id_product": "4283",
@@ -7724,14 +7735,14 @@
     },
     "checked_at": "2026-09-27T13:07:46",
     "last_price_cash": "32135",
-    "last_price_at": "2026-10-14T03:40:08",
+    "last_price_at": "2026-10-15T12:34:36",
     "price_missing_runs": 0
   },
   "105004056": {
     "code": "105004056",
     "model": "SJ-PC4BA(BK",
     "store_name": "ثلاجة شارب صباب بلازما384 لتر-SJ-PC4BA(BK",
-    "scraped_at": "2026-10-14T03:40:20",
+    "scraped_at": "2026-10-15T12:35:27",
     "status": "ok",
     "site": {
       "id_product": "4641",
@@ -7768,7 +7779,7 @@
     },
     "checked_at": "2026-09-27T13:07:53",
     "last_price_cash": "25690",
-    "last_price_at": "2026-10-14T03:40:20",
+    "last_price_at": "2026-10-15T12:35:27",
     "price_missing_runs": 0
   },
   "105004072": {
@@ -7786,7 +7797,7 @@
     "code": "105004095",
     "model": "SJ-GV63G-SL",
     "store_name": "ثلاجة شارب انفرتر ديجيتال لوفروست-SJ-GV83G-SL",
-    "scraped_at": "2026-10-14T03:40:32",
+    "scraped_at": "2026-10-15T12:36:19",
     "status": "ok",
     "site": {
       "id_product": "11282",
@@ -7827,7 +7838,7 @@
     },
     "checked_at": "2026-09-27T13:55:22",
     "last_price_cash": "54028",
-    "last_price_at": "2026-10-14T03:40:32",
+    "last_price_at": "2026-10-15T12:36:19",
     "price_missing_runs": 0
   },
   "105004113": {
@@ -7849,7 +7860,7 @@
     "code": "105007064",
     "model": "ES-FE752KLE-W",
     "store_name": "غسالة ملابس شارب EE75E",
-    "scraped_at": "2026-10-14T03:40:44",
+    "scraped_at": "2026-10-15T12:36:43",
     "status": "ok",
     "site": {
       "id_product": "47017",
@@ -7895,14 +7906,14 @@
     },
     "checked_at": "2026-09-27T13:55:28",
     "last_price_cash": "20779",
-    "last_price_at": "2026-10-14T03:40:44",
+    "last_price_at": "2026-10-15T12:36:43",
     "price_missing_runs": 0
   },
   "107001797": {
     "code": "107001797",
     "model": "F4Y2VYGYP",
     "store_name": "ال جى غسالة ملابس 9 كيلر 1400 لنه - F4Y2VYGYP",
-    "scraped_at": "2026-10-14T03:40:57",
+    "scraped_at": "2026-10-15T12:37:07",
     "status": "ok",
     "site": {
       "id_product": "46090",
@@ -7949,7 +7960,7 @@
     },
     "checked_at": "2026-09-30T04:19:28",
     "last_price_cash": "25549",
-    "last_price_at": "2026-10-14T03:40:57",
+    "last_price_at": "2026-10-15T12:37:07",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/washers-dryers/lg-9-kg-front-load-washing-machine-1400rpm-thinq-wi-fi-platinum-silver-f4y2vygyp.html"
   },
@@ -7957,7 +7968,7 @@
     "code": "109004123",
     "model": "WR-4385 HSSX",
     "store_name": "ثلاجة وايت ويل 2 باب سيلفر - WR.4385 HSSX",
-    "scraped_at": "2026-10-14T03:41:10",
+    "scraped_at": "2026-10-15T12:37:57",
     "status": "ok",
     "site": {
       "id_product": "32876",
@@ -7994,14 +8005,14 @@
     },
     "checked_at": "2026-09-29T07:46:36",
     "last_price_cash": "21369",
-    "last_price_at": "2026-10-14T03:41:10",
+    "last_price_at": "2026-10-15T12:37:57",
     "price_missing_runs": 0
   },
   "111001050": {
     "code": "111001050",
     "model": "WFSTeeXS",
     "store_name": "غسالة ملابس بيكو تحميل أمامى 8 كيلر - WFST86XS",
-    "scraped_at": "2026-10-14T03:41:22",
+    "scraped_at": "2026-10-15T12:38:50",
     "status": "ok",
     "site": {
       "id_product": "49635",
@@ -8012,7 +8023,7 @@
       "breadcrumb": [
         "غسالات ملابس و مجففات"
       ],
-      "price_cash": "15539",
+      "price_cash": "15669",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -8041,15 +8052,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=49635"
     },
     "checked_at": "2026-09-29T07:46:43",
-    "last_price_cash": "15539",
-    "last_price_at": "2026-10-14T03:41:22",
+    "last_price_cash": "15669",
+    "last_price_at": "2026-10-15T12:38:50",
     "price_missing_runs": 0
   },
   "111001051": {
     "code": "111001051",
     "model": "WFST9TXA",
     "store_name": "لغة ديجيتال الفرتر رمادي 1200 غساله بيكر وك 1400 لنه ديجيتال - WFST97XA",
-    "scraped_at": "2026-10-14T03:41:34",
+    "scraped_at": "2026-10-15T12:39:42",
     "status": "ok",
     "site": {
       "id_product": "49634",
@@ -8088,14 +8099,14 @@
     },
     "checked_at": "2026-09-29T07:46:52",
     "last_price_cash": "16999",
-    "last_price_at": "2026-10-14T03:41:34",
+    "last_price_at": "2026-10-15T12:39:42",
     "price_missing_runs": 0
   },
   "111002016": {
     "code": "111002016",
     "model": "BDFN15420B",
     "store_name": "بيكو غسالة اطباق 14 فرد 5 برامج - BDFN154208",
-    "scraped_at": "2026-10-14T03:41:46",
+    "scraped_at": "2026-10-15T12:40:34",
     "status": "ok",
     "site": {
       "id_product": "26048",
@@ -8106,7 +8117,7 @@
       "breadcrumb": [
         "غسالات أطباق"
       ],
-      "price_cash": "17799",
+      "price_cash": "17569",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -8132,15 +8143,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=26048"
     },
     "checked_at": "2026-09-29T07:47:00",
-    "last_price_cash": "17799",
-    "last_price_at": "2026-10-14T03:41:46",
+    "last_price_cash": "17569",
+    "last_price_at": "2026-10-15T12:40:34",
     "price_missing_runs": 0
   },
   "111002018": {
     "code": "111002018",
     "model": "BDFN36531XC",
     "store_name": "بيكو غسالة اطباق 15فرد 6 برامج - BDFN36531XC",
-    "scraped_at": "2026-10-14T03:41:58",
+    "scraped_at": "2026-10-15T12:40:58",
     "status": "ok",
     "site": {
       "id_product": "32952",
@@ -8151,7 +8162,7 @@
       "breadcrumb": [
         "غسالات أطباق"
       ],
-      "price_cash": "29449",
+      "price_cash": "28499",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -8174,15 +8185,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=32952"
     },
     "checked_at": "2026-09-29T07:47:08",
-    "last_price_cash": "29449",
-    "last_price_at": "2026-10-14T03:41:58",
+    "last_price_cash": "28499",
+    "last_price_at": "2026-10-15T12:40:58",
     "price_missing_runs": 0
   },
   "111002020": {
     "code": "111002020",
     "model": "BDFN26520X0",
     "store_name": "غسالة اطباق 6 برنامج 15 فرد BDFN26520XQ-60",
-    "scraped_at": "2026-10-14T03:42:49",
+    "scraped_at": "2026-10-15T12:41:22",
     "status": "ok",
     "site": {
       "id_product": "32995",
@@ -8214,14 +8225,14 @@
     },
     "checked_at": "2026-09-29T07:47:16",
     "last_price_cash": "24649",
-    "last_price_at": "2026-10-14T03:42:49",
+    "last_price_at": "2026-10-15T12:41:22",
     "price_missing_runs": 0
   },
   "111002028": {
     "code": "111002028",
     "model": "BDFN36531XCPI",
     "store_name": "غسالة أطباق بيكر 60 سم» BDFN36531XCP| - 11",
-    "scraped_at": "2026-10-14T03:43:40",
+    "scraped_at": "2026-10-15T12:42:13",
     "status": "ok",
     "site": {
       "id_product": "51198",
@@ -8254,14 +8265,14 @@
     },
     "checked_at": "2026-09-29T07:48:15",
     "last_price_cash": "31499",
-    "last_price_at": "2026-10-14T03:43:40",
+    "last_price_at": "2026-10-15T12:42:13",
     "price_missing_runs": 0
   },
   "111003022": {
     "code": "111003022",
     "model": "RFNM200E208",
     "store_name": "بيب فريزر بيكو 5 درج راسى - RFNM200E20B",
-    "scraped_at": "2026-10-14T03:43:56",
+    "scraped_at": "2026-10-15T12:42:36",
     "status": "ok",
     "site": {
       "id_product": "36890",
@@ -8272,7 +8283,7 @@
       "breadcrumb": [
         "فريزرات"
       ],
-      "price_cash": "20349",
+      "price_cash": "20129",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -8297,15 +8308,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=36890"
     },
     "checked_at": "2026-09-29T08:11:20",
-    "last_price_cash": "20349",
-    "last_price_at": "2026-10-14T03:43:56",
+    "last_price_cash": "20129",
+    "last_price_at": "2026-10-15T12:42:36",
     "price_missing_runs": 0
   },
   "111003025": {
     "code": "111003025",
     "model": "B3RFNE294XB",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:44:14",
+    "scraped_at": "2026-10-15T12:43:28",
     "status": "ok",
     "site": {
       "id_product": "44950",
@@ -8341,7 +8352,7 @@
     },
     "checked_at": "2026-09-30T04:19:36",
     "last_price_cash": "30599",
-    "last_price_at": "2026-10-14T03:44:14",
+    "last_price_at": "2026-10-15T12:43:28",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/freezers/beko-freezer-7-drawer-nofrost-260-l-black-b3rfne294xb.html"
   },
@@ -8349,7 +8360,7 @@
     "code": "111003026",
     "model": "B3RFNE274B",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:45:05",
+    "scraped_at": "2026-10-15T12:44:19",
     "status": "ok",
     "site": {
       "id_product": "45048",
@@ -8360,7 +8371,7 @@
       "breadcrumb": [
         "فريزرات"
       ],
-      "price_cash": "23749",
+      "price_cash": "23999",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -8383,15 +8394,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=45048"
     },
     "checked_at": "2026-09-29T09:03:50",
-    "last_price_cash": "23749",
-    "last_price_at": "2026-10-14T03:45:05",
+    "last_price_cash": "23999",
+    "last_price_at": "2026-10-15T12:44:19",
     "price_missing_runs": 0
   },
   "111004049": {
     "code": "111004049",
     "model": "RDNE650E60XP",
     "store_name": "بيكو ثلاجة 630 لتر صاني-RDNE650E60XP",
-    "scraped_at": "2026-10-14T03:45:23",
+    "scraped_at": "2026-10-15T12:45:11",
     "status": "ok",
     "site": {
       "id_product": "19570",
@@ -8427,14 +8438,14 @@
     },
     "checked_at": "2026-09-29T09:04:42",
     "last_price_cash": "61400",
-    "last_price_at": "2026-10-14T03:45:23",
+    "last_price_at": "2026-10-15T12:45:11",
     "price_missing_runs": 0
   },
   "111004060": {
     "code": "111004060",
     "model": "GNE1346262XH",
     "store_name": "ثلاجه 4 باب بيكو 626 لتر - GNE134626ZXH",
-    "scraped_at": "2026-10-14T03:45:40",
+    "scraped_at": "2026-10-15T12:46:02",
     "status": "ok",
     "site": {
       "id_product": "35834",
@@ -8445,7 +8456,7 @@
       "breadcrumb": [
         "ثلاجات"
       ],
-      "price_cash": "75990",
+      "price_cash": "76499",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -8469,8 +8480,8 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=35834"
     },
     "checked_at": "2026-09-29T09:21:12",
-    "last_price_cash": "75990",
-    "last_price_at": "2026-10-14T03:45:40",
+    "last_price_cash": "76499",
+    "last_price_at": "2026-10-15T12:46:02",
     "price_missing_runs": 0
   },
   "111004067": {
@@ -8484,7 +8495,7 @@
     "code": "111004068",
     "model": "RDNE455M20XBIDS",
     "store_name": "RDNE455M20XBIDS - باب 2 ثلاجه بيكر نوفروست",
-    "scraped_at": "2026-10-14T03:47:01",
+    "scraped_at": "2026-10-15T12:46:52",
     "status": "ok",
     "site": {
       "id_product": "42036",
@@ -8525,7 +8536,7 @@
     },
     "checked_at": "2026-09-30T04:25:02",
     "last_price_cash": "25379",
-    "last_price_at": "2026-10-14T03:47:01",
+    "last_price_at": "2026-10-15T12:46:52",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/refrigerators/beko-refrigerator-406-liters-silver-digital-inverter-rdne455m20xbids.html"
   },
@@ -8533,7 +8544,7 @@
     "code": "111004080",
     "model": "RCNE590E35ZXP2",
     "store_name": "ثلاجة بيكر كرسبى نوفرست - RCNE590E35ZXP2",
-    "scraped_at": "2026-10-14T03:47:19",
+    "scraped_at": "2026-10-15T12:47:43",
     "status": "ok",
     "site": {
       "id_product": "45513",
@@ -8573,7 +8584,7 @@
     },
     "checked_at": "2026-09-30T04:25:59",
     "last_price_cash": "53099",
-    "last_price_at": "2026-10-14T03:47:19",
+    "last_price_at": "2026-10-15T12:47:43",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/refrigerators/beko-refrigerator-no-frost-combi-590-l-inveter-silver-rcne590e35zxp2.html"
   },
@@ -8581,7 +8592,7 @@
     "code": "111004083",
     "model": "RDNE420KD",
     "store_name": "ثلاجة بيكو توفروست ، 390 لتر ، RDNE420KD- 2",
-    "scraped_at": "2026-10-14T03:47:36",
+    "scraped_at": "2026-10-15T12:47:56",
     "status": "ok",
     "site": {
       "id_product": "50148",
@@ -8614,14 +8625,14 @@
     },
     "checked_at": "2026-09-29T10:07:22",
     "last_price_cash": "20175",
-    "last_price_at": "2026-10-14T03:47:36",
+    "last_price_at": "2026-10-15T12:47:56",
     "price_missing_runs": 0
   },
   "111004087": {
     "code": "111004087",
     "model": "GNE60500XEG",
     "store_name": "سايد بابين وX2ثلاجة بيكو سايد - GNE60500XEG",
-    "scraped_at": "2026-10-14T03:47:54",
+    "scraped_at": "2026-10-15T12:48:18",
     "status": "ok",
     "site": {
       "id_product": "5508",
@@ -8660,14 +8671,14 @@
     },
     "checked_at": "2026-10-09T11:58:19",
     "last_price_cash": "72199",
-    "last_price_at": "2026-10-14T03:47:54",
+    "last_price_at": "2026-10-15T12:48:18",
     "price_missing_runs": 0
   },
   "111016004": {
     "code": "111016004",
     "model": "HIMW 95226 SXEL",
     "store_name": "-1IMW 95226 SXEL-5 سم 90 سطح غاز بيكر ققطعة",
-    "scraped_at": "2026-10-14T03:48:12",
+    "scraped_at": "2026-10-15T12:48:33",
     "status": "ok",
     "site": {
       "id_product": "52603",
@@ -8703,7 +8714,7 @@
     },
     "checked_at": "2026-10-03T03:09:44",
     "last_price_cash": "17849",
-    "last_price_at": "2026-10-14T03:48:12",
+    "last_price_at": "2026-10-15T12:48:33",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/built-in-kitchen-products/beko-gas-hob-5-burner-90-cm-cast-iron-glass-black-hisw-95226-sel.html"
   },
@@ -8761,7 +8772,7 @@
     "code": "111016012",
     "model": "HILW 64222 SE",
     "store_name": "طح غاز بيكر 60 سم 4 شع",
-    "scraped_at": "2026-10-14T03:49:03",
+    "scraped_at": "2026-10-15T12:48:48",
     "status": "ok",
     "site": {
       "id_product": "38573",
@@ -8799,7 +8810,7 @@
     },
     "checked_at": "2026-10-03T03:09:52",
     "last_price_cash": "10529",
-    "last_price_at": "2026-10-14T03:49:03",
+    "last_price_at": "2026-10-15T12:48:48",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/built-in-kitchen-products/beko-built-in-gas-hob-60-cm-4-burners-cast-iron-safety-black-hilw-64222-se.html"
   },
@@ -8807,7 +8818,7 @@
     "code": "111017023",
     "model": "BGGR 11225 GB2",
     "store_name": "رتاجاز بيكر 5 شعلة 90 سم - 3GGR 11225 GB2 قطعة",
-    "scraped_at": "2026-10-14T03:49:20",
+    "scraped_at": "2026-10-15T12:49:04",
     "status": "ok",
     "site": {
       "id_product": "52606",
@@ -8818,7 +8829,7 @@
       "breadcrumb": [
         "بوتاجازات"
       ],
-      "price_cash": "17265",
+      "price_cash": "16909",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -8846,15 +8857,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=52606"
     },
     "checked_at": "2026-09-30T05:19:34",
-    "last_price_cash": "17265",
-    "last_price_at": "2026-10-14T03:49:20",
+    "last_price_cash": "16909",
+    "last_price_at": "2026-10-15T12:49:04",
     "price_missing_runs": 0
   },
   "111018011": {
     "code": "111018011",
     "model": "EBIM17300WD",
     "store_name": "بيكو ڤرن كيرباء بلت ان 60 سم - BBIM17300WD قطعة",
-    "scraped_at": "2026-10-14T03:49:37",
+    "scraped_at": "2026-10-15T12:49:18",
     "status": "ok",
     "site": {
       "id_product": "39870",
@@ -8895,14 +8906,14 @@
     },
     "checked_at": "2026-09-30T05:19:39",
     "last_price_cash": "18990",
-    "last_price_at": "2026-10-14T03:49:37",
+    "last_price_at": "2026-10-15T12:49:18",
     "price_missing_runs": 0
   },
   "111018016": {
     "code": "111018016",
     "model": "EBIH12100BC",
     "store_name": "فرن غاز بلت ان بيكر، 66 لتر، BBIH12100BC -60 قطعة",
-    "scraped_at": "2026-10-14T03:49:54",
+    "scraped_at": "2026-10-15T12:49:31",
     "status": "ok",
     "site": {
       "id_product": "38570",
@@ -8914,7 +8925,7 @@
         "منتجات بيلت إن",
         "أفران بيلت أن"
       ],
-      "price_cash": "18379",
+      "price_cash": "17066",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -8943,8 +8954,8 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=38570"
     },
     "checked_at": "2026-09-30T05:19:47",
-    "last_price_cash": "18379",
-    "last_price_at": "2026-10-14T03:49:54",
+    "last_price_cash": "17066",
+    "last_price_at": "2026-10-15T12:49:31",
     "price_missing_runs": 0
   },
   "112016001": {
@@ -8987,7 +8998,7 @@
     "code": "113001001",
     "model": "BD-100XFVEM",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:52:15",
+    "scraped_at": "2026-10-15T12:50:22",
     "status": "ok",
     "site": {
       "id_product": "43611",
@@ -9017,14 +9028,14 @@
     },
     "checked_at": "2026-09-30T05:37:14",
     "last_price_cash": "30149",
-    "last_price_at": "2026-10-14T03:52:15",
+    "last_price_at": "2026-10-15T12:50:22",
     "price_missing_runs": 0
   },
   "113001002": {
     "code": "113001002",
     "model": "BD.80YFVEM",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:52:28",
+    "scraped_at": "2026-10-14T18:08:18",
     "status": "ok",
     "site": {
       "id_product": "43609",
@@ -9056,14 +9067,14 @@
     },
     "checked_at": "2026-09-30T05:37:19",
     "last_price_cash": "24699",
-    "last_price_at": "2026-10-14T03:52:28",
+    "last_price_at": "2026-10-14T18:08:18",
     "price_missing_runs": 0
   },
   "113004096": {
     "code": "113004096",
     "model": "R.B590EY2R",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:52:40",
+    "scraped_at": "2026-10-14T18:09:09",
     "status": "ok",
     "site": {
       "id_product": "43615",
@@ -9096,7 +9107,7 @@
     },
     "checked_at": "2026-09-30T05:48:43",
     "last_price_cash": "63529",
-    "last_price_at": "2026-10-14T03:52:40",
+    "last_price_at": "2026-10-14T18:09:09",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/refrigerators/hitachi-refrigerator-combi-no-frost-2-doors-590-litres-inverter-motor-digital-r-b590ey2r.html"
   },
@@ -9105,7 +9116,7 @@
     "model": "R-V650EY2R",
     "store_name": "",
     "scraped_at": "2026-10-14T03:52:52",
-    "status": "ok",
+    "status": "stale",
     "site": {
       "id_product": "43617",
       "reference": "R-V650EY2R",
@@ -9136,7 +9147,7 @@
       "url": "https://cairosales.com/ar/refrigerators/hitachi-refrigerator-no-frost-2-doors-650-litres-inverter-motor-digital-with-dispenser-r-v650ey2r.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=43617"
     },
-    "checked_at": "2026-09-30T05:48:48",
+    "checked_at": "2026-10-14T18:09:23",
     "last_price_cash": "73971",
     "last_price_at": "2026-10-14T03:52:52",
     "price_missing_runs": 0
@@ -9145,7 +9156,7 @@
     "code": "113004098",
     "model": "A-V5OOEY2R",
     "store_name": "بتاشيى نااجة 590 لتر 2 باب موتور -R-V590EY2R",
-    "scraped_at": "2026-10-14T03:53:04",
+    "scraped_at": "2026-10-14T18:10:15",
     "status": "ok",
     "site": {
       "id_product": "43616",
@@ -9178,7 +9189,7 @@
     },
     "checked_at": "2026-09-30T05:48:56",
     "last_price_cash": "62128",
-    "last_price_at": "2026-10-14T03:53:04",
+    "last_price_at": "2026-10-14T18:10:15",
     "price_missing_runs": 0
   },
   "115001013": {
@@ -9199,7 +9210,7 @@
     "code": "115001019",
     "model": "NM 10 723 SS EX",
     "store_name": "ريستون غسالة ملاس 7 كيلر -NM 10 723 SS EX",
-    "scraped_at": "2026-10-14T03:53:19",
+    "scraped_at": "2026-10-14T18:11:05",
     "status": "ok",
     "site": {
       "id_product": "14310",
@@ -9239,14 +9250,14 @@
     },
     "checked_at": "2026-09-30T05:49:05",
     "last_price_cash": "25799",
-    "last_price_at": "2026-10-14T03:53:19",
+    "last_price_at": "2026-10-14T18:11:05",
     "price_missing_runs": 0
   },
   "115001020": {
     "code": "115001020",
     "model": "NLM11946 SC AEX",
     "store_name": "NLM11946 SC AEX-غسلة ملايس اريستون",
-    "scraped_at": "2026-10-14T03:53:31",
+    "scraped_at": "2026-10-14T18:11:59",
     "status": "ok",
     "site": {
       "id_product": "16713",
@@ -9283,14 +9294,14 @@
     },
     "checked_at": "2026-09-30T05:49:12",
     "last_price_cash": "27673",
-    "last_price_at": "2026-10-14T03:53:31",
+    "last_price_at": "2026-10-14T18:11:59",
     "price_missing_runs": 0
   },
   "115001028": {
     "code": "115001028",
     "model": "NS 723U GG EG",
     "store_name": "ساله ملابس اريستون 7 كيلو - NS 723U GG EG",
-    "scraped_at": "2026-10-14T03:53:43",
+    "scraped_at": "2026-10-14T18:12:50",
     "status": "ok",
     "site": {
       "id_product": "44943",
@@ -9326,14 +9337,14 @@
     },
     "checked_at": "2026-09-30T05:49:21",
     "last_price_cash": "18429",
-    "last_price_at": "2026-10-14T03:53:43",
+    "last_price_at": "2026-10-14T18:12:50",
     "price_missing_runs": 0
   },
   "115001032": {
     "code": "115001032",
     "model": "WEST8GWHR",
     "store_name": "VFSTBGWHR - كجم 8 يستون غساله ملابس",
-    "scraped_at": "2026-10-14T03:53:58",
+    "scraped_at": "2026-10-14T18:14:46",
     "status": "ok",
     "site": {
       "id_product": "47972",
@@ -9372,7 +9383,7 @@
     },
     "checked_at": "2026-09-30T06:01:01",
     "last_price_cash": "20499",
-    "last_price_at": "2026-10-14T03:53:58",
+    "last_price_at": "2026-10-14T18:14:46",
     "price_missing_runs": 0
   },
   "115002016": {
@@ -9407,7 +9418,7 @@
     "code": "115002024",
     "model": "DFN856XQ",
     "store_name": "غسالة أطباق اريستون 60 سم 15 فرد DFN856XQ - 8",
-    "scraped_at": "2026-10-14T03:54:09",
+    "scraped_at": "2026-10-14T18:15:37",
     "status": "ok",
     "site": {
       "id_product": "46667",
@@ -9438,14 +9449,14 @@
     },
     "checked_at": "2026-09-30T06:01:06",
     "last_price_cash": "28799",
-    "last_price_at": "2026-10-14T03:54:09",
+    "last_price_at": "2026-10-14T18:15:37",
     "price_missing_runs": 0
   },
   "115002026": {
     "code": "115002026",
     "model": "DFN436X",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:54:22",
+    "scraped_at": "2026-10-14T18:16:26",
     "status": "ok",
     "site": {
       "id_product": "47970",
@@ -9476,7 +9487,7 @@
     },
     "checked_at": "2026-09-30T06:01:12",
     "last_price_cash": "21719",
-    "last_price_at": "2026-10-14T03:54:22",
+    "last_price_at": "2026-10-14T18:16:26",
     "price_missing_runs": 0
   },
   "115003005": {
@@ -9526,7 +9537,7 @@
     "code": "115016014",
     "model": "PHN 961 TS/IX/A",
     "store_name": "HN 961 TS/IX/A-عين 6 سم 90 طح اريستون",
-    "scraped_at": "2026-10-14T03:54:35",
+    "scraped_at": "2026-10-14T18:16:51",
     "status": "ok",
     "site": {
       "id_product": "48209",
@@ -9563,7 +9574,7 @@
     },
     "checked_at": "2026-09-30T06:01:20",
     "last_price_cash": "73999",
-    "last_price_at": "2026-10-14T03:54:35",
+    "last_price_at": "2026-10-14T18:16:51",
     "price_missing_runs": 0
   },
   "115016018": {
@@ -9608,7 +9619,7 @@
     "code": "115016025",
     "model": "AGS92SBK",
     "store_name": "مسطح اريستون غاز-AGS92SBK",
-    "scraped_at": "2026-10-14T03:54:47",
+    "scraped_at": "2026-10-14T18:17:41",
     "status": "ok",
     "site": {
       "id_product": "22271",
@@ -9646,14 +9657,14 @@
     },
     "checked_at": "2026-09-30T06:01:28",
     "last_price_cash": "28299",
-    "last_price_at": "2026-10-14T03:54:47",
+    "last_price_at": "2026-10-14T18:17:41",
     "price_missing_runs": 0
   },
   "115016028": {
     "code": "115016028",
     "model": "ARH 6G4R22 W2XNA",
     "store_name": "ARH GG4R22 W2XNA-4 :مسطح بلت ان اريستون",
-    "scraped_at": "2026-10-14T03:54:58",
+    "scraped_at": "2026-10-14T18:18:31",
     "status": "ok",
     "site": {
       "id_product": "48452",
@@ -9664,7 +9675,7 @@
       "breadcrumb": [
         "منتجات بيلت إن"
       ],
-      "price_cash": "12299",
+      "price_cash": "12219",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -9688,8 +9699,8 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=48452"
     },
     "checked_at": "2026-09-30T06:01:36",
-    "last_price_cash": "12299",
-    "last_price_at": "2026-10-14T03:54:58",
+    "last_price_cash": "12219",
+    "last_price_at": "2026-10-14T18:18:31",
     "price_missing_runs": 0
   },
   "115018007": {
@@ -9726,7 +9737,7 @@
     "code": "115018020",
     "model": "GESM53IXA30",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:55:11",
+    "scraped_at": "2026-10-14T18:19:21",
     "status": "ok",
     "site": {
       "id_product": "22275",
@@ -9761,14 +9772,14 @@
     },
     "checked_at": "2026-09-30T06:01:43",
     "last_price_cash": "35990",
-    "last_price_at": "2026-10-14T03:55:11",
+    "last_price_at": "2026-10-14T18:19:21",
     "price_missing_runs": 0
   },
   "115018023": {
     "code": "115018023",
     "model": "AROGER1G1CXNA",
     "store_name": "AROGER1G1CXNA-سم غاز شوايه كيرباء 60 فرن",
-    "scraped_at": "2026-10-14T03:55:24",
+    "scraped_at": "2026-10-14T18:20:14",
     "status": "ok",
     "site": {
       "id_product": "46396",
@@ -9806,14 +9817,14 @@
     },
     "checked_at": "2026-09-30T06:14:40",
     "last_price_cash": "24206",
-    "last_price_at": "2026-10-14T03:55:24",
+    "last_price_at": "2026-10-14T18:20:14",
     "price_missing_runs": 0
   },
   "115018025": {
     "code": "115018025",
     "model": "AROG 9R2F3NG XNA",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:55:36",
+    "scraped_at": "2026-10-14T18:21:04",
     "status": "ok",
     "site": {
       "id_product": "46603",
@@ -9854,14 +9865,14 @@
     },
     "checked_at": "2026-09-30T06:14:45",
     "last_price_cash": "31499",
-    "last_price_at": "2026-10-14T03:55:36",
+    "last_price_at": "2026-10-14T18:21:04",
     "price_missing_runs": 0
   },
   "115018027": {
     "code": "115018027",
     "model": "AROE6R395C XNA",
     "store_name": "ريستون فرن كهرباء بلت إن - AROE6R395C XNA",
-    "scraped_at": "2026-10-14T03:55:49",
+    "scraped_at": "2026-10-14T18:21:56",
     "status": "ok",
     "site": {
       "id_product": "49083",
@@ -9902,7 +9913,7 @@
     },
     "checked_at": "2026-10-03T03:25:21",
     "last_price_cash": "29249",
-    "last_price_at": "2026-10-14T03:55:49",
+    "last_price_at": "2026-10-14T18:21:56",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/built-in-kitchen-products/ariston-built-in-electricity-oven-with-grill-60-cm-72-liters-stainless-steel-aroe6r395c-xna.html"
   },

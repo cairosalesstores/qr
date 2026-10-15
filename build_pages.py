@@ -310,13 +310,21 @@ h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 70
 .kairo-asks .ask { font: inherit; font-size: 12px; font-weight: 700; color: #FFF6F1; cursor: pointer;
                    background: rgba(217,119,87,.18); border: 1px solid rgba(217,119,87,.45);
                    border-radius: 30px; padding: 8px 14px; }
-.kairo-bar { display: flex; align-items: center; gap: 8px; margin-top: 12px; background: #fff;
-             border-radius: 30px; padding: 6px 6px 6px 16px; }
+.kairo-bar { display: flex; align-items: center; gap: 6px; margin-top: 12px; background: #fff;
+             border-radius: 30px; padding: 6px 6px 6px 10px; }
 .kairo-bar input { flex: 1; border: 0; background: none; font: inherit; font-family: "Cairo", sans-serif;
                    font-size: 13.5px; color: var(--ink); outline: none; min-width: 0; padding: 6px 0; }
-.kairo-bar button { border: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--clay);
+.kairo-bar button[type="submit"] { border: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--clay);
                     display: grid; place-items: center; cursor: pointer; flex-shrink: 0; }
 .kairo-bar button svg { width: 16px; height: 16px; }
+.kairo-bar .mic { border: 0; background: none; color: var(--muted); width: 32px; height: 32px;
+                  display: grid; place-items: center; cursor: pointer; flex-shrink: 0; border-radius: 50%; }
+.kairo-bar .mic svg { width: 19px; height: 19px; }
+.kairo-bar .mic.on { color: #fff; background: var(--clay); animation: hear 1.1s ease-in-out infinite; }
+@keyframes hear { 0%, 100% { box-shadow: 0 0 0 0 rgba(217,119,87,.5); } 50% { box-shadow: 0 0 0 7px rgba(217,119,87,0); } }
+.kairo-bar .lang { border: 1px solid var(--line); background: none; color: var(--muted); cursor: pointer;
+                   font: inherit; font-size: 10.5px; font-weight: 800; border-radius: 20px;
+                   padding: 4px 8px; flex-shrink: 0; min-width: 30px; }
 .kairo-thread { margin-top: 13px; display: flex; flex-direction: column; gap: 9px;
                 max-height: 340px; overflow-y: auto; }
 .turn { display: flex; }
@@ -773,6 +781,12 @@ def assistant_section(code, product_title):
       <div class="kairo-thread" id="thread" hidden></div>
       <div class="kairo-asks" id="asks">{chips}</div>
       <form class="kairo-bar" id="askform" autocomplete="off">
+        <button type="button" id="mic" class="mic" aria-label="اسأل بصوتك" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>
+          </svg>
+        </button>
+        <button type="button" id="lang" class="lang" aria-label="لغة الصوت" hidden>ع</button>
         <input id="q" type="text" placeholder="اكتب سؤالك هنا…" maxlength="300" enterkeyhint="send">
         <button type="submit" aria-label="ابعت">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
@@ -803,7 +817,7 @@ def assistant_section(code, product_title):
       return row;
     }}
 
-    async function ask(question) {{
+    async function ask(question, spoken) {{
       if (!question) return;
       asks.hidden = true;
       bubble('me', question);
@@ -815,7 +829,8 @@ def assistant_section(code, product_title):
         var r = await fetch(CFG.url + '/functions/v1/ask', {{
           method: 'POST',
           headers: {{ 'Content-Type': 'application/json', 'apikey': CFG.key, 'Authorization': 'Bearer ' + CFG.key }},
-          body: JSON.stringify({{ code: CODE, question: question, session_id: session, history: history, stream: true }})
+          body: JSON.stringify({{ code: CODE, question: question, session_id: session, history: history,
+                                  stream: true, voice: !!spoken, language: VOICE.lang.slice(0, 2) }})
         }});
         // The answer arrives word by word, so the customer reads while it is still writing.
         var reader = r.body.getReader(), dec = new TextDecoder(), buf = '', answer = '', meta = null, failed = false;
@@ -856,6 +871,77 @@ def assistant_section(code, product_title):
         bubbleText.classList.remove('dots');
         bubbleText.textContent = 'الشبكة ضعيفة دلوقتي — جرّب تاني أو اسأل البائع.';
       }}
+    }}
+
+    // Voice: the browser's own recogniser, so there is nothing to pay for and
+    // nothing to upload. Egyptian Arabic by default, English on the toggle.
+    var VOICE = {{ lang: 'ar-EG' }};
+    var micBtn = document.getElementById('mic');
+    var langBtn = document.getElementById('lang');
+    var Recog = window.SpeechRecognition || window.webkitSpeechRecognition;
+    var TYPE_HINT = 'اكتب سؤالك هنا…';
+
+    try {{ VOICE.lang = localStorage.getItem('kairo-voice-lang') || 'ar-EG'; }} catch (e) {{}}
+
+    function paintLang() {{
+      langBtn.textContent = VOICE.lang === 'ar-EG' ? 'ع' : 'EN';
+      input.placeholder = VOICE.lang === 'ar-EG' ? TYPE_HINT : 'Ask about this product…';
+    }}
+
+    if (Recog) {{
+      micBtn.hidden = false;
+      langBtn.hidden = false;
+      paintLang();
+
+      langBtn.addEventListener('click', function () {{
+        VOICE.lang = VOICE.lang === 'ar-EG' ? 'en-US' : 'ar-EG';
+        try {{ localStorage.setItem('kairo-voice-lang', VOICE.lang); }} catch (e) {{}}
+        paintLang();
+      }});
+
+      var rec = new Recog();
+      rec.continuous = false;
+      rec.interimResults = true;
+      var listening = false;
+
+      micBtn.addEventListener('click', function () {{
+        if (listening) {{ rec.stop(); return; }}
+        rec.lang = VOICE.lang;
+        input.value = '';
+        try {{ rec.start(); }} catch (e) {{}}
+      }});
+
+      rec.onstart = function () {{
+        listening = true;
+        micBtn.classList.add('on');
+        input.placeholder = VOICE.lang === 'ar-EG' ? 'اتكلم دلوقتي…' : 'Listening…';
+      }};
+      rec.onend = function () {{
+        listening = false;
+        micBtn.classList.remove('on');
+        paintLang();
+      }};
+      rec.onerror = function (ev) {{
+        listening = false;
+        micBtn.classList.remove('on');
+        if (ev.error === 'not-allowed' || ev.error === 'service-not-allowed') {{
+          input.placeholder = VOICE.lang === 'ar-EG'
+            ? 'اسمح للميكروفون عشان تسأل بصوتك'
+            : 'Allow the microphone to ask by voice';
+        }} else {{
+          paintLang();
+        }}
+      }};
+      rec.onresult = function (ev) {{
+        var said = '';
+        for (var i = 0; i < ev.results.length; i++) said += ev.results[i][0].transcript;
+        input.value = said;
+        if (ev.results[ev.results.length - 1].isFinal) {{
+          rec.stop();
+          var q = said.trim();
+          if (q) ask(q, true);
+        }}
+      }};
     }}
 
     form.addEventListener('submit', function (ev) {{ ev.preventDefault(); ask(input.value.trim()); }});
