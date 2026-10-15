@@ -17,6 +17,7 @@ const CORS = {
 };
 
 const MAX_QUESTION = 400;
+const MAX_AUDIO_BYTES = 4_000_000;   // ~20s of 16 kHz mono WAV, base64
 // Gemini answers in 1-2s, but now and then a call stalls for 20s and returns nothing.
 // Rather than wait it out, a second request goes off after this long and whichever
 // answers first wins. The customer never pays for the stalled one.
@@ -91,8 +92,12 @@ function productFacts(p: Record<string, unknown>): string {
 function parseMeta(text: string) {
   const line = text.split("\n").find((l) => l.trim().startsWith("META:")) ?? "";
   const get = (key: string) => line.match(new RegExp(`${key}=([a-z_]+)`))?.[1] ?? "";
+  const saidLine = text.split("\n").find((l) => l.trim().startsWith("SAID:")) ?? "";
   return {
-    answer: text.split("\n").filter((l) => !l.trim().startsWith("META:")).join("\n").trim(),
+    said: saidLine.replace(/^\s*SAID:\s*/, "").trim(),
+    answer: text.split("\n")
+      .filter((l) => !l.trim().startsWith("META:") && !l.trim().startsWith("SAID:"))
+      .join("\n").trim(),
     intent: get("intent") || "other",
     answered: get("answered") !== "no",
     handed_over: get("handover") === "yes",
@@ -144,12 +149,15 @@ Deno.serve(async (req) => {
 
   try {
     const { code, question, session_id, history = [], voice = false, stream = false,
-            language = "ar" } = await req.json();
-    if (!code || !question) {
-      return Response.json({ error: "code and question are required" }, { status: 400, headers: CORS });
+            language = "ar", audio, mime = "audio/wav" } = await req.json();
+    if (!code || (!question && !audio)) {
+      return Response.json({ error: "code and a question are required" }, { status: 400, headers: CORS });
     }
-    if (String(question).length > MAX_QUESTION) {
+    if (question && String(question).length > MAX_QUESTION) {
       return Response.json({ error: "question too long" }, { status: 400, headers: CORS });
+    }
+    if (audio && String(audio).length > MAX_AUDIO_BYTES) {
+      return Response.json({ error: "recording too long" }, { status: 400, headers: CORS });
     }
 
     const { data: rows } = await rest(`products?code=eq.${encodeURIComponent(code)}&select=*`);
@@ -189,9 +197,18 @@ Deno.serve(async (req) => {
       parts: [{ text: t.text }],
     }));
 
+    // A recording is answered in one call: Gemini hears it, writes down what it
+    // heard so the customer can check we understood, then answers.
+    const heardRule = audio
+      ? "\n\nالعميل بعت تسجيل صوت. اكتب أول سطر بالظبط كده: SAID: <اللي قاله بالظبط>، " +
+        "وبعدين ردك العادي. لو مسمعتش كلام واضح، خلي السطر SAID: فاضي واطلب منه يعيد."
+      : "";
+    const userParts = audio
+      ? [{ inlineData: { mimeType: String(mime), data: String(audio) } }]
+      : [{ text: question }];
     const geminiBody = JSON.stringify({
-      systemInstruction: { parts: [{ text: `${RULES}\n\n${context}` }] },
-      contents: [...turns, { role: "user", parts: [{ text: question }] }],
+      systemInstruction: { parts: [{ text: `${RULES}${heardRule}\n\n${context}` }] },
+      contents: [...turns, { role: "user", parts: userParts }],
       generationConfig: { temperature: 0.2, maxOutputTokens: 220 },
     });
 
@@ -202,7 +219,7 @@ Deno.serve(async (req) => {
           session_id: session_id ?? null,
           turn: Math.floor((history as unknown[]).length / 2) + 1,
           code,
-          question,
+          question: question || parsed.said || "[صوت]",
           answer: parsed.answer,
           intent: parsed.intent,
           answered: parsed.answered,
@@ -312,7 +329,7 @@ Deno.serve(async (req) => {
 
     return Response.json(
       {
-        answer: parsed.answer, intent: parsed.intent, handover: parsed.handed_over,
+        answer: parsed.answer, said: parsed.said, intent: parsed.intent, handover: parsed.handed_over,
         timing: { db_ms: dbDone - started, gemini_ms: firstDone - dbDone,
                   hedged, total_ms: Date.now() - started },
       },

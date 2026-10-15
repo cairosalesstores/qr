@@ -7410,7 +7410,7 @@
     "code": "105001035",
     "model": "ES-FP132KLE-G",
     "store_name": "غسالة ملابس شارب E1E",
-    "scraped_at": "2026-10-15T12:30:23",
+    "scraped_at": "2026-10-15T14:13:13",
     "status": "ok",
     "site": {
       "id_product": "47021",
@@ -7453,14 +7453,14 @@
     },
     "checked_at": "2026-09-27T12:06:52",
     "last_price_cash": "35317",
-    "last_price_at": "2026-10-15T12:30:23",
+    "last_price_at": "2026-10-15T14:13:13",
     "price_missing_runs": 0
   },
   "105001036": {
     "code": "105001036",
     "model": "ES-FS104KLE-G",
     "store_name": "غسالة ملابس شارب EE",
-    "scraped_at": "2026-10-15T12:31:13",
+    "scraped_at": "2026-10-15T14:13:36",
     "status": "ok",
     "site": {
       "id_product": "47024",
@@ -7506,14 +7506,14 @@
     },
     "checked_at": "2026-09-27T13:07:11",
     "last_price_cash": "28209",
-    "last_price_at": "2026-10-15T12:31:13",
+    "last_price_at": "2026-10-15T14:13:36",
     "price_missing_runs": 0
   },
   "105001038": {
     "code": "105001038",
     "model": "ES-FSB52KLE-G",
     "store_name": "غسالة ملاس شارب E",
-    "scraped_at": "2026-10-15T12:31:37",
+    "scraped_at": "2026-10-15T14:14:28",
     "status": "ok",
     "site": {
       "id_product": "47019",
@@ -7552,14 +7552,14 @@
     },
     "checked_at": "2026-09-27T13:07:17",
     "last_price_cash": "25449",
-    "last_price_at": "2026-10-15T12:31:37",
+    "last_price_at": "2026-10-15T14:14:28",
     "price_missing_runs": 0
   },
   "105001039": {
     "code": "105001039",
     "model": "ES-DP114KLE-G",
     "store_name": "غسالة ملابس شارب EE",
-    "scraped_at": "2026-10-15T12:32:01",
+    "scraped_at": "2026-10-15T14:15:20",
     "status": "ok",
     "site": {
       "id_product": "47020",
@@ -7601,14 +7601,14 @@
     },
     "checked_at": "2026-09-27T13:07:22",
     "last_price_cash": "39565",
-    "last_price_at": "2026-10-15T12:32:01",
+    "last_price_at": "2026-10-15T14:15:20",
     "price_missing_runs": 0
   },
   "105002009": {
     "code": "105002009",
     "model": "QW-V1015A-BK",
     "store_name": "",
-    "scraped_at": "2026-10-15T12:32:53",
+    "scraped_at": "2026-10-15T14:17:13",
     "status": "ok",
     "site": {
       "id_product": "43817",
@@ -7643,7 +7643,7 @@
     },
     "checked_at": "2026-09-27T13:07:30",
     "last_price_cash": "32610",
-    "last_price_at": "2026-10-15T12:32:53",
+    "last_price_at": "2026-10-15T14:17:13",
     "price_missing_runs": 0
   },
   "105003002": {
