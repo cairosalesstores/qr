@@ -1314,7 +1314,7 @@
     "code": "111019002",
     "model": "HCA62640BE",
     "store_name": "شفاط مطبخ 60 سم - زجاج اسود - مدخنة",
-    "scraped_at": "2026-10-15T12:49:43",
+    "scraped_at": "2026-10-15T14:37:17",
     "status": "ok",
     "site": {
       "id_product": "11301",
@@ -1349,7 +1349,7 @@
     },
     "checked_at": "2026-09-30T05:19:55",
     "last_price_cash": "7940",
-    "last_price_at": "2026-10-15T12:49:43",
+    "last_price_at": "2026-10-15T14:37:17",
     "price_missing_runs": 0
   },
   "111019003": {
@@ -1371,7 +1371,7 @@
     "code": "111019006",
     "model": "CWB 9441 XNH",
     "store_name": "بيكو شفاط بالمدخنة 90 سم",
-    "scraped_at": "2026-10-15T12:49:57",
+    "scraped_at": "2026-10-15T14:37:29",
     "status": "ok",
     "site": {
       "id_product": "26046",
@@ -1403,14 +1403,14 @@
     },
     "checked_at": "2026-09-30T05:20:03",
     "last_price_cash": "10299",
-    "last_price_at": "2026-10-15T12:49:57",
+    "last_price_at": "2026-10-15T14:37:29",
     "price_missing_runs": 0
   },
   "112019001": {
     "code": "112019001",
     "model": "BOCP413/G",
     "store_name": "بومباني شفاط هرمي بالمدخنة 60 سم 550 م3/ساعة 4 سرعات لون استانليس ستيل",
-    "scraped_at": "2026-10-15T12:50:09",
+    "scraped_at": "2026-10-15T14:37:41",
     "status": "ok",
     "site": {
       "id_product": "11567",
@@ -1443,14 +1443,14 @@
     },
     "checked_at": "2026-09-30T05:20:11",
     "last_price_cash": "5675",
-    "last_price_at": "2026-10-15T12:50:09",
+    "last_price_at": "2026-10-15T14:37:41",
     "price_missing_runs": 0
   },
   "115019001": {
     "code": "115019001",
     "model": "AHPN 9.4F LM X",
     "store_name": "شفاط اريستون 90 سم هرمي بالمدخنة 416م3/ثانية استانليس",
-    "scraped_at": "2026-10-14T18:23:28",
+    "scraped_at": "2026-10-15T14:43:30",
     "status": "ok",
     "site": {
       "id_product": "44051",
@@ -1487,14 +1487,14 @@
     },
     "checked_at": "2026-09-30T06:56:10",
     "last_price_cash": "13499",
-    "last_price_at": "2026-10-14T18:23:28",
+    "last_price_at": "2026-10-15T14:43:30",
     "price_missing_runs": 0
   },
   "115019014": {
     "code": "115019014",
     "model": "ARO V9442 F BNA",
     "store_name": "شفاط اريستون 90 سم ديجيتال",
-    "scraped_at": "2026-10-14T18:24:19",
+    "scraped_at": "2026-10-15T14:44:23",
     "status": "ok",
     "site": {
       "id_product": "47264",
@@ -1532,7 +1532,7 @@
     },
     "checked_at": "2026-10-02T06:35:58",
     "last_price_cash": "19949",
-    "last_price_at": "2026-10-14T18:24:19",
+    "last_price_at": "2026-10-15T14:44:23",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/kitchen-bath-hoods/kitchen-hoods/ariston-chimney-hood-90-cm-441mh-black-aro-v9442f-bna.html"
   },
@@ -1540,7 +1540,7 @@
     "code": "117019028",
     "model": "STRIPE-LUX-90-BL-KL",
     "store_name": "إليكا شفاط ديكوري 90 سم 900 م3/ساعة لون اسود",
-    "scraped_at": "2026-10-14T18:25:10",
+    "scraped_at": "2026-10-15T14:44:47",
     "status": "ok",
     "site": {
       "id_product": "50231",
@@ -1571,7 +1571,7 @@
     },
     "checked_at": "2026-09-30T07:34:31",
     "last_price_cash": "22535",
-    "last_price_at": "2026-10-14T18:25:10",
+    "last_price_at": "2026-10-15T14:44:47",
     "price_missing_runs": 0
   },
   "117019033": {
@@ -1593,7 +1593,7 @@
     "code": "117019042",
     "model": "Krea-60-KL",
     "store_name": "إليكا كيتشن لاين شفاط 60 سم - 450 متر مكعب/ساعة لون استانلس ستيل",
-    "scraped_at": "2026-10-14T18:25:59",
+    "scraped_at": "2026-10-15T14:45:39",
     "status": "ok",
     "site": {
       "id_product": "5393",
@@ -1627,7 +1627,7 @@
     },
     "checked_at": "2026-09-30T07:34:39",
     "last_price_cash": "5290",
-    "last_price_at": "2026-10-14T18:25:59",
+    "last_price_at": "2026-10-15T14:45:39",
     "price_missing_runs": 0
   },
   "117019044": {
@@ -1649,7 +1649,7 @@
     "code": "117019045",
     "model": "KREA-BLACK-KL",
     "store_name": "إليكا كيتشن لاين شفاط 60 سم- 450 متر مكعب/ساعة لون أسود",
-    "scraped_at": "2026-10-14T18:26:49",
+    "scraped_at": "2026-10-15T14:46:30",
     "status": "ok",
     "site": {
       "id_product": "45215",
@@ -1684,14 +1684,14 @@
     },
     "checked_at": "2026-09-30T07:46:07",
     "last_price_cash": "6000",
-    "last_price_at": "2026-10-14T18:26:49",
+    "last_price_at": "2026-10-15T14:46:30",
     "price_missing_runs": 0
   },
   "117019051": {
     "code": "117019051",
     "model": "TAMAYA-90-KL",
     "store_name": "إليكا شفاط هرمي 90 سم 600 متر3/ ساعة لون أسود",
-    "scraped_at": "2026-10-14T18:27:41",
+    "scraped_at": "2026-10-15T14:46:48",
     "status": "ok",
     "site": {
       "id_product": "35243",
@@ -1726,14 +1726,14 @@
     },
     "checked_at": "2026-09-30T07:46:13",
     "last_price_cash": "11699",
-    "last_price_at": "2026-10-14T18:27:41",
+    "last_price_at": "2026-10-15T14:46:48",
     "price_missing_runs": 0
   },
   "117019052": {
     "code": "117019052",
     "model": "TAMAYA-90-ST-KL",
     "store_name": "إليكا شفاط هرمي 90 سم 600 م3/ ساعة ستانلس ستيل",
-    "scraped_at": "2026-10-14T03:57:48",
+    "scraped_at": "2026-10-15T14:47:39",
     "status": "ok",
     "site": {
       "id_product": "4421",
@@ -1744,7 +1744,7 @@
       "breadcrumb": [
         "شفاطات مطبخ و حمام"
       ],
-      "price_cash": "8249",
+      "price_cash": "8229",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -1767,8 +1767,8 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=4421"
     },
     "checked_at": "2026-09-30T07:46:21",
-    "last_price_cash": "8249",
-    "last_price_at": "2026-10-14T03:57:48",
+    "last_price_cash": "8229",
+    "last_price_at": "2026-10-15T14:47:39",
     "price_missing_runs": 0
   },
   "120062396": {
@@ -7650,7 +7650,7 @@
     "code": "105003002",
     "model": "FJ-EC2TIST",
     "store_name": "ب فريزر شارب انفرتر ديجيتال -J-EC27(ST",
-    "scraped_at": "2026-10-15T12:33:45",
+    "scraped_at": "2026-10-15T14:18:04",
     "status": "ok",
     "site": {
       "id_product": "17495",
@@ -7690,14 +7690,14 @@
     },
     "checked_at": "2026-09-27T13:07:38",
     "last_price_cash": "30999",
-    "last_price_at": "2026-10-15T12:33:45",
+    "last_price_at": "2026-10-15T14:18:04",
     "price_missing_runs": 0
   },
   "105004048": {
     "code": "105004048",
     "model": "SJ-PC5BA(ST",
     "store_name": "ثلاجة شارب 2 باب 450 لتر بلازما-SJ-PC5BA(ST",
-    "scraped_at": "2026-10-15T12:34:36",
+    "scraped_at": "2026-10-15T14:18:55",
     "status": "ok",
     "site": {
       "id_product": "4283",
@@ -7735,14 +7735,14 @@
     },
     "checked_at": "2026-09-27T13:07:46",
     "last_price_cash": "32135",
-    "last_price_at": "2026-10-15T12:34:36",
+    "last_price_at": "2026-10-15T14:18:55",
     "price_missing_runs": 0
   },
   "105004056": {
     "code": "105004056",
     "model": "SJ-PC4BA(BK",
     "store_name": "ثلاجة شارب صباب بلازما384 لتر-SJ-PC4BA(BK",
-    "scraped_at": "2026-10-15T12:35:27",
+    "scraped_at": "2026-10-15T14:19:46",
     "status": "ok",
     "site": {
       "id_product": "4641",
@@ -7779,7 +7779,7 @@
     },
     "checked_at": "2026-09-27T13:07:53",
     "last_price_cash": "25690",
-    "last_price_at": "2026-10-15T12:35:27",
+    "last_price_at": "2026-10-15T14:19:46",
     "price_missing_runs": 0
   },
   "105004072": {
@@ -7797,7 +7797,7 @@
     "code": "105004095",
     "model": "SJ-GV63G-SL",
     "store_name": "ثلاجة شارب انفرتر ديجيتال لوفروست-SJ-GV83G-SL",
-    "scraped_at": "2026-10-15T12:36:19",
+    "scraped_at": "2026-10-15T14:20:37",
     "status": "ok",
     "site": {
       "id_product": "11282",
@@ -7838,7 +7838,7 @@
     },
     "checked_at": "2026-09-27T13:55:22",
     "last_price_cash": "54028",
-    "last_price_at": "2026-10-15T12:36:19",
+    "last_price_at": "2026-10-15T14:20:37",
     "price_missing_runs": 0
   },
   "105004113": {
@@ -7860,7 +7860,7 @@
     "code": "105007064",
     "model": "ES-FE752KLE-W",
     "store_name": "غسالة ملابس شارب EE75E",
-    "scraped_at": "2026-10-15T12:36:43",
+    "scraped_at": "2026-10-15T14:21:28",
     "status": "ok",
     "site": {
       "id_product": "47017",
@@ -7906,14 +7906,14 @@
     },
     "checked_at": "2026-09-27T13:55:28",
     "last_price_cash": "20779",
-    "last_price_at": "2026-10-15T12:36:43",
+    "last_price_at": "2026-10-15T14:21:28",
     "price_missing_runs": 0
   },
   "107001797": {
     "code": "107001797",
     "model": "F4Y2VYGYP",
     "store_name": "ال جى غسالة ملابس 9 كيلر 1400 لنه - F4Y2VYGYP",
-    "scraped_at": "2026-10-15T12:37:07",
+    "scraped_at": "2026-10-15T14:22:19",
     "status": "ok",
     "site": {
       "id_product": "46090",
@@ -7960,7 +7960,7 @@
     },
     "checked_at": "2026-09-30T04:19:28",
     "last_price_cash": "25549",
-    "last_price_at": "2026-10-15T12:37:07",
+    "last_price_at": "2026-10-15T14:22:19",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/washers-dryers/lg-9-kg-front-load-washing-machine-1400rpm-thinq-wi-fi-platinum-silver-f4y2vygyp.html"
   },
@@ -7968,7 +7968,7 @@
     "code": "109004123",
     "model": "WR-4385 HSSX",
     "store_name": "ثلاجة وايت ويل 2 باب سيلفر - WR.4385 HSSX",
-    "scraped_at": "2026-10-15T12:37:57",
+    "scraped_at": "2026-10-15T14:24:13",
     "status": "ok",
     "site": {
       "id_product": "32876",
@@ -8005,14 +8005,14 @@
     },
     "checked_at": "2026-09-29T07:46:36",
     "last_price_cash": "21369",
-    "last_price_at": "2026-10-15T12:37:57",
+    "last_price_at": "2026-10-15T14:24:13",
     "price_missing_runs": 0
   },
   "111001050": {
     "code": "111001050",
     "model": "WFSTeeXS",
     "store_name": "غسالة ملابس بيكو تحميل أمامى 8 كيلر - WFST86XS",
-    "scraped_at": "2026-10-15T12:38:50",
+    "scraped_at": "2026-10-15T14:25:03",
     "status": "ok",
     "site": {
       "id_product": "49635",
@@ -8053,14 +8053,14 @@
     },
     "checked_at": "2026-09-29T07:46:43",
     "last_price_cash": "15669",
-    "last_price_at": "2026-10-15T12:38:50",
+    "last_price_at": "2026-10-15T14:25:03",
     "price_missing_runs": 0
   },
   "111001051": {
     "code": "111001051",
     "model": "WFST9TXA",
     "store_name": "لغة ديجيتال الفرتر رمادي 1200 غساله بيكر وك 1400 لنه ديجيتال - WFST97XA",
-    "scraped_at": "2026-10-15T12:39:42",
+    "scraped_at": "2026-10-15T14:25:54",
     "status": "ok",
     "site": {
       "id_product": "49634",
@@ -8099,14 +8099,14 @@
     },
     "checked_at": "2026-09-29T07:46:52",
     "last_price_cash": "16999",
-    "last_price_at": "2026-10-15T12:39:42",
+    "last_price_at": "2026-10-15T14:25:54",
     "price_missing_runs": 0
   },
   "111002016": {
     "code": "111002016",
     "model": "BDFN15420B",
     "store_name": "بيكو غسالة اطباق 14 فرد 5 برامج - BDFN154208",
-    "scraped_at": "2026-10-15T12:40:34",
+    "scraped_at": "2026-10-15T14:26:45",
     "status": "ok",
     "site": {
       "id_product": "26048",
@@ -8144,14 +8144,14 @@
     },
     "checked_at": "2026-09-29T07:47:00",
     "last_price_cash": "17569",
-    "last_price_at": "2026-10-15T12:40:34",
+    "last_price_at": "2026-10-15T14:26:45",
     "price_missing_runs": 0
   },
   "111002018": {
     "code": "111002018",
     "model": "BDFN36531XC",
     "store_name": "بيكو غسالة اطباق 15فرد 6 برامج - BDFN36531XC",
-    "scraped_at": "2026-10-15T12:40:58",
+    "scraped_at": "2026-10-15T14:27:36",
     "status": "ok",
     "site": {
       "id_product": "32952",
@@ -8186,14 +8186,14 @@
     },
     "checked_at": "2026-09-29T07:47:08",
     "last_price_cash": "28499",
-    "last_price_at": "2026-10-15T12:40:58",
+    "last_price_at": "2026-10-15T14:27:36",
     "price_missing_runs": 0
   },
   "111002020": {
     "code": "111002020",
     "model": "BDFN26520X0",
     "store_name": "غسالة اطباق 6 برنامج 15 فرد BDFN26520XQ-60",
-    "scraped_at": "2026-10-15T12:41:22",
+    "scraped_at": "2026-10-15T14:28:27",
     "status": "ok",
     "site": {
       "id_product": "32995",
@@ -8225,14 +8225,14 @@
     },
     "checked_at": "2026-09-29T07:47:16",
     "last_price_cash": "24649",
-    "last_price_at": "2026-10-15T12:41:22",
+    "last_price_at": "2026-10-15T14:28:27",
     "price_missing_runs": 0
   },
   "111002028": {
     "code": "111002028",
     "model": "BDFN36531XCPI",
     "store_name": "غسالة أطباق بيكر 60 سم» BDFN36531XCP| - 11",
-    "scraped_at": "2026-10-15T12:42:13",
+    "scraped_at": "2026-10-15T14:28:51",
     "status": "ok",
     "site": {
       "id_product": "51198",
@@ -8265,14 +8265,14 @@
     },
     "checked_at": "2026-09-29T07:48:15",
     "last_price_cash": "31499",
-    "last_price_at": "2026-10-15T12:42:13",
+    "last_price_at": "2026-10-15T14:28:51",
     "price_missing_runs": 0
   },
   "111003022": {
     "code": "111003022",
     "model": "RFNM200E208",
     "store_name": "بيب فريزر بيكو 5 درج راسى - RFNM200E20B",
-    "scraped_at": "2026-10-15T12:42:36",
+    "scraped_at": "2026-10-15T14:29:44",
     "status": "ok",
     "site": {
       "id_product": "36890",
@@ -8309,7 +8309,7 @@
     },
     "checked_at": "2026-09-29T08:11:20",
     "last_price_cash": "20129",
-    "last_price_at": "2026-10-15T12:42:36",
+    "last_price_at": "2026-10-15T14:29:44",
     "price_missing_runs": 0
   },
   "111003025": {
@@ -8317,7 +8317,7 @@
     "model": "B3RFNE294XB",
     "store_name": "",
     "scraped_at": "2026-10-15T12:43:28",
-    "status": "ok",
+    "status": "stale",
     "site": {
       "id_product": "44950",
       "reference": "B3RFNE294XB",
@@ -8350,7 +8350,7 @@
       "url": "https://cairosales.com/ar/freezers/beko-freezer-7-drawer-nofrost-260-l-black-b3rfne294xb.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=44950"
     },
-    "checked_at": "2026-09-30T04:19:36",
+    "checked_at": "2026-10-15T14:30:03",
     "last_price_cash": "30599",
     "last_price_at": "2026-10-15T12:43:28",
     "price_missing_runs": 0,
@@ -8360,7 +8360,7 @@
     "code": "111003026",
     "model": "B3RFNE274B",
     "store_name": "",
-    "scraped_at": "2026-10-15T12:44:19",
+    "scraped_at": "2026-10-15T14:30:54",
     "status": "ok",
     "site": {
       "id_product": "45048",
@@ -8395,14 +8395,14 @@
     },
     "checked_at": "2026-09-29T09:03:50",
     "last_price_cash": "23999",
-    "last_price_at": "2026-10-15T12:44:19",
+    "last_price_at": "2026-10-15T14:30:54",
     "price_missing_runs": 0
   },
   "111004049": {
     "code": "111004049",
     "model": "RDNE650E60XP",
     "store_name": "بيكو ثلاجة 630 لتر صاني-RDNE650E60XP",
-    "scraped_at": "2026-10-15T12:45:11",
+    "scraped_at": "2026-10-15T14:31:45",
     "status": "ok",
     "site": {
       "id_product": "19570",
@@ -8438,14 +8438,14 @@
     },
     "checked_at": "2026-09-29T09:04:42",
     "last_price_cash": "61400",
-    "last_price_at": "2026-10-15T12:45:11",
+    "last_price_at": "2026-10-15T14:31:45",
     "price_missing_runs": 0
   },
   "111004060": {
     "code": "111004060",
     "model": "GNE1346262XH",
     "store_name": "ثلاجه 4 باب بيكو 626 لتر - GNE134626ZXH",
-    "scraped_at": "2026-10-15T12:46:02",
+    "scraped_at": "2026-10-15T14:32:35",
     "status": "ok",
     "site": {
       "id_product": "35834",
@@ -8481,7 +8481,7 @@
     },
     "checked_at": "2026-09-29T09:21:12",
     "last_price_cash": "76499",
-    "last_price_at": "2026-10-15T12:46:02",
+    "last_price_at": "2026-10-15T14:32:35",
     "price_missing_runs": 0
   },
   "111004067": {
@@ -8495,7 +8495,7 @@
     "code": "111004068",
     "model": "RDNE455M20XBIDS",
     "store_name": "RDNE455M20XBIDS - باب 2 ثلاجه بيكر نوفروست",
-    "scraped_at": "2026-10-15T12:46:52",
+    "scraped_at": "2026-10-15T14:33:26",
     "status": "ok",
     "site": {
       "id_product": "42036",
@@ -8536,7 +8536,7 @@
     },
     "checked_at": "2026-09-30T04:25:02",
     "last_price_cash": "25379",
-    "last_price_at": "2026-10-15T12:46:52",
+    "last_price_at": "2026-10-15T14:33:26",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/refrigerators/beko-refrigerator-406-liters-silver-digital-inverter-rdne455m20xbids.html"
   },
@@ -8544,7 +8544,7 @@
     "code": "111004080",
     "model": "RCNE590E35ZXP2",
     "store_name": "ثلاجة بيكر كرسبى نوفرست - RCNE590E35ZXP2",
-    "scraped_at": "2026-10-15T12:47:43",
+    "scraped_at": "2026-10-15T14:34:18",
     "status": "ok",
     "site": {
       "id_product": "45513",
@@ -8584,7 +8584,7 @@
     },
     "checked_at": "2026-09-30T04:25:59",
     "last_price_cash": "53099",
-    "last_price_at": "2026-10-15T12:47:43",
+    "last_price_at": "2026-10-15T14:34:18",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/refrigerators/beko-refrigerator-no-frost-combi-590-l-inveter-silver-rcne590e35zxp2.html"
   },
@@ -8592,7 +8592,7 @@
     "code": "111004083",
     "model": "RDNE420KD",
     "store_name": "ثلاجة بيكو توفروست ، 390 لتر ، RDNE420KD- 2",
-    "scraped_at": "2026-10-15T12:47:56",
+    "scraped_at": "2026-10-15T14:35:09",
     "status": "ok",
     "site": {
       "id_product": "50148",
@@ -8625,14 +8625,14 @@
     },
     "checked_at": "2026-09-29T10:07:22",
     "last_price_cash": "20175",
-    "last_price_at": "2026-10-15T12:47:56",
+    "last_price_at": "2026-10-15T14:35:09",
     "price_missing_runs": 0
   },
   "111004087": {
     "code": "111004087",
     "model": "GNE60500XEG",
     "store_name": "سايد بابين وX2ثلاجة بيكو سايد - GNE60500XEG",
-    "scraped_at": "2026-10-15T12:48:18",
+    "scraped_at": "2026-10-15T14:36:00",
     "status": "ok",
     "site": {
       "id_product": "5508",
@@ -8671,14 +8671,14 @@
     },
     "checked_at": "2026-10-09T11:58:19",
     "last_price_cash": "72199",
-    "last_price_at": "2026-10-15T12:48:18",
+    "last_price_at": "2026-10-15T14:36:00",
     "price_missing_runs": 0
   },
   "111016004": {
     "code": "111016004",
     "model": "HIMW 95226 SXEL",
     "store_name": "-1IMW 95226 SXEL-5 سم 90 سطح غاز بيكر ققطعة",
-    "scraped_at": "2026-10-15T12:48:33",
+    "scraped_at": "2026-10-15T14:36:13",
     "status": "ok",
     "site": {
       "id_product": "52603",
@@ -8714,7 +8714,7 @@
     },
     "checked_at": "2026-10-03T03:09:44",
     "last_price_cash": "17849",
-    "last_price_at": "2026-10-15T12:48:33",
+    "last_price_at": "2026-10-15T14:36:13",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/built-in-kitchen-products/beko-gas-hob-5-burner-90-cm-cast-iron-glass-black-hisw-95226-sel.html"
   },
@@ -8772,7 +8772,7 @@
     "code": "111016012",
     "model": "HILW 64222 SE",
     "store_name": "طح غاز بيكر 60 سم 4 شع",
-    "scraped_at": "2026-10-15T12:48:48",
+    "scraped_at": "2026-10-15T14:36:27",
     "status": "ok",
     "site": {
       "id_product": "38573",
@@ -8810,7 +8810,7 @@
     },
     "checked_at": "2026-10-03T03:09:52",
     "last_price_cash": "10529",
-    "last_price_at": "2026-10-15T12:48:48",
+    "last_price_at": "2026-10-15T14:36:27",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/built-in-kitchen-products/beko-built-in-gas-hob-60-cm-4-burners-cast-iron-safety-black-hilw-64222-se.html"
   },
@@ -8818,7 +8818,7 @@
     "code": "111017023",
     "model": "BGGR 11225 GB2",
     "store_name": "رتاجاز بيكر 5 شعلة 90 سم - 3GGR 11225 GB2 قطعة",
-    "scraped_at": "2026-10-15T12:49:04",
+    "scraped_at": "2026-10-15T14:36:39",
     "status": "ok",
     "site": {
       "id_product": "52606",
@@ -8858,14 +8858,14 @@
     },
     "checked_at": "2026-09-30T05:19:34",
     "last_price_cash": "16909",
-    "last_price_at": "2026-10-15T12:49:04",
+    "last_price_at": "2026-10-15T14:36:39",
     "price_missing_runs": 0
   },
   "111018011": {
     "code": "111018011",
     "model": "EBIM17300WD",
     "store_name": "بيكو ڤرن كيرباء بلت ان 60 سم - BBIM17300WD قطعة",
-    "scraped_at": "2026-10-15T12:49:18",
+    "scraped_at": "2026-10-15T14:36:52",
     "status": "ok",
     "site": {
       "id_product": "39870",
@@ -8906,14 +8906,14 @@
     },
     "checked_at": "2026-09-30T05:19:39",
     "last_price_cash": "18990",
-    "last_price_at": "2026-10-15T12:49:18",
+    "last_price_at": "2026-10-15T14:36:52",
     "price_missing_runs": 0
   },
   "111018016": {
     "code": "111018016",
     "model": "EBIH12100BC",
     "store_name": "فرن غاز بلت ان بيكر، 66 لتر، BBIH12100BC -60 قطعة",
-    "scraped_at": "2026-10-15T12:49:31",
+    "scraped_at": "2026-10-15T14:37:04",
     "status": "ok",
     "site": {
       "id_product": "38570",
@@ -8955,7 +8955,7 @@
     },
     "checked_at": "2026-09-30T05:19:47",
     "last_price_cash": "17066",
-    "last_price_at": "2026-10-15T12:49:31",
+    "last_price_at": "2026-10-15T14:37:04",
     "price_missing_runs": 0
   },
   "112016001": {
@@ -8998,7 +8998,7 @@
     "code": "113001001",
     "model": "BD-100XFVEM",
     "store_name": "",
-    "scraped_at": "2026-10-15T12:50:22",
+    "scraped_at": "2026-10-15T14:37:56",
     "status": "ok",
     "site": {
       "id_product": "43611",
@@ -9028,14 +9028,14 @@
     },
     "checked_at": "2026-09-30T05:37:14",
     "last_price_cash": "30149",
-    "last_price_at": "2026-10-15T12:50:22",
+    "last_price_at": "2026-10-15T14:37:56",
     "price_missing_runs": 0
   },
   "113001002": {
     "code": "113001002",
     "model": "BD.80YFVEM",
     "store_name": "",
-    "scraped_at": "2026-10-14T18:08:18",
+    "scraped_at": "2026-10-15T14:38:10",
     "status": "ok",
     "site": {
       "id_product": "43609",
@@ -9067,14 +9067,14 @@
     },
     "checked_at": "2026-09-30T05:37:19",
     "last_price_cash": "24699",
-    "last_price_at": "2026-10-14T18:08:18",
+    "last_price_at": "2026-10-15T14:38:10",
     "price_missing_runs": 0
   },
   "113004096": {
     "code": "113004096",
     "model": "R.B590EY2R",
     "store_name": "",
-    "scraped_at": "2026-10-14T18:09:09",
+    "scraped_at": "2026-10-15T14:38:24",
     "status": "ok",
     "site": {
       "id_product": "43615",
@@ -9107,7 +9107,7 @@
     },
     "checked_at": "2026-09-30T05:48:43",
     "last_price_cash": "63529",
-    "last_price_at": "2026-10-14T18:09:09",
+    "last_price_at": "2026-10-15T14:38:24",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/refrigerators/hitachi-refrigerator-combi-no-frost-2-doors-590-litres-inverter-motor-digital-r-b590ey2r.html"
   },
@@ -9115,8 +9115,8 @@
     "code": "113004097",
     "model": "R-V650EY2R",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:52:52",
-    "status": "stale",
+    "scraped_at": "2026-10-15T14:38:37",
+    "status": "ok",
     "site": {
       "id_product": "43617",
       "reference": "R-V650EY2R",
@@ -9149,14 +9149,14 @@
     },
     "checked_at": "2026-10-14T18:09:23",
     "last_price_cash": "73971",
-    "last_price_at": "2026-10-14T03:52:52",
+    "last_price_at": "2026-10-15T14:38:37",
     "price_missing_runs": 0
   },
   "113004098": {
     "code": "113004098",
     "model": "A-V5OOEY2R",
     "store_name": "بتاشيى نااجة 590 لتر 2 باب موتور -R-V590EY2R",
-    "scraped_at": "2026-10-14T18:10:15",
+    "scraped_at": "2026-10-15T14:38:51",
     "status": "ok",
     "site": {
       "id_product": "43616",
@@ -9189,7 +9189,7 @@
     },
     "checked_at": "2026-09-30T05:48:56",
     "last_price_cash": "62128",
-    "last_price_at": "2026-10-14T18:10:15",
+    "last_price_at": "2026-10-15T14:38:51",
     "price_missing_runs": 0
   },
   "115001013": {
@@ -9210,7 +9210,7 @@
     "code": "115001019",
     "model": "NM 10 723 SS EX",
     "store_name": "ريستون غسالة ملاس 7 كيلر -NM 10 723 SS EX",
-    "scraped_at": "2026-10-14T18:11:05",
+    "scraped_at": "2026-10-15T14:39:04",
     "status": "ok",
     "site": {
       "id_product": "14310",
@@ -9250,14 +9250,14 @@
     },
     "checked_at": "2026-09-30T05:49:05",
     "last_price_cash": "25799",
-    "last_price_at": "2026-10-14T18:11:05",
+    "last_price_at": "2026-10-15T14:39:04",
     "price_missing_runs": 0
   },
   "115001020": {
     "code": "115001020",
     "model": "NLM11946 SC AEX",
     "store_name": "NLM11946 SC AEX-غسلة ملايس اريستون",
-    "scraped_at": "2026-10-14T18:11:59",
+    "scraped_at": "2026-10-15T14:39:18",
     "status": "ok",
     "site": {
       "id_product": "16713",
@@ -9294,14 +9294,14 @@
     },
     "checked_at": "2026-09-30T05:49:12",
     "last_price_cash": "27673",
-    "last_price_at": "2026-10-14T18:11:59",
+    "last_price_at": "2026-10-15T14:39:18",
     "price_missing_runs": 0
   },
   "115001028": {
     "code": "115001028",
     "model": "NS 723U GG EG",
     "store_name": "ساله ملابس اريستون 7 كيلو - NS 723U GG EG",
-    "scraped_at": "2026-10-14T18:12:50",
+    "scraped_at": "2026-10-15T14:39:33",
     "status": "ok",
     "site": {
       "id_product": "44943",
@@ -9337,14 +9337,14 @@
     },
     "checked_at": "2026-09-30T05:49:21",
     "last_price_cash": "18429",
-    "last_price_at": "2026-10-14T18:12:50",
+    "last_price_at": "2026-10-15T14:39:33",
     "price_missing_runs": 0
   },
   "115001032": {
     "code": "115001032",
     "model": "WEST8GWHR",
     "store_name": "VFSTBGWHR - كجم 8 يستون غساله ملابس",
-    "scraped_at": "2026-10-14T18:14:46",
+    "scraped_at": "2026-10-15T14:39:47",
     "status": "ok",
     "site": {
       "id_product": "47972",
@@ -9383,7 +9383,7 @@
     },
     "checked_at": "2026-09-30T06:01:01",
     "last_price_cash": "20499",
-    "last_price_at": "2026-10-14T18:14:46",
+    "last_price_at": "2026-10-15T14:39:47",
     "price_missing_runs": 0
   },
   "115002016": {
@@ -9418,7 +9418,7 @@
     "code": "115002024",
     "model": "DFN856XQ",
     "store_name": "غسالة أطباق اريستون 60 سم 15 فرد DFN856XQ - 8",
-    "scraped_at": "2026-10-14T18:15:37",
+    "scraped_at": "2026-10-15T14:40:01",
     "status": "ok",
     "site": {
       "id_product": "46667",
@@ -9449,14 +9449,14 @@
     },
     "checked_at": "2026-09-30T06:01:06",
     "last_price_cash": "28799",
-    "last_price_at": "2026-10-14T18:15:37",
+    "last_price_at": "2026-10-15T14:40:01",
     "price_missing_runs": 0
   },
   "115002026": {
     "code": "115002026",
     "model": "DFN436X",
     "store_name": "",
-    "scraped_at": "2026-10-14T18:16:26",
+    "scraped_at": "2026-10-15T14:40:13",
     "status": "ok",
     "site": {
       "id_product": "47970",
@@ -9487,7 +9487,7 @@
     },
     "checked_at": "2026-09-30T06:01:12",
     "last_price_cash": "21719",
-    "last_price_at": "2026-10-14T18:16:26",
+    "last_price_at": "2026-10-15T14:40:13",
     "price_missing_runs": 0
   },
   "115003005": {
@@ -9537,7 +9537,7 @@
     "code": "115016014",
     "model": "PHN 961 TS/IX/A",
     "store_name": "HN 961 TS/IX/A-عين 6 سم 90 طح اريستون",
-    "scraped_at": "2026-10-14T18:16:51",
+    "scraped_at": "2026-10-15T14:40:26",
     "status": "ok",
     "site": {
       "id_product": "48209",
@@ -9574,7 +9574,7 @@
     },
     "checked_at": "2026-09-30T06:01:20",
     "last_price_cash": "73999",
-    "last_price_at": "2026-10-14T18:16:51",
+    "last_price_at": "2026-10-15T14:40:26",
     "price_missing_runs": 0
   },
   "115016018": {
@@ -9619,7 +9619,7 @@
     "code": "115016025",
     "model": "AGS92SBK",
     "store_name": "مسطح اريستون غاز-AGS92SBK",
-    "scraped_at": "2026-10-14T18:17:41",
+    "scraped_at": "2026-10-15T14:40:41",
     "status": "ok",
     "site": {
       "id_product": "22271",
@@ -9657,14 +9657,14 @@
     },
     "checked_at": "2026-09-30T06:01:28",
     "last_price_cash": "28299",
-    "last_price_at": "2026-10-14T18:17:41",
+    "last_price_at": "2026-10-15T14:40:41",
     "price_missing_runs": 0
   },
   "115016028": {
     "code": "115016028",
     "model": "ARH 6G4R22 W2XNA",
     "store_name": "ARH GG4R22 W2XNA-4 :مسطح بلت ان اريستون",
-    "scraped_at": "2026-10-14T18:18:31",
+    "scraped_at": "2026-10-15T14:40:53",
     "status": "ok",
     "site": {
       "id_product": "48452",
@@ -9700,7 +9700,7 @@
     },
     "checked_at": "2026-09-30T06:01:36",
     "last_price_cash": "12219",
-    "last_price_at": "2026-10-14T18:18:31",
+    "last_price_at": "2026-10-15T14:40:53",
     "price_missing_runs": 0
   },
   "115018007": {
@@ -9737,7 +9737,7 @@
     "code": "115018020",
     "model": "GESM53IXA30",
     "store_name": "",
-    "scraped_at": "2026-10-14T18:19:21",
+    "scraped_at": "2026-10-15T14:41:07",
     "status": "ok",
     "site": {
       "id_product": "22275",
@@ -9772,14 +9772,14 @@
     },
     "checked_at": "2026-09-30T06:01:43",
     "last_price_cash": "35990",
-    "last_price_at": "2026-10-14T18:19:21",
+    "last_price_at": "2026-10-15T14:41:07",
     "price_missing_runs": 0
   },
   "115018023": {
     "code": "115018023",
     "model": "AROGER1G1CXNA",
     "store_name": "AROGER1G1CXNA-سم غاز شوايه كيرباء 60 فرن",
-    "scraped_at": "2026-10-14T18:20:14",
+    "scraped_at": "2026-10-15T14:41:58",
     "status": "ok",
     "site": {
       "id_product": "46396",
@@ -9817,14 +9817,14 @@
     },
     "checked_at": "2026-09-30T06:14:40",
     "last_price_cash": "24206",
-    "last_price_at": "2026-10-14T18:20:14",
+    "last_price_at": "2026-10-15T14:41:58",
     "price_missing_runs": 0
   },
   "115018025": {
     "code": "115018025",
     "model": "AROG 9R2F3NG XNA",
     "store_name": "",
-    "scraped_at": "2026-10-14T18:21:04",
+    "scraped_at": "2026-10-15T14:42:15",
     "status": "ok",
     "site": {
       "id_product": "46603",
@@ -9835,7 +9835,7 @@
       "breadcrumb": [
         "منتجات بيلت إن"
       ],
-      "price_cash": "31499",
+      "price_cash": "32499",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -9864,15 +9864,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=46603"
     },
     "checked_at": "2026-09-30T06:14:45",
-    "last_price_cash": "31499",
-    "last_price_at": "2026-10-14T18:21:04",
+    "last_price_cash": "32499",
+    "last_price_at": "2026-10-15T14:42:15",
     "price_missing_runs": 0
   },
   "115018027": {
     "code": "115018027",
     "model": "AROE6R395C XNA",
     "store_name": "ريستون فرن كهرباء بلت إن - AROE6R395C XNA",
-    "scraped_at": "2026-10-14T18:21:56",
+    "scraped_at": "2026-10-15T14:43:06",
     "status": "ok",
     "site": {
       "id_product": "49083",
@@ -9883,7 +9883,7 @@
       "breadcrumb": [
         "منتجات بيلت إن"
       ],
-      "price_cash": "29249",
+      "price_cash": "28389",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -9912,8 +9912,8 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=49083"
     },
     "checked_at": "2026-10-03T03:25:21",
-    "last_price_cash": "29249",
-    "last_price_at": "2026-10-14T18:21:56",
+    "last_price_cash": "28389",
+    "last_price_at": "2026-10-15T14:43:06",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/built-in-kitchen-products/ariston-built-in-electricity-oven-with-grill-60-cm-72-liters-stainless-steel-aroe6r395c-xna.html"
   },
@@ -9966,7 +9966,7 @@
       "url": "https://cairosales.com/ar/cookers-ovens/beko-cooker-90-cm-5-burners-fan-digital-display-cast-iron-holders-stainless-steel-black-bggr-11228-gxa.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=50024"
     },
-    "checked_at": "2026-10-14T03:58:41"
+    "checked_at": "2026-10-15T14:48:30"
   },
   "118001001": {
     "code": "118001001",
@@ -9980,7 +9980,7 @@
     "code": "119001005",
     "model": "KTW- 1212-CS",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:59:05",
+    "scraped_at": "2026-10-15T14:48:48",
     "status": "ok",
     "site": {
       "id_product": "12464",
@@ -10025,7 +10025,7 @@
     },
     "checked_at": "2026-09-30T07:46:29",
     "last_price_cash": "18249",
-    "last_price_at": "2026-10-14T03:59:05",
+    "last_price_at": "2026-10-15T14:48:48",
     "price_missing_runs": 0
   },
   "119003009": {
@@ -10059,7 +10059,7 @@
     "code": "119003015",
     "model": "KH 225 CF-W",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:59:25",
+    "scraped_at": "2026-10-15T14:49:38",
     "status": "ok",
     "site": {
       "id_product": "12437",
@@ -10093,7 +10093,7 @@
     },
     "checked_at": "2026-09-30T07:46:37",
     "last_price_cash": "16986",
-    "last_price_at": "2026-10-14T03:59:25",
+    "last_price_at": "2026-10-15T14:49:38",
     "price_missing_runs": 0
   },
   "119004016": {
@@ -10107,7 +10107,7 @@
     "code": "119004018",
     "model": "KH370 LN/3",
     "store_name": "",
-    "scraped_at": "2026-10-14T03:59:43",
+    "scraped_at": "2026-10-15T14:50:29",
     "status": "ok",
     "site": {
       "id_product": "32505",
@@ -10144,7 +10144,7 @@
     },
     "checked_at": "2026-09-30T07:46:45",
     "last_price_cash": "19760",
-    "last_price_at": "2026-10-14T03:59:43",
+    "last_price_at": "2026-10-15T14:50:29",
     "price_missing_runs": 0
   },
   "119004021": {

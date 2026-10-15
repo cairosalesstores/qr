@@ -875,42 +875,26 @@ def assistant_section(code, product_title):
       input.value = '';
       var bubbleText = waiting.querySelector('.b');
       try {{
+        // Not streamed: the answer arrives in about a second anyway, and the
+        // server cleans it up (greetings, honorifics) before sending it.
         var r = await fetch(CFG.url + '/functions/v1/ask', {{
           method: 'POST',
           headers: {{ 'Content-Type': 'application/json', 'apikey': CFG.key, 'Authorization': 'Bearer ' + CFG.key }},
           body: JSON.stringify({{ code: CODE, question: question, session_id: session, history: history,
-                                  stream: true, voice: !!spoken, language: VOICE.lang.slice(0, 2) }})
+                                  voice: !!spoken, language: VOICE.lang.slice(0, 2) }})
         }});
-        // The answer arrives word by word, so the customer reads while it is still writing.
-        var reader = r.body.getReader(), dec = new TextDecoder(), buf = '', answer = '', meta = null, failed = false;
-        while (true) {{
-          var step = await reader.read();
-          if (step.done) break;
-          buf += dec.decode(step.value, {{ stream: true }});
-          var lines = buf.split('\\n');
-          buf = lines.pop();
-          for (var i = 0; i < lines.length; i++) {{
-            if (!lines[i].trim()) continue;
-            var o;
-            try {{ o = JSON.parse(lines[i]); }} catch (e) {{ continue; }}
-            if (o.t) {{
-              if (!answer) bubbleText.classList.remove('dots');
-              answer += o.t;
-              bubbleText.textContent = answer;
-              waiting.scrollIntoView({{ block: 'nearest' }});
-            }} else if (o.done) {{ meta = o.done; }}
-            else if (o.error) {{ failed = true; }}
-          }}
-        }}
-        if (!answer.trim()) {{
-          bubbleText.classList.remove('dots');
-          bubbleText.textContent = failed
-            ? 'معلش، مش قادر أرد دلوقتي. اسأل البائع من فضلك.'
-            : 'معلش، حصلت مشكلة. جرّب تاني.';
+        var data = await r.json();
+        bubbleText.classList.remove('dots');
+        var answer = data.answer;
+        if (!answer) {{
+          bubbleText.textContent = VOICE.lang === 'en-US'
+            ? 'Sorry, I cannot answer right now. Please ask a salesperson.'
+            : 'معلش، مش قادر أرد دلوقتي. اسأل البائع من فضلك.';
           return;
         }}
+        bubbleText.textContent = answer;
         history.push({{ role: 'user', text: question }}, {{ role: 'assistant', text: answer }});
-        if (meta && meta.handover) {{
+        if (data.handover) {{
           var call = document.createElement('div');
           call.className = 'turn them';
           call.innerHTML = '<div class="handover">كلّم البائع</div>';
@@ -918,7 +902,9 @@ def assistant_section(code, product_title):
         }}
       }} catch (err) {{
         bubbleText.classList.remove('dots');
-        bubbleText.textContent = 'الشبكة ضعيفة دلوقتي — جرّب تاني أو اسأل البائع.';
+        bubbleText.textContent = VOICE.lang === 'en-US'
+          ? 'The network is weak — try again or ask a salesperson.'
+          : 'الشبكة ضعيفة دلوقتي — جرّب تاني أو اسأل البائع.';
       }}
     }}
 

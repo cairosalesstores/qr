@@ -89,15 +89,31 @@ function productFacts(p: Record<string, unknown>): string {
   ].filter(Boolean).join("\n");
 }
 
+const GREETING =
+  /^\s*(?:أهلا?[ًا]?(?:\s*(?:بي?ك|بحضرتك|وسهلا))?|يا\s*هلا|مرحبا|السلام\s*عليكم|(?:hi|hello|hey|welcome)\b)[\s!،,.:\-–—]*/i;
+const HONORIFIC = /\s*يا\s*(?:فندم|باشا|غالي|بيه|كبير)[،,]?/g;
+
+/** The model opens with a greeting however often it is told not to, so take it off. */
+function trimPleasantries(text: string): string {
+  let out = text.replace(HONORIFIC, "");
+  for (let i = 0; i < 2; i++) {
+    const shorter = out.replace(GREETING, "");
+    if (shorter.trim() && shorter !== out) out = shorter;
+    else break;
+  }
+  return out.replace(/\s{2,}/g, " ").trim();
+}
+
 function parseMeta(text: string) {
   const line = text.split("\n").find((l) => l.trim().startsWith("META:")) ?? "";
   const get = (key: string) => line.match(new RegExp(`${key}=([a-z_]+)`))?.[1] ?? "";
   const saidLine = text.split("\n").find((l) => l.trim().startsWith("SAID:")) ?? "";
   return {
     said: saidLine.replace(/^\s*SAID:\s*/, "").trim(),
-    answer: text.split("\n")
-      .filter((l) => !l.trim().startsWith("META:") && !l.trim().startsWith("SAID:"))
-      .join("\n").trim(),
+    answer: trimPleasantries(
+      text.split("\n")
+        .filter((l) => !l.trim().startsWith("META:") && !l.trim().startsWith("SAID:"))
+        .join("\n")),
     intent: get("intent") || "other",
     answered: get("answered") !== "no",
     handed_over: get("handover") === "yes",
@@ -199,6 +215,15 @@ Deno.serve(async (req) => {
 
     // A recording is answered in one call: Gemini hears it, writes down what it
     // heard so the customer can check we understood, then answers.
+    const asked = String(question ?? "");
+    const latin = /[A-Za-z]/.test(asked) && !/[\u0600-\u06FF]/.test(asked);
+    const wantsEnglish = audio ? String(language).startsWith("en") : latin;
+    const langRule = wantsEnglish
+      ? "\n\nIMPORTANT: This customer is speaking English. Write your entire reply in English. " +
+        "Do not use Arabic. Every rule above still applies: no greeting, at most two sentences, " +
+        "only the data given, never negotiate a discount, never quote an instalment figure."
+      : "\n\nمهم جدًا: ردك كله بالمصري البسيط.";
+
     const heardRule = audio
       ? "\n\nالعميل بعت تسجيل صوت. اكتب أول سطر بالظبط كده: SAID: <اللي قاله بالظبط>، " +
         "وبعدين ردك العادي. لو مسمعتش كلام واضح، خلي السطر SAID: فاضي واطلب منه يعيد."
@@ -207,7 +232,7 @@ Deno.serve(async (req) => {
       ? [{ inlineData: { mimeType: String(mime), data: String(audio) } }]
       : [{ text: question }];
     const geminiBody = JSON.stringify({
-      systemInstruction: { parts: [{ text: `${RULES}${heardRule}\n\n${context}` }] },
+      systemInstruction: { parts: [{ text: `${RULES}${heardRule}\n\n${context}${langRule}` }] },
       contents: [...turns, { role: "user", parts: userParts }],
       generationConfig: { temperature: 0.2, maxOutputTokens: 220 },
     });
@@ -272,6 +297,7 @@ Deno.serve(async (req) => {
       });
     }
 
+    let lastError = "";
     const callGemini = async (signal: AbortSignal) => {
       try {
         const res = await fetch(
@@ -287,13 +313,22 @@ Deno.serve(async (req) => {
           },
         );
         if (!res.ok) {
-          console.error("gemini", res.status, (await res.text()).slice(0, 300));
+          lastError = `gemini ${res.status}: ${(await res.text()).slice(0, 200)}`;
+          console.error(lastError);
           return "";
         }
         const payload = await res.json();
-        return payload?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? "").join("") ?? "";
+        const text = payload?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? "").join("") ?? "";
+        if (!text.trim()) {
+          lastError = `gemini empty: ${JSON.stringify(payload).slice(0, 400)}`;
+          console.error(lastError);
+        }
+        return text;
       } catch (e) {
-        if ((e as Error).name !== "AbortError") console.error("gemini call", (e as Error).message);
+        if ((e as Error).name !== "AbortError") {
+          lastError = `gemini call: ${(e as Error).message}`;
+          console.error(lastError);
+        }
         return "";
       }
     };
@@ -322,7 +357,8 @@ Deno.serve(async (req) => {
     const firstDone = Date.now();
     const parsed = parseMeta(raw);
     if (!parsed.answer) {
-      return Response.json({ error: "assistant unavailable" }, { status: 502, headers: CORS });
+      return Response.json({ error: "assistant unavailable", detail: lastError },
+                           { status: 502, headers: CORS });
     }
 
     await logTurn(parsed);
