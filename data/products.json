@@ -2795,7 +2795,7 @@
     "code": "188019002",
     "model": "HHO90TASS",
     "store_name": "شفاط هايسنس بلت ان 90سم هرمي ستانلس",
-    "scraped_at": "2026-10-14T04:29:59",
+    "scraped_at": "2026-10-15T17:18:22",
     "status": "ok",
     "site": {
       "id_product": "44061",
@@ -2827,14 +2827,14 @@
     },
     "checked_at": "2026-09-30T08:55:37",
     "last_price_cash": "7759",
-    "last_price_at": "2026-10-14T04:29:59",
+    "last_price_at": "2026-10-15T17:18:22",
     "price_missing_runs": 0
   },
   "188062017": {
     "code": "188062017",
     "model": "43A4K",
     "store_name": "هايسنس شاشة 43 بوصة FHD بدون فريم سمارت H-43A4K",
-    "scraped_at": "2026-10-14T04:30:50",
+    "scraped_at": "2026-10-15T17:34:14",
     "status": "ok",
     "site": {
       "id_product": "45973",
@@ -2867,7 +2867,7 @@
     },
     "checked_at": "2026-09-27T15:43:05",
     "last_price_cash": "12124",
-    "last_price_at": "2026-10-14T04:30:50",
+    "last_price_at": "2026-10-15T17:34:14",
     "price_missing_runs": 0
   },
   "190019002": {
@@ -2882,7 +2882,7 @@
     "code": "190019005",
     "model": "CFI-60AXA",
     "store_name": "شفاط بلت ان هرمى فاجور 60 سم قوة 650 م3/ساعة استانلس",
-    "scraped_at": "2026-10-14T04:31:40",
+    "scraped_at": "2026-10-15T17:50:40",
     "status": "ok",
     "site": {
       "id_product": "7941",
@@ -2916,14 +2916,14 @@
     },
     "checked_at": "2026-09-30T08:55:45",
     "last_price_cash": "10979",
-    "last_price_at": "2026-10-14T04:31:40",
+    "last_price_at": "2026-10-15T17:50:40",
     "price_missing_runs": 0
   },
   "200062040": {
     "code": "200062040",
     "model": "M43UW680",
     "store_name": "شاشة ال اى دى يونيون اير 43 بوصة سمارت",
-    "scraped_at": "2026-10-14T04:32:31",
+    "scraped_at": "2026-10-15T17:51:05",
     "status": "ok",
     "site": {
       "id_product": "25856",
@@ -2957,14 +2957,14 @@
     },
     "checked_at": "2026-09-30T09:03:04",
     "last_price_cash": "9499",
-    "last_price_at": "2026-10-14T04:32:31",
+    "last_price_at": "2026-10-15T17:51:05",
     "price_missing_runs": 0
   },
   "200062045": {
     "code": "200062045",
     "model": "M43UX700",
     "store_name": "شاشة ال اى دى يونيون اير 43 بوصة سمارت",
-    "scraped_at": "2026-10-14T04:33:23",
+    "scraped_at": "2026-10-15T18:17:31",
     "status": "ok",
     "site": {
       "id_product": "45199",
@@ -2996,7 +2996,7 @@
     },
     "checked_at": "2026-09-30T09:03:10",
     "last_price_cash": "9775",
-    "last_price_at": "2026-10-14T04:33:23",
+    "last_price_at": "2026-10-15T18:17:31",
     "price_missing_runs": 0
   },
   "211019003": {
@@ -3011,7 +3011,7 @@
     "code": "211019004",
     "model": "ISLK-96-LS-X",
     "store_name": "شفاط مطبخ انديست بدون مدخنة بقوة شفط 208م3/س 90 سم",
-    "scraped_at": "2026-10-14T04:33:46",
+    "scraped_at": "2026-10-15T18:35:23",
     "status": "ok",
     "site": {
       "id_product": "33007",
@@ -3045,7 +3045,7 @@
     },
     "checked_at": "2026-09-30T09:03:15",
     "last_price_cash": "7999",
-    "last_price_at": "2026-10-14T04:33:46",
+    "last_price_at": "2026-10-15T18:35:23",
     "price_missing_runs": 0
   },
   "211019008": {
@@ -3060,7 +3060,7 @@
     "code": "230019005",
     "model": "DWP94CC50T",
     "store_name": "شفاط هرمى بوش 90 سم استانلس",
-    "scraped_at": "2026-10-14T04:34:38",
+    "scraped_at": "2026-10-15T18:53:35",
     "status": "ok",
     "site": {
       "id_product": "8546",
@@ -3096,14 +3096,14 @@
     },
     "checked_at": "2026-09-30T09:03:23",
     "last_price_cash": "11154",
-    "last_price_at": "2026-10-14T04:34:38",
+    "last_price_at": "2026-10-15T18:53:35",
     "price_missing_runs": 0
   },
   "230019006": {
     "code": "230019006",
     "model": "DWP64CC60Z",
     "store_name": "بوش شفاط مطبخ 60 سم ثلاث سرعات بقوة 380 متر مكعب/ ساعة أسود",
-    "scraped_at": "2026-10-14T04:35:29",
+    "scraped_at": "2026-10-15T19:37:21",
     "status": "ok",
     "site": {
       "id_product": "8544",
@@ -3145,7 +3145,7 @@
     },
     "checked_at": "2026-09-30T09:03:31",
     "last_price_cash": "13499",
-    "last_price_at": "2026-10-14T04:35:29",
+    "last_price_at": "2026-10-15T19:37:21",
     "price_missing_runs": 0
   },
   "230019012": {
@@ -3171,7 +3171,7 @@
     "code": "230019025",
     "model": "DWK97PJ60T",
     "store_name": "بوش شفاط مطبخ 90 سم بقوة 700 متر مكعب/ ساعة تحكم باللمس سرعتان زجاج أسود",
-    "scraped_at": "2026-10-14T04:36:21",
+    "scraped_at": "2026-10-15T19:38:19",
     "status": "ok",
     "site": {
       "id_product": "44564",
@@ -3204,14 +3204,14 @@
     },
     "checked_at": "2026-09-30T09:03:38",
     "last_price_cash": "23749",
-    "last_price_at": "2026-10-14T04:36:21",
+    "last_price_at": "2026-10-15T19:38:19",
     "price_missing_runs": 0
   },
   "236019007": {
     "code": "236019007",
     "model": "K802/90/2SLD",
     "store_name": "شفاط تربوا اير 90 سم 2 مفتاح ايطالى",
-    "scraped_at": "2026-10-14T04:37:11",
+    "scraped_at": "2026-10-15T19:56:15",
     "status": "ok",
     "site": {
       "id_product": "5769",
@@ -3243,14 +3243,14 @@
     },
     "checked_at": "2026-09-30T09:03:46",
     "last_price_cash": "9920",
-    "last_price_at": "2026-10-14T04:37:11",
+    "last_price_at": "2026-10-15T19:56:15",
     "price_missing_runs": 0
   },
   "236019030": {
     "code": "236019030",
     "model": "MORAN LUX90",
     "store_name": "شفاط موران لوكس 90 سم",
-    "scraped_at": "2026-10-14T04:38:02",
+    "scraped_at": "2026-10-15T20:02:22",
     "status": "ok",
     "site": {
       "id_product": "39825",
@@ -3285,14 +3285,14 @@
     },
     "checked_at": "2026-09-30T09:21:19",
     "last_price_cash": "8499",
-    "last_price_at": "2026-10-14T04:38:02",
+    "last_price_at": "2026-10-15T20:02:22",
     "price_missing_runs": 0
   },
   "248019025": {
     "code": "248019025",
     "model": "FHC90S75MLGG-16044",
     "store_name": "شفاط فريش 90 سم بالمدخنة",
-    "scraped_at": "2026-10-14T04:38:53",
+    "scraped_at": "2026-10-15T20:19:24",
     "status": "ok",
     "site": {
       "id_product": "38799",
@@ -3321,7 +3321,7 @@
     },
     "checked_at": "2026-09-30T09:21:24",
     "last_price_cash": "8941",
-    "last_price_at": "2026-10-14T04:38:53",
+    "last_price_at": "2026-10-15T20:19:24",
     "price_missing_runs": 0
   },
   "248019028": {

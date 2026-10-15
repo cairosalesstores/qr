@@ -234,7 +234,9 @@ Deno.serve(async (req) => {
     const geminiBody = JSON.stringify({
       systemInstruction: { parts: [{ text: `${RULES}${heardRule}\n\n${context}${langRule}` }] },
       contents: [...turns, { role: "user", parts: userParts }],
-      generationConfig: { temperature: 0.2, maxOutputTokens: 220 },
+      // Room to finish the sentence. A tight cap was truncating replies mid-word,
+      // which read as broken Arabic; the prompt is what keeps answers short.
+      generationConfig: { temperature: 0.2, maxOutputTokens: 800 },
     });
 
     // One place that writes the turn away for the supervisors' reports.
