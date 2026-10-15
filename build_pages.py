@@ -370,6 +370,9 @@ h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 70
                border-radius: 20px; padding: 6px 11px; flex-shrink: 0; }
 .kairo-thread { margin-top: 13px; display: flex; flex-direction: column; gap: 9px;
                 max-height: 340px; overflow-y: auto; }
+.kairo-hint { margin-top: 11px; background: rgba(217,119,87,.16); border: 1px solid rgba(217,119,87,.4);
+              border-radius: 12px; padding: 10px 12px; font-size: 11.5px; line-height: 1.7; color: #F3F1EC; }
+.kairo-hint b { font-weight: 800; }
 .turn { display: flex; }
 .turn.me { justify-content: flex-start; }
 .turn.them { justify-content: flex-end; }
@@ -825,6 +828,7 @@ def assistant_section(code, product_title):
         <button type="button" id="lang" class="lang" aria-label="لغة الصوت" hidden>ع</button>
       </div>
       <div class="kairo-thread" id="thread" hidden></div>
+      <div class="kairo-hint" id="hint" hidden></div>
       <div class="kairo-asks" id="asks">{chips}</div>
       <form class="kairo-bar" id="askform" autocomplete="off">
         <button type="button" id="mic" class="mic" aria-label="اسأل بصوتك" hidden>
@@ -948,12 +952,33 @@ def assistant_section(code, product_title):
       rec.continuous = false;
       rec.interimResults = true;
       var listening = false;
+      var hint = document.getElementById('hint');
+      var primed = false;
+
+      function say(html) {{ hint.innerHTML = html; hint.hidden = !html; }}
+
+      function begin() {{
+        rec.lang = VOICE.lang;
+        input.value = '';
+        say('');
+        try {{ rec.start(); }} catch (e) {{}}
+      }}
 
       micBtn.addEventListener('click', function () {{
         if (listening) {{ rec.stop(); return; }}
-        rec.lang = VOICE.lang;
-        input.value = '';
-        try {{ rec.start(); }} catch (e) {{}}
+        // Safari will not prompt for the microphone from speech recognition alone,
+        // so ask for it directly the first time; afterwards start straight away.
+        if (primed || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {{
+          begin();
+          return;
+        }}
+        navigator.mediaDevices.getUserMedia({{ audio: true }}).then(function (stream) {{
+          stream.getTracks().forEach(function (t) {{ t.stop(); }});
+          primed = true;
+          begin();
+        }}).catch(function () {{
+          say('الميكروفون مقفول للموقع ده. افتح <b>الإعدادات ← Safari ← الميكروفون</b> واسمح، وجرّب تاني.');
+        }});
       }});
 
       rec.onstart = function () {{
@@ -969,15 +994,20 @@ def assistant_section(code, product_title):
       rec.onerror = function (ev) {{
         listening = false;
         micBtn.classList.remove('on');
-        if (ev.error === 'not-allowed' || ev.error === 'service-not-allowed') {{
-          input.placeholder = VOICE.lang === 'ar-EG'
-            ? 'اسمح للميكروفون عشان تسأل بصوتك'
-            : 'Allow the microphone to ask by voice';
-        }} else {{
-          paintLang();
+        paintLang();
+        if (ev.error === 'service-not-allowed') {{
+          // iPhone speech recognition runs through Dictation; off, it refuses silently
+          say('عشان تسأل بصوتك على الآيفون، شغّل <b>الإعدادات ← عام ← لوحة المفاتيح ← تفعيل الإملاء</b>، وبعدها جرّب تاني.');
+        }} else if (ev.error === 'not-allowed') {{
+          say('الميكروفون مقفول للموقع ده. افتح <b>الإعدادات ← Safari ← الميكروفون</b> واسمح، وجرّب تاني.');
+        }} else if (ev.error === 'no-speech') {{
+          say('مسمعتش حاجة. دوس على الميكروفون وابدأ اتكلم.');
+        }} else if (ev.error === 'network') {{
+          say('الشبكة ضعيفة، والصوت محتاج نت. اكتب سؤالك أو جرّب تاني.');
         }}
       }};
       rec.onresult = function (ev) {{
+        say('');
         var said = '';
         for (var i = 0; i < ev.results.length; i++) said += ev.results[i][0].transcript;
         input.value = said;

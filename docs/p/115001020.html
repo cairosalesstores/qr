@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>اريستون غسالة ملابس 9 كيلو 1400 لفة ديجيتال لون سيلفر - أسواق القاهرة للمبيعات</title>
-<link rel="stylesheet" href="../assets/style.css?v=ceee654c">
+<link rel="stylesheet" href="../assets/style.css?v=ec347959">
 </head>
 <body>
 <div class="sheet">
@@ -46,6 +46,7 @@
         <button type="button" id="lang" class="lang" aria-label="لغة الصوت" hidden>ع</button>
       </div>
       <div class="kairo-thread" id="thread" hidden></div>
+      <div class="kairo-hint" id="hint" hidden></div>
       <div class="kairo-asks" id="asks"><button class="ask" type="button">تنفع لأوضتي؟</button><button class="ask" type="button">فيه أرخص منها؟</button><button class="ask" type="button">إيه أهم مميزاتها؟</button><button class="ask" type="button">الضمان كام؟</button></div>
       <form class="kairo-bar" id="askform" autocomplete="off">
         <button type="button" id="mic" class="mic" aria-label="اسأل بصوتك" hidden>
@@ -169,12 +170,33 @@
       rec.continuous = false;
       rec.interimResults = true;
       var listening = false;
+      var hint = document.getElementById('hint');
+      var primed = false;
+
+      function say(html) { hint.innerHTML = html; hint.hidden = !html; }
+
+      function begin() {
+        rec.lang = VOICE.lang;
+        input.value = '';
+        say('');
+        try { rec.start(); } catch (e) {}
+      }
 
       micBtn.addEventListener('click', function () {
         if (listening) { rec.stop(); return; }
-        rec.lang = VOICE.lang;
-        input.value = '';
-        try { rec.start(); } catch (e) {}
+        // Safari will not prompt for the microphone from speech recognition alone,
+        // so ask for it directly the first time; afterwards start straight away.
+        if (primed || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          begin();
+          return;
+        }
+        navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+          stream.getTracks().forEach(function (t) { t.stop(); });
+          primed = true;
+          begin();
+        }).catch(function () {
+          say('الميكروفون مقفول للموقع ده. افتح <b>الإعدادات ← Safari ← الميكروفون</b> واسمح، وجرّب تاني.');
+        });
       });
 
       rec.onstart = function () {
@@ -190,15 +212,20 @@
       rec.onerror = function (ev) {
         listening = false;
         micBtn.classList.remove('on');
-        if (ev.error === 'not-allowed' || ev.error === 'service-not-allowed') {
-          input.placeholder = VOICE.lang === 'ar-EG'
-            ? 'اسمح للميكروفون عشان تسأل بصوتك'
-            : 'Allow the microphone to ask by voice';
-        } else {
-          paintLang();
+        paintLang();
+        if (ev.error === 'service-not-allowed') {
+          // iPhone speech recognition runs through Dictation; off, it refuses silently
+          say('عشان تسأل بصوتك على الآيفون، شغّل <b>الإعدادات ← عام ← لوحة المفاتيح ← تفعيل الإملاء</b>، وبعدها جرّب تاني.');
+        } else if (ev.error === 'not-allowed') {
+          say('الميكروفون مقفول للموقع ده. افتح <b>الإعدادات ← Safari ← الميكروفون</b> واسمح، وجرّب تاني.');
+        } else if (ev.error === 'no-speech') {
+          say('مسمعتش حاجة. دوس على الميكروفون وابدأ اتكلم.');
+        } else if (ev.error === 'network') {
+          say('الشبكة ضعيفة، والصوت محتاج نت. اكتب سؤالك أو جرّب تاني.');
         }
       };
       rec.onresult = function (ev) {
+        say('');
         var said = '';
         for (var i = 0; i < ev.results.length; i++) said += ev.results[i][0].transcript;
         input.value = said;

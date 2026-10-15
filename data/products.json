@@ -1215,7 +1215,7 @@
     "code": "104062289",
     "model": "55C6K",
     "store_name": "شاشة تي سي إل 4K سمارت بدون فريم QD-Mini LED 55 بوصة ريسيفر داخلي",
-    "scraped_at": "2026-10-15T12:27:12",
+    "scraped_at": "2026-10-15T14:09:37",
     "status": "ok",
     "site": {
       "id_product": "46276",
@@ -1256,14 +1256,14 @@
     },
     "checked_at": "2026-09-27T12:06:28",
     "last_price_cash": "31399",
-    "last_price_at": "2026-10-15T12:27:12",
+    "last_price_at": "2026-10-15T14:09:37",
     "price_missing_runs": 0
   },
   "104062291": {
     "code": "104062291",
     "model": "55P7K",
     "store_name": "شاشة تي سي إل 4K سمارت بدون فريم QLED 55 بوصة ريسيفر داخلي",
-    "scraped_at": "2026-10-15T12:27:36",
+    "scraped_at": "2026-10-15T14:10:28",
     "status": "ok",
     "site": {
       "id_product": "46278",
@@ -1307,7 +1307,7 @@
     },
     "checked_at": "2026-09-27T12:06:36",
     "last_price_cash": "23789",
-    "last_price_at": "2026-10-15T12:27:36",
+    "last_price_at": "2026-10-15T14:10:28",
     "price_missing_runs": 0
   },
   "111019002": {
@@ -7367,7 +7367,7 @@
     "code": "105001031",
     "model": "ES-TD15GBKP",
     "store_name": ": ملايس شارب 15 كجم فرق - TD15GBKP.",
-    "scraped_at": "2026-10-15T12:28:29",
+    "scraped_at": "2026-10-15T14:11:19",
     "status": "ok",
     "site": {
       "id_product": "41479",
@@ -7403,7 +7403,7 @@
     },
     "checked_at": "2026-09-27T12:06:44",
     "last_price_cash": "22309",
-    "last_price_at": "2026-10-15T12:28:29",
+    "last_price_at": "2026-10-15T14:11:19",
     "price_missing_runs": 0
   },
   "105001035": {
