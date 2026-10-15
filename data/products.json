@@ -1775,7 +1775,7 @@
     "code": "120062396",
     "model": "QA55QN85DB",
     "store_name": "سامسونج شاشة 55 بوصة كيو ال اي دي الترا اتش دي فور كاي فئه نيو سمارت وايرلس برسيفر داخل",
-    "scraped_at": "2026-10-14T04:15:00",
+    "scraped_at": "2026-10-15T14:56:22",
     "status": "ok",
     "site": {
       "id_product": "40679",
@@ -1812,14 +1812,14 @@
     },
     "checked_at": "2026-09-30T08:03:52",
     "last_price_cash": "36990",
-    "last_price_at": "2026-10-14T04:15:00",
+    "last_price_at": "2026-10-15T14:56:22",
     "price_missing_runs": 0
   },
   "120062405": {
     "code": "120062405",
     "model": "QA65LS03D",
     "store_name": "سامسونج شاشة 65 بوصة كيو إل إي دي ألترا إتش دي 4 كيه سمارت 3840*2160 بيكسل",
-    "scraped_at": "2026-10-14T04:15:18",
+    "scraped_at": "2026-10-15T14:56:41",
     "status": "ok",
     "site": {
       "id_product": "40818",
@@ -1858,14 +1858,14 @@
     },
     "checked_at": "2026-09-30T08:04:00",
     "last_price_cash": "45999",
-    "last_price_at": "2026-10-14T04:15:18",
+    "last_price_at": "2026-10-15T14:56:41",
     "price_missing_runs": 0
   },
   "120062432": {
     "code": "120062432",
     "model": "43Q7F",
     "store_name": "سامسونج شاشة 43 بوصة QLED Q7F Vision AI TV",
-    "scraped_at": "2026-10-14T04:15:36",
+    "scraped_at": "2026-10-15T14:57:31",
     "status": "ok",
     "site": {
       "id_product": "44469",
@@ -1910,14 +1910,14 @@
     },
     "checked_at": "2026-09-30T08:04:08",
     "last_price_cash": "19299",
-    "last_price_at": "2026-10-14T04:15:36",
+    "last_price_at": "2026-10-15T14:57:31",
     "price_missing_runs": 0
   },
   "120062440": {
     "code": "120062440",
     "model": "65QN80F",
     "store_name": "سامسونج شاشة سمارت 65 بوصة نيو كيو ال اي دي",
-    "scraped_at": "2026-10-14T04:16:00",
+    "scraped_at": "2026-10-15T14:57:49",
     "status": "ok",
     "site": {
       "id_product": "44461",
@@ -1957,14 +1957,14 @@
     },
     "checked_at": "2026-09-30T08:04:16",
     "last_price_cash": "57499",
-    "last_price_at": "2026-10-14T04:16:00",
+    "last_price_at": "2026-10-15T14:57:49",
     "price_missing_runs": 0
   },
   "120062442": {
     "code": "120062442",
     "model": "55QN70F",
     "store_name": "سامسونج شاشة 55 بوصة كيو إل إي دي ألترا إتش دي 4 كاي سمارت وايرلس بريسيفر داخلي",
-    "scraped_at": "2026-10-14T04:16:17",
+    "scraped_at": "2026-10-15T14:58:07",
     "status": "ok",
     "site": {
       "id_product": "44860",
@@ -2009,14 +2009,14 @@
     },
     "checked_at": "2026-09-30T08:04:24",
     "last_price_cash": "30499",
-    "last_price_at": "2026-10-14T04:16:17",
+    "last_price_at": "2026-10-15T14:58:07",
     "price_missing_runs": 0
   },
   "120062467": {
     "code": "120062467",
     "model": "77S85F",
     "store_name": "سامسونج شاشة سمارت 77 بوصة فائق الدقة اوليد 4 كيه",
-    "scraped_at": "2026-10-14T04:16:34",
+    "scraped_at": "2026-10-15T14:58:27",
     "status": "ok",
     "site": {
       "id_product": "44452",
@@ -2056,14 +2056,14 @@
     },
     "checked_at": "2026-09-30T08:09:50",
     "last_price_cash": "117999",
-    "last_price_at": "2026-10-14T04:16:34",
+    "last_price_at": "2026-10-15T14:58:27",
     "price_missing_runs": 0
   },
   "120062480": {
     "code": "120062480",
     "model": "77S90F",
     "store_name": "سامسونج تلفزيون ذكي 77 بوصة OLED 4 كيه TV",
-    "scraped_at": "2026-10-14T04:17:26",
+    "scraped_at": "2026-10-15T14:58:46",
     "status": "ok",
     "site": {
       "id_product": "46047",
@@ -2113,14 +2113,14 @@
     },
     "checked_at": "2026-09-30T08:09:56",
     "last_price_cash": "154699",
-    "last_price_at": "2026-10-14T04:17:26",
+    "last_price_at": "2026-10-15T14:58:46",
     "price_missing_runs": 0
   },
   "120062491": {
     "code": "120062491",
     "model": "UA50U8000HUXEG",
     "store_name": "شاشة سامسونج 50 بوصه سمارت",
-    "scraped_at": "2026-10-14T04:18:18",
+    "scraped_at": "2026-10-15T15:29:37",
     "status": "ok",
     "site": {
       "id_product": "49323",
@@ -2159,7 +2159,7 @@
     },
     "checked_at": "2026-09-30T08:28:53",
     "last_price_cash": "17990",
-    "last_price_at": "2026-10-14T04:18:18",
+    "last_price_at": "2026-10-15T15:29:37",
     "price_missing_runs": 0
   },
   "120062493": {
@@ -2174,7 +2174,7 @@
     "code": "120062494",
     "model": "UA65U8000HUXEG",
     "store_name": "شاشة سامسونج 65 بوصه سمارت",
-    "scraped_at": "2026-10-14T04:18:35",
+    "scraped_at": "2026-10-15T15:30:33",
     "status": "ok",
     "site": {
       "id_product": "49325",
@@ -2213,14 +2213,14 @@
     },
     "checked_at": "2026-09-30T08:29:01",
     "last_price_cash": "25499",
-    "last_price_at": "2026-10-14T04:18:35",
+    "last_price_at": "2026-10-15T15:30:33",
     "price_missing_runs": 0
   },
   "120062496": {
     "code": "120062496",
     "model": "UA65M80H",
     "store_name": "شاشة تلفزيون سمارت سامسونج 65 بوصه بدقة 4K UHD",
-    "scraped_at": "2026-10-14T04:18:53",
+    "scraped_at": "2026-10-15T15:31:29",
     "status": "ok",
     "site": {
       "id_product": "49705",
@@ -2267,14 +2267,14 @@
     },
     "checked_at": "2026-09-30T08:29:09",
     "last_price_cash": "37990",
-    "last_price_at": "2026-10-14T04:18:53",
+    "last_price_at": "2026-10-15T15:31:29",
     "price_missing_runs": 0
   },
   "120062499": {
     "code": "120062499",
     "model": "QA55S85HAEXEG",
     "store_name": "شاشة سامسونج سمارت 55 بوصة",
-    "scraped_at": "2026-10-14T04:19:44",
+    "scraped_at": "2026-10-15T15:32:23",
     "status": "ok",
     "site": {
       "id_product": "44454",
@@ -2314,14 +2314,14 @@
     },
     "checked_at": "2026-09-30T08:29:17",
     "last_price_cash": "42779",
-    "last_price_at": "2026-10-14T04:19:44",
+    "last_price_at": "2026-10-15T15:32:23",
     "price_missing_runs": 0
   },
   "120062515": {
     "code": "120062515",
     "model": "77S85H",
     "store_name": "سامسونج شاشة 77 بوصة Class OLED Ultra HD 4K سمارت",
-    "scraped_at": "2026-10-14T04:20:34",
+    "scraped_at": "2026-10-15T15:33:17",
     "status": "ok",
     "site": {
       "id_product": "50083",
@@ -2369,7 +2369,7 @@
     },
     "checked_at": "2026-09-30T08:29:25",
     "last_price_cash": "126449",
-    "last_price_at": "2026-10-14T04:20:34",
+    "last_price_at": "2026-10-15T15:33:17",
     "price_missing_runs": 0
   },
   "120062520": {
@@ -2377,7 +2377,7 @@
     "model": "QA65LS03H",
     "store_name": "شاشه سامسونج 65 بوصه سمارت",
     "scraped_at": "2026-10-14T04:21:55",
-    "status": "ok",
+    "status": "stale",
     "site": {
       "id_product": "50955",
       "reference": "65LS03H",
@@ -2426,7 +2426,7 @@
       "url": "https://cairosales.com/ar/led-plasma-tvs/samsung-65-inch-ls03h-the-frame-4k-smart-tv-qa65ls03h.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=50955"
     },
-    "checked_at": "2026-09-30T08:45:31",
+    "checked_at": "2026-10-15T15:52:38",
     "last_price_cash": "53999",
     "last_price_at": "2026-10-14T04:21:55",
     "price_missing_runs": 0
@@ -2436,7 +2436,7 @@
     "model": "100M90H",
     "store_name": "سامسونج شاشة سمارت 100 بوصة",
     "scraped_at": "2026-10-14T04:22:12",
-    "status": "ok",
+    "status": "stale",
     "site": {
       "id_product": "52004",
       "reference": "100M90H",
@@ -2476,7 +2476,7 @@
       "url": "https://cairosales.com/ar/led-plasma-tvs/samsung-mini-led-4k-m90h-100-inch-smart-100m90h.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=52004"
     },
-    "checked_at": "2026-09-30T08:45:36",
+    "checked_at": "2026-10-15T15:52:47",
     "last_price_cash": "188990",
     "last_price_at": "2026-10-14T04:22:12",
     "price_missing_runs": 0
@@ -2494,7 +2494,7 @@
     "model": "GHP980IX",
     "store_name": "شفاط جليم جاز 90 سم هرمي",
     "scraped_at": "2026-10-14T04:25:24",
-    "status": "ok",
+    "status": "stale",
     "site": {
       "id_product": "17452",
       "reference": "GHP980IX",
@@ -2521,7 +2521,7 @@
       "url": "https://cairosales.com/ar/kitchen-bath-hoods/glem-gas-90-cm-chimney-hoods-stainless-ghp980ix.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=17452"
     },
-    "checked_at": "2026-09-30T08:46:00",
+    "checked_at": "2026-10-15T15:54:49",
     "last_price_cash": "16599",
     "last_price_at": "2026-10-14T04:25:24",
     "price_missing_runs": 0
@@ -2530,7 +2530,7 @@
     "code": "172019011",
     "model": "BH90DR01",
     "store_name": "سيمفر شفاط ديكوري 90 سم 800 متر مكعب / ساعة زجاج أسود",
-    "scraped_at": "2026-10-14T04:26:13",
+    "scraped_at": "2026-10-15T15:55:17",
     "status": "ok",
     "site": {
       "id_product": "49096",
@@ -2561,14 +2561,14 @@
     },
     "checked_at": "2026-09-30T08:46:08",
     "last_price_cash": "10158",
-    "last_price_at": "2026-10-14T04:26:13",
+    "last_price_at": "2026-10-15T15:55:17",
     "price_missing_runs": 0
   },
   "172019012": {
     "code": "172019012",
     "model": "S-8981SM",
     "store_name": "سيمفر شفاط بروفيشنال 90 سم 650 متر مكعب / ساعة تحكم",
-    "scraped_at": "2026-10-14T04:27:03",
+    "scraped_at": "2026-10-15T16:21:07",
     "status": "ok",
     "site": {
       "id_product": "45813",
@@ -2598,14 +2598,14 @@
     },
     "checked_at": "2026-09-30T08:46:15",
     "last_price_cash": "22399",
-    "last_price_at": "2026-10-14T04:27:03",
+    "last_price_at": "2026-10-15T16:21:07",
     "price_missing_runs": 0
   },
   "185062033": {
     "code": "185062033",
     "model": "H55S90EU",
     "store_name": "شاشة هاير 55 بوصة اوليد سمارت بدقة 4K UHD مع ريسيفر داخلي",
-    "scraped_at": "2026-10-14T04:27:53",
+    "scraped_at": "2026-10-15T16:38:59",
     "status": "ok",
     "site": {
       "id_product": "40814",
@@ -2616,7 +2616,7 @@
       "breadcrumb": [
         "شاشات و تليفزيونات"
       ],
-      "price_cash": "24299",
+      "price_cash": "24990",
       "price_installment": "",
       "currency": "EGP",
       "availability": "instock",
@@ -2688,8 +2688,8 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=40814"
     },
     "checked_at": "2026-09-30T08:55:08",
-    "last_price_cash": "24299",
-    "last_price_at": "2026-10-14T04:27:53",
+    "last_price_cash": "24990",
+    "last_price_at": "2026-10-15T16:38:59",
     "price_missing_runs": 0
   },
   "185062039": {
@@ -2704,7 +2704,7 @@
     "code": "185062045",
     "model": "H50S80GUX",
     "store_name": "شاشة تلفزيون سمارت بدون إطار هاير ، مقاس 50 بوصة ، QLED ، دقة 4K UHD ، بريسيفر داخلي",
-    "scraped_at": "2026-10-14T04:28:44",
+    "scraped_at": "2026-10-15T16:39:58",
     "status": "ok",
     "site": {
       "id_product": "50960",
@@ -2741,14 +2741,14 @@
     },
     "checked_at": "2026-09-30T08:55:21",
     "last_price_cash": "19499",
-    "last_price_at": "2026-10-14T04:28:44",
+    "last_price_at": "2026-10-15T16:39:58",
     "price_missing_runs": 0
   },
   "185062046": {
     "code": "185062046",
     "model": "65H6GUX",
     "store_name": "شاشة هاير تلفزيون ذكي بمقاس 65 بوصة ريسيفر مدمج، وتعمل بتقنية QLED ودقة 4K",
-    "scraped_at": "2026-10-14T04:29:35",
+    "scraped_at": "2026-10-15T16:58:17",
     "status": "ok",
     "site": {
       "id_product": "52192",
@@ -2788,7 +2788,7 @@
     },
     "checked_at": "2026-09-30T08:55:29",
     "last_price_cash": "23999",
-    "last_price_at": "2026-10-14T04:29:35",
+    "last_price_at": "2026-10-15T16:58:17",
     "price_missing_runs": 0
   },
   "188019002": {
@@ -10181,7 +10181,7 @@
     "code": "119004028",
     "model": "E520 NV/2 BK",
     "store_name": "العودة كربازى 16 قدم توين تربر كريستال-E4TONV/2B",
-    "scraped_at": "2026-10-14T04:00:00",
+    "scraped_at": "2026-10-15T14:51:19",
     "status": "ok",
     "site": {
       "id_product": "6335",
@@ -10215,14 +10215,14 @@
     },
     "checked_at": "2026-09-30T07:53:41",
     "last_price_cash": "33077",
-    "last_price_at": "2026-10-14T04:00:00",
+    "last_price_at": "2026-10-15T14:51:19",
     "price_missing_runs": 0
   },
   "119004030": {
     "code": "119004030",
     "model": "KH371NV/2 B",
     "store_name": "كريستال -ليد اسود",
-    "scraped_at": "2026-10-14T04:00:51",
+    "scraped_at": "2026-10-15T14:51:33",
     "status": "ok",
     "site": {
       "id_product": "32982",
@@ -10257,7 +10257,7 @@
     },
     "checked_at": "2026-09-30T07:53:46",
     "last_price_cash": "19895",
-    "last_price_at": "2026-10-14T04:00:51",
+    "last_price_at": "2026-10-15T14:51:33",
     "price_missing_runs": 0
   },
   "119004039": {
@@ -10306,7 +10306,7 @@
     "code": "119017018",
     "model": "9604F",
     "store_name": "",
-    "scraped_at": "2026-10-14T04:02:12",
+    "scraped_at": "2026-10-15T14:51:48",
     "status": "ok",
     "site": {
       "id_product": "6174",
@@ -10346,14 +10346,14 @@
     },
     "checked_at": "2026-09-30T07:53:52",
     "last_price_cash": "20140",
-    "last_price_at": "2026-10-14T04:02:12",
+    "last_price_at": "2026-10-15T14:51:48",
     "price_missing_runs": 0
   },
   "119017020": {
     "code": "119017020",
     "model": "9TOUSH",
     "store_name": "بوتاجاز كريازى 5 ش 60*90 استيل جركر -9700SM",
-    "scraped_at": "2026-10-14T04:03:01",
+    "scraped_at": "2026-10-15T14:52:00",
     "status": "ok",
     "site": {
       "id_product": "5783",
@@ -10392,14 +10392,14 @@
     },
     "checked_at": "2026-09-30T07:53:59",
     "last_price_cash": "9210",
-    "last_price_at": "2026-10-14T04:03:01",
+    "last_price_at": "2026-10-15T14:52:00",
     "price_missing_runs": 0
   },
   "119017021": {
     "code": "119017021",
     "model": "9OFC9 SMART N",
     "store_name": "بوتاجاز كريازى 5 شعلة90FC9 SMART N-90*60",
-    "scraped_at": "2026-10-14T04:03:19",
+    "scraped_at": "2026-10-15T14:52:13",
     "status": "ok",
     "site": {
       "id_product": "12461",
@@ -10441,14 +10441,14 @@
     },
     "checked_at": "2026-09-30T07:54:08",
     "last_price_cash": "26344",
-    "last_price_at": "2026-10-14T04:03:19",
+    "last_price_at": "2026-10-15T14:52:13",
     "price_missing_runs": 0
   },
   "120001057": {
     "code": "120001057",
     "model": "WWBOT534DANTAS",
     "store_name": "WW8OT534DAN1AS-كجم 8 غسالة سامسونج",
-    "scraped_at": "2026-10-14T04:03:37",
+    "scraped_at": "2026-10-15T14:52:25",
     "status": "ok",
     "site": {
       "id_product": "18422",
@@ -10459,7 +10459,7 @@
       "breadcrumb": [
         "غسالات ملابس و مجففات"
       ],
-      "price_cash": "23999",
+      "price_cash": "22809",
       "price_installment": "25999",
       "currency": "EGP",
       "availability": "instock",
@@ -10491,15 +10491,15 @@
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=18422"
     },
     "checked_at": "2026-09-30T07:54:16",
-    "last_price_cash": "23999",
-    "last_price_at": "2026-10-14T04:03:37",
+    "last_price_cash": "22809",
+    "last_price_at": "2026-10-15T14:52:25",
     "price_missing_runs": 0
   },
   "120001059": {
     "code": "120001059",
     "model": "WWBOT4020CX1AS",
     "store_name": "غسلة ملابس سامسونج 8 ك - WW8OT4020CX1AS",
-    "scraped_at": "2026-10-14T04:03:55",
+    "scraped_at": "2026-10-15T14:52:39",
     "status": "ok",
     "site": {
       "id_product": "18420",
@@ -10536,14 +10536,14 @@
     },
     "checked_at": "2026-09-30T07:54:23",
     "last_price_cash": "19499",
-    "last_price_at": "2026-10-14T04:03:55",
+    "last_price_at": "2026-10-15T14:52:39",
     "price_missing_runs": 0
   },
   "120001067": {
     "code": "120001067",
     "model": "WW11B1944DGBAS",
     "store_name": "",
-    "scraped_at": "2026-10-14T04:04:18",
+    "scraped_at": "2026-10-15T14:52:52",
     "status": "ok",
     "site": {
       "id_product": "42523",
@@ -10583,14 +10583,14 @@
     },
     "checked_at": "2026-09-30T08:02:03",
     "last_price_cash": "38499",
-    "last_price_at": "2026-10-14T04:04:18",
+    "last_price_at": "2026-10-15T14:52:52",
     "price_missing_runs": 0
   },
   "120001069": {
     "code": "120001069",
     "model": "WA14F5SAUWAUAS",
     "store_name": "WA14F5S4UWAUAS - غسالة ملايس سامسونج فرق",
-    "scraped_at": "2026-10-14T04:05:10",
+    "scraped_at": "2026-10-15T14:53:06",
     "status": "ok",
     "site": {
       "id_product": "43829",
@@ -10630,14 +10630,14 @@
     },
     "checked_at": "2026-09-30T08:02:08",
     "last_price_cash": "16583",
-    "last_price_at": "2026-10-14T04:05:10",
+    "last_price_at": "2026-10-15T14:53:06",
     "price_missing_runs": 0
   },
   "120001070": {
     "code": "120001070",
     "model": "WA19CG6745BV/AS",
     "store_name": "ساله ملابس سامسونج فوق - VA19CG6745BV/AS",
-    "scraped_at": "2026-10-14T04:06:00",
+    "scraped_at": "2026-10-15T14:53:21",
     "status": "ok",
     "site": {
       "id_product": "39286",
@@ -10671,7 +10671,7 @@
     },
     "checked_at": "2026-09-30T08:02:13",
     "last_price_cash": "27999",
-    "last_price_at": "2026-10-14T04:06:00",
+    "last_price_at": "2026-10-15T14:53:21",
     "price_missing_runs": 0
   },
   "120001072": {
@@ -10686,7 +10686,7 @@
     "code": "120001075",
     "model": "WA11DG5410BDAS",
     "store_name": "سامسونج غسلة ملابس تحميل-WA11DG5410BDAS",
-    "scraped_at": "2026-10-14T04:06:51",
+    "scraped_at": "2026-10-15T14:53:34",
     "status": "ok",
     "site": {
       "id_product": "41520",
@@ -10719,14 +10719,14 @@
     },
     "checked_at": "2026-09-30T08:02:21",
     "last_price_cash": "13499",
-    "last_price_at": "2026-10-14T04:06:51",
+    "last_price_at": "2026-10-15T14:53:34",
     "price_missing_runs": 0
   },
   "120004082": {
     "code": "120004082",
     "model": "RS68A8820B1/MR",
     "store_name": "ثلاجة سامسونج سايد باي سايد -RS68A8820B1/MR",
-    "scraped_at": "2026-10-14T04:07:41",
+    "scraped_at": "2026-10-15T14:53:48",
     "status": "ok",
     "site": {
       "id_product": "25104",
@@ -10764,14 +10764,14 @@
     },
     "checked_at": "2026-09-30T08:02:29",
     "last_price_cash": "77999",
-    "last_price_at": "2026-10-14T04:07:41",
+    "last_price_at": "2026-10-15T14:53:48",
     "price_missing_runs": 0
   },
   "120004085": {
     "code": "120004085",
     "model": "RS66A8100B1/MR",
     "store_name": "ثلاجة سامسونج 632 لتر RS66A8100B1/MR. 22",
-    "scraped_at": "2026-10-10T13:20:34",
+    "scraped_at": "2026-10-15T14:55:10",
     "status": "ok",
     "site": {
       "id_product": "35496",
@@ -10809,7 +10809,7 @@
     },
     "checked_at": "2026-10-14T04:10:51",
     "last_price_cash": "74999",
-    "last_price_at": "2026-10-10T13:20:34",
+    "last_price_at": "2026-10-15T14:55:10",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/refrigerators/samsung-refrigerator-side-by-side-632l-digital-twin-cooling-inverter-black-rs66a8100b1mr.html"
   },
@@ -10817,7 +10817,7 @@
     "code": "120004099",
     "model": "RB34C672EB1/MR",
     "store_name": "ساسونج ثلاجة نوفروست - RB34C672EB1/MR",
-    "scraped_at": "2026-10-14T04:11:09",
+    "scraped_at": "2026-10-15T14:55:25",
     "status": "ok",
     "site": {
       "id_product": "43218",
@@ -10852,14 +10852,14 @@
     },
     "checked_at": "2026-09-30T08:02:45",
     "last_price_cash": "30399",
-    "last_price_at": "2026-10-14T04:11:09",
+    "last_price_at": "2026-10-15T14:55:25",
     "price_missing_runs": 0
   },
   "120004102": {
     "code": "120004102",
     "model": "RB34C632ES9/MR",
     "store_name": "ثلاجة سامسونج ديجيتال - RB34C632ES9/MR",
-    "scraped_at": "2026-10-10T13:22:14",
+    "scraped_at": "2026-10-15T14:55:41",
     "status": "ok",
     "site": {
       "id_product": "48678",
@@ -10895,7 +10895,7 @@
     },
     "checked_at": "2026-10-14T04:14:18",
     "last_price_cash": "61999",
-    "last_price_at": "2026-10-10T13:22:14",
+    "last_price_at": "2026-10-15T14:55:41",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/refrigerators/samsung-twins-refrigerator-707-l-nofrost-with-dispenser-rb34c671es9mr-rb34c632es9mr.html"
   },
@@ -10903,7 +10903,7 @@
     "code": "120004105",
     "model": "RS70F65QAFMR",
     "store_name": "مالمسونج ثلاجة لوفرومت RS70F65QAFMR - 659",
-    "scraped_at": "2026-10-14T04:14:36",
+    "scraped_at": "2026-10-15T14:56:02",
     "status": "ok",
     "site": {
       "id_product": "46954",
@@ -10935,7 +10935,7 @@
     },
     "checked_at": "2026-09-30T08:03:47",
     "last_price_cash": "88999",
-    "last_price_at": "2026-10-14T04:14:36",
+    "last_price_at": "2026-10-15T14:56:02",
     "price_missing_runs": 0
   },
   "120010035": {
@@ -10958,7 +10958,7 @@
     "model": "GT955HIX",
     "store_name": "م ) مع جليم جاز 5 شعطة استانلس",
     "scraped_at": "2026-10-14T04:23:05",
-    "status": "ok",
+    "status": "stale",
     "site": {
       "id_product": "10366",
       "reference": "GT955HIX",
@@ -10993,7 +10993,7 @@
       "url": "https://cairosales.com/ar/built-in-kitchen-products/built-in-hobs/glem-gas-hob-cast-iron-safety-self-ignition-stainless-gt955hix.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=10366"
     },
-    "checked_at": "2026-09-30T08:45:44",
+    "checked_at": "2026-10-15T15:52:56",
     "last_price_cash": "29990",
     "last_price_at": "2026-10-14T04:23:05",
     "price_missing_runs": 0
@@ -11011,7 +11011,7 @@
     "model": "GT951HIX",
     "store_name": "ي( لر) جليم جاز 90سم عين رباعية",
     "scraped_at": "2026-10-14T04:24:32",
-    "status": "ok",
+    "status": "stale",
     "site": {
       "id_product": "44270",
       "reference": "GFD9W1IX-GT951HIX-GHP980IX",
@@ -11039,7 +11039,7 @@
       "url": "https://cairosales.com/ar/built-in-kitchen-products/built-in-ovens/glem-gas-built-in-gas-oven-90-cm-2-fans-gas-hob-90-cm-and-chimney-hood-90-cm-gt951hix.html",
       "short_url": "https://cairosales.com/ar/?controller=product&id_product=44270"
     },
-    "checked_at": "2026-09-30T08:45:52",
+    "checked_at": "2026-10-15T15:53:06",
     "last_price_cash": "109999",
     "last_price_at": "2026-10-14T04:24:32",
     "price_missing_runs": 0
