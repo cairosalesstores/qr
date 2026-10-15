@@ -7,6 +7,7 @@ photo, price (cash + installments), full specs, highlights, and a comparison wit
 similar products in the store — on size, performance, warranty and value, not just price.
 """
 import csv
+import hashlib
 import html
 import json
 import re
@@ -17,6 +18,11 @@ ROOT = Path(__file__).parent
 DOCS = ROOT / "docs"
 SITE_BASE = "https://cairosalesstores.github.io/qr"
 ASSISTANT_NAME = "كايرو"
+
+
+def css_version():
+    """Short hash of the stylesheet, so a changed design always beats the cache."""
+    return hashlib.sha1(CSS.encode()).hexdigest()[:8]
 
 
 def public_config():
@@ -145,7 +151,40 @@ def clean_title(p):
     return re.sub(r"\s+", " ", title).strip()
 
 
-def short_title(p, limit=38):
+def series_hint(p):
+    """The short series code makes two otherwise identical rows tellable apart."""
+    text = f"{p['site'].get('title', '')} {p.get('model', '')}"
+    for token in re.findall(r"\b[A-Z]{1,5}\d{1,3}[A-Z]?\b", text.upper()):
+        if token in ("4K", "8K", "3D") or token.isdigit():
+            continue
+        return token
+    return ""
+
+
+def compare_label(p, family):
+    """Identity for a comparison row: brand, size and the one spec that separates them.
+    The catalogue title is a marketing line and truncates into nonsense."""
+    bits = [(p["site"].get("brand") or "").strip()]
+    size = size_of(p, family)
+    if size:
+        bits.append(f"{int(size)} {size_unit(family)}")
+    perf = performance_of(p, family)["text"]
+    series = series_hint(p)
+    if perf and perf != "—":
+        # "QNED QNED85" reads as a stutter; the series already carries the panel
+        if series and perf.upper().replace(" ", "") in series.upper():
+            bits.append(series)
+        elif series:
+            bits.append(f"{perf} {series}")
+        else:
+            bits.append(perf)
+    elif series:
+        bits.append(series)
+    label = " · ".join(b for b in bits if b)
+    return label or short_title(p, 30)
+
+
+def short_title(p, limit=64):
     """A comparison row needs a name, not the whole catalogue line."""
     t = clean_title(p)
     for cut in (" و ساوند", " و مكبر", " + ", " / "):
@@ -279,12 +318,14 @@ h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 70
 /* ---------- this price, beside the nearest ones ---------- */
 .compare { margin: 26px 20px 0; }
 .cmp-list { display: grid; gap: 7px; }
-.cmp-row { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px;
-           background: var(--card); border: 1px solid var(--line); text-decoration: none; color: inherit; }
+.cmp-row { display: flex; align-items: center; gap: 8px; padding: 11px 12px; border-radius: 13px;
+           background: var(--card); border: 1px solid var(--line); text-decoration: none; color: inherit;
+           min-width: 0; }
 .cmp-row.me { background: var(--ink); border-color: var(--ink); color: #F3F1EC; }
-.cmp-name { flex: 1; font-size: 12px; font-weight: 700; line-height: 1.55; }
+.cmp-name { flex: 1; min-width: 0; font-size: 11.5px; font-weight: 700; line-height: 1.5;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cmp-price { font-family: "Inter", sans-serif; font-weight: 800; font-size: 13.5px; white-space: nowrap; }
-.cmp-diff { font-size: 10.5px; font-weight: 800; white-space: nowrap; border-radius: 20px; padding: 5px 9px; }
+.cmp-diff { font-size: 10px; font-weight: 800; white-space: nowrap; border-radius: 20px; padding: 5px 8px; }
 .cmp-diff.up { color: var(--clay-deep); background: rgba(181,87,59,.12); }
 .cmp-diff.down { color: var(--leaf); background: rgba(92,127,88,.14); }
 .cmp-diff.here { color: rgba(243,241,236,.6); background: rgba(255,255,255,.1); }
@@ -301,6 +342,8 @@ h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 70
 /* ---------- كايرو, the assistant ---------- */
 .kairo { margin: 0; background: #1B1B19; color: #F3F1EC; border-radius: 20px; padding: 16px 15px 15px; }
 .kairo-top { display: flex; align-items: center; gap: 11px; }
+.kairo-who { min-width: 0; }
+.kairo-top .lang { margin-inline-start: auto; }
 .kairo-face { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; color: #fff;
               background: linear-gradient(150deg, var(--clay), #E0906F); display: grid; place-items: center; }
 .kairo-face svg { width: 19px; height: 19px; }
@@ -322,9 +365,9 @@ h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 70
 .kairo-bar .mic svg { width: 19px; height: 19px; }
 .kairo-bar .mic.on { color: #fff; background: var(--clay); animation: hear 1.1s ease-in-out infinite; }
 @keyframes hear { 0%, 100% { box-shadow: 0 0 0 0 rgba(217,119,87,.5); } 50% { box-shadow: 0 0 0 7px rgba(217,119,87,0); } }
-.kairo-bar .lang { border: 1px solid var(--line); background: none; color: var(--muted); cursor: pointer;
-                   font: inherit; font-size: 10.5px; font-weight: 800; border-radius: 20px;
-                   padding: 4px 8px; flex-shrink: 0; min-width: 30px; }
+.kairo .lang { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.06);
+               color: #F3F1EC; cursor: pointer; font: inherit; font-size: 11px; font-weight: 800;
+               border-radius: 20px; padding: 6px 11px; flex-shrink: 0; }
 .kairo-thread { margin-top: 13px; display: flex; flex-direction: column; gap: 9px;
                 max-height: 340px; overflow-y: auto; }
 .turn { display: flex; }
@@ -561,13 +604,14 @@ def faqs(p, family):
 
 
 
-def peer_set(code, products, family):
-    """Products of the same family and (when possible) the same size, for ranking."""
+def peer_set(code, products, family, with_scope=False):
+    """Products of the same family and, when there are enough, the same size."""
     my_size = size_of(products[code], family)
     same = [c for c, q in products.items()
             if family_of(q) == family and price_of(q)]
     sized = [c for c in same if my_size and size_of(products[c], family) == my_size]
-    return sized if len(sized) >= 3 else same
+    peers, scope = (sized, "size") if len(sized) >= 3 else (same, "family")
+    return (peers, scope) if with_scope else peers
 
 
 def analysis(code, products, family):
@@ -680,13 +724,14 @@ def price_compare(code, products, family):
         peer_price = price_of(products[c])
         if not peer_price:
             continue
-        rows.append({"code": c, "title": short_title(products[c]),
+        rows.append({"code": c, "title": compare_label(products[c], family),
                      "size": size_of(products[c], family), "price": peer_price,
                      "diff": round(peer_price - price)})
     if not rows:
         return None
-    peers = sorted(price_of(products[c]) for c in peer_set(code, products, family))
-    return {"rows": rows, "peers": len(peers),
+    codes, scope = peer_set(code, products, family, with_scope=True)
+    peers = sorted(price_of(products[c]) for c in codes)
+    return {"rows": rows, "peers": len(peers), "scope": scope,
             "low": peers[0] if peers else None, "high": peers[-1] if peers else None}
 
 
@@ -773,10 +818,11 @@ def assistant_section(code, product_title):
             <circle cx="9.5" cy="14" r="1.2" fill="currentColor"/><circle cx="14.5" cy="14" r="1.2" fill="currentColor"/>
           </svg>
         </span>
-        <div>
+        <div class="kairo-who">
           <b>اسأل {ASSISTANT_NAME} عن المنتج ده</b>
           <span>مساعد ذكي · بيرد من بيانات المنتج</span>
         </div>
+        <button type="button" id="lang" class="lang" aria-label="لغة الصوت" hidden>ع</button>
       </div>
       <div class="kairo-thread" id="thread" hidden></div>
       <div class="kairo-asks" id="asks">{chips}</div>
@@ -786,7 +832,6 @@ def assistant_section(code, product_title):
             <rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>
           </svg>
         </button>
-        <button type="button" id="lang" class="lang" aria-label="لغة الصوت" hidden>ع</button>
         <input id="q" type="text" placeholder="اكتب سؤالك هنا…" maxlength="300" enterkeyhint="send">
         <button type="submit" aria-label="ابعت">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
@@ -1134,7 +1179,7 @@ def page_html(code, products):
     cmp_data = price_compare(code, products, family) if in_stock else None
     compare_html = ""
     if cmp_data:
-        me_row = (f'<div class="cmp-row me"><div class="cmp-name">{e(short_title(p))}</div>'
+        me_row = (f'<div class="cmp-row me"><div class="cmp-name">{e(compare_label(p, family))}</div>'
                   f'<div class="cmp-price n">{fmt(price)}</div>'
                   f'<div class="cmp-diff here">ده</div></div>')
         others = "".join(
@@ -1146,7 +1191,8 @@ def page_html(code, products):
         note = (f'عندنا <span class="n">{cmp_data["peers"]}</span> منتج بنفس المقاس، '
                 f'أسعارها من <span class="n">{fmt(cmp_data["low"])}</span> لـ '
                 f'<span class="n">{fmt(cmp_data["high"])}</span> جنيه'
-                if cmp_data["peers"] > 1 and cmp_data["low"] != cmp_data["high"] else "")
+                if cmp_data["scope"] == "size" and cmp_data["peers"] > 1
+                and cmp_data["low"] != cmp_data["high"] else "")
         compare_html = (f'<section class="compare"><h2>السعر جنب الشبيه</h2>'
                         f'<div class="cmp-list">{me_row}{others}</div>'
                         f'{f"<div class=\'cmp-note\'>{note}</div>" if note else ""}</section>')
@@ -1160,7 +1206,7 @@ def page_html(code, products):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(clean_title(p))} - {STORE['name']}</title>
-<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/style.css?v={css_version()}">
 </head>
 <body>
 <div class="sheet">
@@ -1236,7 +1282,7 @@ def index_html(products, items=None):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>منتجات {STORE['name']}</title>
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v={css_version()}">
 </head>
 <body>
 <div class="page">
@@ -1313,7 +1359,7 @@ def minimal_page(code, item, products=None):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{name} - {STORE['name']}</title>
-<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/style.css?v={css_version()}">
 </head>
 <body>
 <div class="page">

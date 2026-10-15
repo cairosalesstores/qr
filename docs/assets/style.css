@@ -87,12 +87,14 @@ h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 70
 /* ---------- this price, beside the nearest ones ---------- */
 .compare { margin: 26px 20px 0; }
 .cmp-list { display: grid; gap: 7px; }
-.cmp-row { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px;
-           background: var(--card); border: 1px solid var(--line); text-decoration: none; color: inherit; }
+.cmp-row { display: flex; align-items: center; gap: 8px; padding: 11px 12px; border-radius: 13px;
+           background: var(--card); border: 1px solid var(--line); text-decoration: none; color: inherit;
+           min-width: 0; }
 .cmp-row.me { background: var(--ink); border-color: var(--ink); color: #F3F1EC; }
-.cmp-name { flex: 1; font-size: 12px; font-weight: 700; line-height: 1.55; }
+.cmp-name { flex: 1; min-width: 0; font-size: 11.5px; font-weight: 700; line-height: 1.5;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cmp-price { font-family: "Inter", sans-serif; font-weight: 800; font-size: 13.5px; white-space: nowrap; }
-.cmp-diff { font-size: 10.5px; font-weight: 800; white-space: nowrap; border-radius: 20px; padding: 5px 9px; }
+.cmp-diff { font-size: 10px; font-weight: 800; white-space: nowrap; border-radius: 20px; padding: 5px 8px; }
 .cmp-diff.up { color: var(--clay-deep); background: rgba(181,87,59,.12); }
 .cmp-diff.down { color: var(--leaf); background: rgba(92,127,88,.14); }
 .cmp-diff.here { color: rgba(243,241,236,.6); background: rgba(255,255,255,.1); }
@@ -109,6 +111,8 @@ h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 70
 /* ---------- كايرو, the assistant ---------- */
 .kairo { margin: 0; background: #1B1B19; color: #F3F1EC; border-radius: 20px; padding: 16px 15px 15px; }
 .kairo-top { display: flex; align-items: center; gap: 11px; }
+.kairo-who { min-width: 0; }
+.kairo-top .lang { margin-inline-start: auto; }
 .kairo-face { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; color: #fff;
               background: linear-gradient(150deg, var(--clay), #E0906F); display: grid; place-items: center; }
 .kairo-face svg { width: 19px; height: 19px; }
@@ -130,9 +134,9 @@ h1 { font-family: "Naskh", "Inter", sans-serif; font-size: 22px; font-weight: 70
 .kairo-bar .mic svg { width: 19px; height: 19px; }
 .kairo-bar .mic.on { color: #fff; background: var(--clay); animation: hear 1.1s ease-in-out infinite; }
 @keyframes hear { 0%, 100% { box-shadow: 0 0 0 0 rgba(217,119,87,.5); } 50% { box-shadow: 0 0 0 7px rgba(217,119,87,0); } }
-.kairo-bar .lang { border: 1px solid var(--line); background: none; color: var(--muted); cursor: pointer;
-                   font: inherit; font-size: 10.5px; font-weight: 800; border-radius: 20px;
-                   padding: 4px 8px; flex-shrink: 0; min-width: 30px; }
+.kairo .lang { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.06);
+               color: #F3F1EC; cursor: pointer; font: inherit; font-size: 11px; font-weight: 800;
+               border-radius: 20px; padding: 6px 11px; flex-shrink: 0; }
 .kairo-thread { margin-top: 13px; display: flex; flex-direction: column; gap: 9px;
                 max-height: 340px; overflow-y: auto; }
 .turn { display: flex; }

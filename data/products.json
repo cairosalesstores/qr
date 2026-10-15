@@ -978,7 +978,7 @@
     "code": "104019011",
     "model": "HO60DS-1",
     "store_name": "شفاط تورنادو60 سم ديكوراتف ديجيتال استانلس بلت ان",
-    "scraped_at": "2026-10-15T12:22:25",
+    "scraped_at": "2026-10-15T14:05:20",
     "status": "ok",
     "site": {
       "id_product": "3456",
@@ -1010,14 +1010,14 @@
     },
     "checked_at": "2026-10-14T17:43:24",
     "last_price_cash": "6569",
-    "last_price_at": "2026-10-15T12:22:25",
+    "last_price_at": "2026-10-15T14:05:20",
     "price_missing_runs": 0
   },
   "104062201": {
     "code": "104062201",
     "model": "43EL8250E-B",
     "store_name": "شاشة ال اى دى تورنيدو 43 بوصة",
-    "scraped_at": "2026-10-15T12:23:15",
+    "scraped_at": "2026-10-15T14:06:10",
     "status": "ok",
     "site": {
       "id_product": "12111",
@@ -1055,7 +1055,7 @@
     },
     "checked_at": "2026-10-14T17:46:33",
     "last_price_cash": "12549",
-    "last_price_at": "2026-10-15T12:23:15",
+    "last_price_at": "2026-10-15T14:06:10",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/offers-packages/tornado-led-tv-43-inch-full-hd-with-2-hdmi-and-2-usb-inputs-43el8250e-b.html"
   },
@@ -1063,7 +1063,7 @@
     "code": "104062256",
     "model": "50US1500E",
     "store_name": "شاشة تورنيدو 4K سمارت 50 بوصة DLED ، تدعم الواي فاي",
-    "scraped_at": "2026-10-15T12:24:05",
+    "scraped_at": "2026-10-15T14:07:02",
     "status": "ok",
     "site": {
       "id_product": "31652",
@@ -1100,14 +1100,14 @@
     },
     "checked_at": "2026-10-09T03:15:14",
     "last_price_cash": "18899",
-    "last_price_at": "2026-10-15T12:24:05",
+    "last_price_at": "2026-10-15T14:07:02",
     "price_missing_runs": 0
   },
   "104062265": {
     "code": "104062265",
     "model": "43EC3300E",
     "store_name": "شاشة تليفزيون تورنيدو 43 بوصة FHD دي إل إي دي ريسيفر داخلي",
-    "scraped_at": "2026-10-15T12:25:58",
+    "scraped_at": "2026-10-15T14:07:52",
     "status": "ok",
     "site": {
       "id_product": "40638",
@@ -1152,14 +1152,14 @@
     },
     "checked_at": "2026-10-09T03:15:23",
     "last_price_cash": "12649",
-    "last_price_at": "2026-10-15T12:25:58",
+    "last_price_at": "2026-10-15T14:07:52",
     "price_missing_runs": 0
   },
   "104062285": {
     "code": "104062285",
     "model": "50UA5300E",
     "store_name": "شاشة تورنيدو 4K بدون فريم 50 بوصة أندرويد ريسيفر داخلي",
-    "scraped_at": "2026-10-15T12:26:49",
+    "scraped_at": "2026-10-15T14:08:46",
     "status": "ok",
     "site": {
       "id_product": "46998",
@@ -1207,7 +1207,7 @@
     },
     "checked_at": "2026-10-09T04:09:59",
     "last_price_cash": "16489",
-    "last_price_at": "2026-10-15T12:26:49",
+    "last_price_at": "2026-10-15T14:08:46",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/led-plasma-tvs/tornado-4k-smart-frameless-led-tv-50-inch-with-android-system-built-in-receiver-50ua5300e.html"
   },
@@ -7309,7 +7309,7 @@
     "code": "104004142",
     "model": "RF-33FT-SL",
     "store_name": "اثلاجة اتورنيدو توفروست 304 لتر سرلفر - RF-33FT-SL",
-    "scraped_at": "2026-10-15T12:20:31",
+    "scraped_at": "2026-10-15T14:04:56",
     "status": "ok",
     "site": {
       "id_product": "41090",
@@ -7344,7 +7344,7 @@
     },
     "checked_at": "2026-10-14T17:42:34",
     "last_price_cash": "18699",
-    "last_price_at": "2026-10-15T12:20:31",
+    "last_price_at": "2026-10-15T14:04:56",
     "price_missing_runs": 0,
     "last_error": "timed out loading https://cairosales.com/ar/refrigerators/tornado-refrigerator-no-frost-304-liter-silver-rf-33ft-sl.html"
   },
